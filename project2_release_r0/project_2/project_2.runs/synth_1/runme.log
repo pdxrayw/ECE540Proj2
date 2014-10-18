@@ -1,0 +1,91 @@
+
+*** Running vivado
+    with args -log nexys4_main.vds -m64 -mode batch -messageDb vivado.pb -source nexys4_main.tcl
+
+
+****** Vivado v2014.2 (64-bit)
+  **** SW Build 932637 on Wed Jun 11 13:33:10 MDT 2014
+  **** IP Build 924643 on Fri May 30 09:20:16 MDT 2014
+    ** Copyright 1986-2014 Xilinx, Inc. All Rights Reserved.
+
+source nexys4_main.tcl
+# set_param gui.test TreeTableDev
+# set_msg_config -id {HDL 9-1061} -limit 100000
+# set_msg_config -id {HDL 9-1654} -limit 100000
+# set_msg_config -id {Synth 8-256} -limit 10000
+# set_msg_config -id {Synth 8-638} -limit 10000
+# create_project -in_memory -part xc7a100tcsg324-1
+CRITICAL WARNING: [Board 49-4] Problem parsing board_part file - C:/Xilinx/Vivado/2014.2/data/boards/board_parts/kintex7/kc705/0.9/board_part.xml, The board part 'xc7k325tffg900-2' is either not supported or invalid.
+CRITICAL WARNING: [Board 49-4] Problem parsing board_part file - C:/Xilinx/Vivado/2014.2/data/boards/board_parts/kintex7/kc705/1.0/board_part.xml, The board part 'xc7k325tffg900-2' is either not supported or invalid.
+CRITICAL WARNING: [Board 49-4] Problem parsing board_part file - C:/Xilinx/Vivado/2014.2/data/boards/board_parts/zynq/zc706/0.9/board_part.xml, The board part 'xc7z045ffg900-2' is either not supported or invalid.
+CRITICAL WARNING: [Board 49-4] Problem parsing board_part file - C:/Xilinx/Vivado/2014.2/data/boards/board_parts/zynq/zc706/1.0/board_part.xml, The board part 'xc7z045ffg900-2' is either not supported or invalid.
+# set_property target_language Verilog [current_project]
+# set_param project.compositeFile.enableAutoGeneration 0
+# set_property default_lib xil_defaultlib [current_project]
+# read_verilog -library xil_defaultlib {
+#   C:/540_proj2/project2_release_r0/project_2/project_2.srcs/sources_1/imports/project2_release_r0/hdl_part1/world_map.v
+#   C:/540_proj2/project2_release_r0/project_2/project_2.srcs/sources_1/imports/project2_release_r0/hdl_part1/world_if.v
+#   C:/540_proj2/project2_release_r0/project_2/project_2.srcs/sources_1/imports/project2_release_r0/hdl_part1/map.v
+#   C:/540_proj2/project2_release_r0/project_2/project_2.srcs/sources_1/imports/project2_release_r0/hdl_part1/bot_pgm.v
+#   C:/540_proj2/project2_release_r0/project_2/project_2.srcs/sources_1/imports/project2_release_r0/sevensegment.v
+#   C:/540_proj2/project2_release_r0/project_2/project_2.srcs/sources_1/imports/project2_release_r0/nexys4_bot_if.v
+#   C:/540_proj2/project2_release_r0/project_2/project_2.srcs/sources_1/imports/project2_release_r0/hdl_part1/bot.v
+#   C:/540_proj2/project2_release_r0/project_2/project_2.srcs/sources_1/imports/project2_release_r0/debounce.v
+#   C:/540_proj2/project2_release_r0/project_2/project_2.srcs/sources_1/imports/project2_release_r0/nexys4fpga_main.v
+# }
+WARNING: [filemgmt 20-1763] Vivado Synthesis ignores library specification for Verilog or SystemVerilog files. [C:/540_proj2/project2_release_r0/project_2/project_2.srcs/sources_1/imports/project2_release_r0/hdl_part1/world_map.v]
+WARNING: [filemgmt 20-1763] Vivado Synthesis ignores library specification for Verilog or SystemVerilog files. [C:/540_proj2/project2_release_r0/project_2/project_2.srcs/sources_1/imports/project2_release_r0/hdl_part1/world_if.v]
+WARNING: [filemgmt 20-1763] Vivado Synthesis ignores library specification for Verilog or SystemVerilog files. [C:/540_proj2/project2_release_r0/project_2/project_2.srcs/sources_1/imports/project2_release_r0/hdl_part1/map.v]
+WARNING: [filemgmt 20-1763] Vivado Synthesis ignores library specification for Verilog or SystemVerilog files. [C:/540_proj2/project2_release_r0/project_2/project_2.srcs/sources_1/imports/project2_release_r0/hdl_part1/bot_pgm.v]
+WARNING: [filemgmt 20-1763] Vivado Synthesis ignores library specification for Verilog or SystemVerilog files. [C:/540_proj2/project2_release_r0/project_2/project_2.srcs/sources_1/imports/project2_release_r0/sevensegment.v]
+WARNING: [filemgmt 20-1763] Vivado Synthesis ignores library specification for Verilog or SystemVerilog files. [C:/540_proj2/project2_release_r0/project_2/project_2.srcs/sources_1/imports/project2_release_r0/nexys4_bot_if.v]
+WARNING: [filemgmt 20-1763] Vivado Synthesis ignores library specification for Verilog or SystemVerilog files. [C:/540_proj2/project2_release_r0/project_2/project_2.srcs/sources_1/imports/project2_release_r0/hdl_part1/bot.v]
+WARNING: [filemgmt 20-1763] Vivado Synthesis ignores library specification for Verilog or SystemVerilog files. [C:/540_proj2/project2_release_r0/project_2/project_2.srcs/sources_1/imports/project2_release_r0/debounce.v]
+WARNING: [filemgmt 20-1763] Vivado Synthesis ignores library specification for Verilog or SystemVerilog files. [C:/540_proj2/project2_release_r0/project_2/project_2.srcs/sources_1/imports/project2_release_r0/nexys4fpga_main.v]
+# read_xdc C:/540_proj2/project2_release_r0/project_2/project_2.srcs/constrs_1/imports/constraints/nexys4fpga_novideo.xdc
+# set_property used_in_implementation false [get_files C:/540_proj2/project2_release_r0/project_2/project_2.srcs/constrs_1/imports/constraints/nexys4fpga_novideo.xdc]
+# set_param synth.vivado.isSynthRun true
+# set_property webtalk.parent_dir C:/540_proj2/project2_release_r0/project_2/project_2.cache/wt [current_project]
+# set_property parent.project_dir C:/540_proj2/project2_release_r0/project_2 [current_project]
+# catch { write_hwdef -file nexys4_main.hwdef }
+INFO: [Vivado_Tcl 4-279] hardware handoff file cannot be generated as there is no block diagram instance in the design
+# synth_design -top nexys4_main -part xc7a100tcsg324-1
+Command: synth_design -top nexys4_main -part xc7a100tcsg324-1
+
+Starting synthesis...
+
+Attempting to get a license for feature 'Synthesis' and/or device 'xc7a100t'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a100t'
+WARNING: [Synth 8-2507] parameter declaration becomes local in debounce with formal parameter declaration list [C:/540_proj2/project2_release_r0/project_2/project_2.srcs/sources_1/imports/project2_release_r0/debounce.v:46]
+WARNING: [Synth 8-2611] redeclaration of ansi port led is not allowed [C:/540_proj2/project2_release_r0/project_2/project_2.srcs/sources_1/imports/project2_release_r0/nexys4fpga_main.v:53]
+ERROR: [Synth 8-1031] reset is not declared [C:/540_proj2/project2_release_r0/project_2/project_2.srcs/sources_1/imports/project2_release_r0/nexys4fpga_main.v:101]
+INFO: [Synth 8-2350] module nexys4_main ignored due to previous errors [C:/540_proj2/project2_release_r0/project_2/project_2.srcs/sources_1/imports/project2_release_r0/nexys4fpga_main.v:5]
+Failed to read verilog 'C:/540_proj2/project2_release_r0/project_2/project_2.srcs/sources_1/imports/project2_release_r0/nexys4fpga_main.v'
+    while executing
+"rt::read_verilog {
+      C:/540_proj2/project2_release_r0/project_2/project_2.srcs/sources_1/imports/project2_release_r0/hdl_part1/world_map.v
+      C..."
+    invoked from within
+"if {$rt::useElabCache == false} {
+      rt::read_verilog {
+      C:/540_proj2/project2_release_r0/project_2/project_2.srcs/sources_1/imports/project2_..."
+    ("uplevel" body line 20)
+    invoked from within
+"uplevel #0 {
+    set ::env(BUILTIN_SYNTH) true
+    source $::env(HRT_TCL_PATH)/rtSynthPrep.tcl
+    set rt::cmdEcho 0
+    rt::set_parameter writeXmsg t..."
+ERROR: [Common 17-39] 'source' failed due to earlier errors.
+INFO: [Common 17-83] Releasing license: Synthesis
+3 Infos, 2 Warnings, 0 Critical Warnings and 2 Errors encountered.
+synth_design failed
+ERROR: [Common 17-69] Command failed: Synthesis failed - please see the console or run log file for details
+ERROR: [Common 17-39] 'source' failed due to earlier errors.
+
+    while executing
+"source -notrace {./.Xil/Vivado-19268-School-idea-PC/realtime\nexys4_main.tcl}"
+    invoked from within
+"synth_design -top nexys4_main -part xc7a100tcsg324-1"
+    (file "nexys4_main.tcl" line 32)
+INFO: [Common 17-206] Exiting Vivado at Sat Oct 18 13:50:06 2014...
