@@ -1,7 +1,7 @@
 Copyright 1986-2014 Xilinx, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2014.2 (win64) Build 932637 Wed Jun 11 13:33:10 MDT 2014
-| Date         : Sat Oct 18 16:22:39 2014
+| Date         : Tue Oct 21 16:14:57 2014
 | Host         : School-idea-PC running 64-bit major release  (build 9200)
 | Command      : report_timing_summary -warn_on_violation -file nexys4fpga_main_timing_summary_routed.rpt -pb nexys4fpga_main_timing_summary_routed.pb
 | Design       : nexys4fpga_main
@@ -75,7 +75,7 @@ Table of Contents
 
 5. checking no_input_delay
 --------------------------
- There are 21 input ports with no input delay specified. (HIGH)
+ There are 22 input ports with no input delay specified. (HIGH)
 
  There are 0 input ports with no input delay but user has a false path constraint.
 
@@ -132,7 +132,7 @@ Table of Contents
 
     WNS(ns)      TNS(ns)  TNS Failing Endpoints  TNS Total Endpoints      WHS(ns)      THS(ns)  THS Failing Endpoints  THS Total Endpoints     WPWS(ns)     TPWS(ns)  TPWS Failing Endpoints  TPWS Total Endpoints  
     -------      -------  ---------------------  -------------------      -------      -------  ---------------------  -------------------     --------     --------  ----------------------  --------------------  
-      1.541        0.000                      0                 1798        0.060        0.000                      0                 1798        3.750        0.000                       0                   736  
+      1.395        0.000                      0                 1741        0.060        0.000                      0                 1741        3.750        0.000                       0                   740  
 
 
 All user specified timing constraints are met.
@@ -155,7 +155,7 @@ sys_clk_pin  {0.000 5.000}      10.000          100.000
 
 Clock             WNS(ns)      TNS(ns)  TNS Failing Endpoints  TNS Total Endpoints      WHS(ns)      THS(ns)  THS Failing Endpoints  THS Total Endpoints     WPWS(ns)     TPWS(ns)  TPWS Failing Endpoints  TPWS Total Endpoints  
 -----             -------      -------  ---------------------  -------------------      -------      -------  ---------------------  -------------------     --------     --------  ----------------------  --------------------  
-sys_clk_pin         1.541        0.000                      0                 1798        0.060        0.000                      0                 1798        3.750        0.000                       0                   736  
+sys_clk_pin         1.395        0.000                      0                 1741        0.060        0.000                      0                 1741        3.750        0.000                       0                   740  
 
 
 ------------------------------------------------------------------------------------------------
@@ -186,7 +186,7 @@ Path Group    From Clock    To Clock          WNS(ns)      TNS(ns)  TNS Failing 
 From Clock:  sys_clk_pin
   To Clock:  sys_clk_pin
 
-Setup :            0  Failing Endpoints,  Worst Slack        1.541ns,  Total Violation        0.000ns
+Setup :            0  Failing Endpoints,  Worst Slack        1.395ns,  Total Violation        0.000ns
 Hold  :            0  Failing Endpoints,  Worst Slack        0.060ns,  Total Violation        0.000ns
 PW    :            0  Failing Endpoints,  Worst Slack        3.750ns,  Total Violation        0.000ns
 ---------------------------------------------------------------------------------------------------
@@ -194,19 +194,19 @@ PW    :            0  Failing Endpoints,  Worst Slack        3.750ns,  Total Vio
 
 Max Delay Paths
 --------------------------------------------------------------------------------------
-Slack (MET) :             1.541ns  (required time - arrival time)
-  Source:                 PROJ2DEMO/ram_2k_generate.akv7.kcpsm6_rom/CLKARDCLK
-                            (rising edge-triggered cell RAMB36E1 clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
-  Destination:            processor/internal_reset_flop/D
+Slack (MET) :             1.395ns  (required time - arrival time)
+  Source:                 BOT/BOTSIMPGM/kcpsm6_rom/CLKARDCLK
+                            (rising edge-triggered cell RAMB18E1 clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            BOT/WRLDIF/DataOut_reg[3]/D
                             (rising edge-triggered cell FDRE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
   Path Group:             sys_clk_pin
   Path Type:              Setup (Max at Slow Process Corner)
   Requirement:            10.000ns  (sys_clk_pin rise@10.000ns - sys_clk_pin rise@0.000ns)
-  Data Path Delay:        8.370ns  (logic 4.020ns (48.028%)  route 4.350ns (51.972%))
-  Logic Levels:           6  (CARRY4=2 LUT6=4)
-  Clock Path Skew:        -0.084ns (DCD - SCD + CPR)
-    Destination Clock Delay (DCD):    4.781ns = ( 14.781 - 10.000 ) 
-    Source Clock Delay      (SCD):    5.117ns
+  Data Path Delay:        8.509ns  (logic 3.552ns (41.743%)  route 4.957ns (58.257%))
+  Logic Levels:           5  (LUT4=1 LUT5=2 LUT6=1 RAMD32=1)
+  Clock Path Skew:        -0.089ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    4.770ns = ( 14.770 - 10.000 ) 
+    Source Clock Delay      (SCD):    5.111ns
     Clock Pessimism Removal (CPR):    0.252ns
   Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
     Total System Jitter     (TSJ):    0.071ns
@@ -223,27 +223,24 @@ Slack (MET) :             1.541ns  (required time - arrival time)
     E3                   IBUF (Prop_ibuf_I_O)         1.482     1.482 r  clk_IBUF_inst/O
                          net (fo=1, routed)           1.780     3.262    JA_OBUF[7]
     BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.096     3.358 r  JA_OBUF_BUFG[7]_inst/O
-                         net (fo=736, routed)         1.759     5.117    PROJ2DEMO/JA_OBUF_BUFG[7]
-    RAMB36_X3Y16                                                      r  PROJ2DEMO/ram_2k_generate.akv7.kcpsm6_rom/CLKARDCLK
+                         net (fo=740, routed)         1.753     5.111    BOT/BOTSIMPGM/JA_OBUF_BUFG[7]
+    RAMB18_X3Y30                                                      r  BOT/BOTSIMPGM/kcpsm6_rom/CLKARDCLK
   -------------------------------------------------------------------    -------------------
-    RAMB36_X3Y16         RAMB36E1 (Prop_ramb36e1_CLKARDCLK_DOADO[15])
-                                                      2.454     7.571 r  PROJ2DEMO/ram_2k_generate.akv7.kcpsm6_rom/DOADO[15]
-                         net (fo=20, routed)          1.451     9.022    processor/instruction[15]
-    SLICE_X83Y76         LUT6 (Prop_lut6_I3_O)        0.124     9.146 r  processor/pc_move_is_valid_lut/O
-                         net (fo=4, routed)           0.866    10.012    processor/push_pop_lut/I3
-    SLICE_X83Y78         LUT6 (Prop_lut6_I3_O)        0.124    10.136 r  processor/push_pop_lut/LUT6/O
-                         net (fo=5, routed)           1.167    11.303    processor/push_stack
-    SLICE_X81Y75         LUT6 (Prop_lut6_I2_O)        0.124    11.427 r  processor/stack_loop[1].upper_stack.stack_pointer_lut/O
-                         net (fo=1, routed)           0.000    11.427    processor/n_1_stack_loop[1].upper_stack.stack_pointer_lut
-    SLICE_X81Y75         CARRY4 (Prop_carry4_S[1]_CO[3])
-                                                      0.550    11.977 r  processor/stack_loop[0].lsb_stack.stack_muxcy_CARRY4/CO[3]
-                         net (fo=1, routed)           0.000    11.977    processor/n_0_stack_loop[3].upper_stack.stack_muxcy
-    SLICE_X81Y76         CARRY4 (Prop_carry4_CI_CO[0])
-                                                      0.271    12.248 r  processor/stack_loop[4].upper_stack.stack_muxcy_CARRY4/CO[0]
-                         net (fo=2, routed)           0.867    13.114    processor/reset_lut/I2
-    SLICE_X82Y76         LUT6 (Prop_lut6_I2_O)        0.373    13.487 r  processor/reset_lut/LUT6/O
-                         net (fo=1, routed)           0.000    13.487    processor/internal_reset_value
-    SLICE_X82Y76         FDRE                                         r  processor/internal_reset_flop/D
+    RAMB18_X3Y30         RAMB18E1 (Prop_ramb18e1_CLKARDCLK_DOADO[5])
+                                                      2.454     7.565 r  BOT/BOTSIMPGM/kcpsm6_rom/DOADO[5]
+                         net (fo=14, routed)          1.368     8.933    BOT/BOTSIMCPU/lower_reg_banks/ADDRA1
+    SLICE_X78Y75         RAMD32 (Prop_ramd32_RADR1_O)
+                                                      0.146     9.079 f  BOT/BOTSIMCPU/lower_reg_banks/RAMA/O
+                         net (fo=3, routed)           1.004    10.084    BOT/BOTSIMCPU/data_path_loop[0].output_data.sy_kk_mux_lut/I0
+    SLICE_X80Y74         LUT5 (Prop_lut5_I0_O)        0.356    10.440 f  BOT/BOTSIMCPU/data_path_loop[0].output_data.sy_kk_mux_lut/LUT5/O
+                         net (fo=48, routed)          1.026    11.466    BOT/BOTSIMPGM/O1[0]
+    SLICE_X73Y78         LUT4 (Prop_lut4_I3_O)        0.348    11.814 r  BOT/BOTSIMPGM/DataOut[1]_i_4/O
+                         net (fo=8, routed)           0.977    12.790    BOT/BOTSIMPGM/n_0_DataOut[1]_i_4
+    SLICE_X74Y80         LUT5 (Prop_lut5_I2_O)        0.124    12.914 r  BOT/BOTSIMPGM/DataOut[3]_i_3/O
+                         net (fo=1, routed)           0.582    13.496    BOT/BOTSIMPGM/n_0_DataOut[3]_i_3
+    SLICE_X72Y79         LUT6 (Prop_lut6_I1_O)        0.124    13.620 r  BOT/BOTSIMPGM/DataOut[3]_i_1/O
+                         net (fo=1, routed)           0.000    13.620    BOT/WRLDIF/D[3]
+    SLICE_X72Y79         FDRE                                         r  BOT/WRLDIF/DataOut_reg[3]/D
   -------------------------------------------------------------------    -------------------
 
                          (clock sys_clk_pin rise edge)
@@ -253,16 +250,16 @@ Slack (MET) :             1.541ns  (required time - arrival time)
     E3                   IBUF (Prop_ibuf_I_O)         1.411    11.411 r  clk_IBUF_inst/O
                          net (fo=1, routed)           1.683    13.094    JA_OBUF[7]
     BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.091    13.185 r  JA_OBUF_BUFG[7]_inst/O
-                         net (fo=736, routed)         1.595    14.781    processor/JA_OBUF[1]
-    SLICE_X82Y76                                                      r  processor/internal_reset_flop/C
-                         clock pessimism              0.252    15.033    
-                         clock uncertainty           -0.035    14.997    
-    SLICE_X82Y76         FDRE (Setup_fdre_C_D)        0.031    15.028    processor/internal_reset_flop
+                         net (fo=740, routed)         1.584    14.770    BOT/WRLDIF/JA_OBUF_BUFG[7]
+    SLICE_X72Y79                                                      r  BOT/WRLDIF/DataOut_reg[3]/C
+                         clock pessimism              0.252    15.022    
+                         clock uncertainty           -0.035    14.986    
+    SLICE_X72Y79         FDRE (Setup_fdre_C_D)        0.029    15.015    BOT/WRLDIF/DataOut_reg[3]
   -------------------------------------------------------------------
-                         required time                         15.028    
-                         arrival time                         -13.487    
+                         required time                         15.015    
+                         arrival time                         -13.620    
   -------------------------------------------------------------------
-                         slack                                  1.541    
+                         slack                                  1.395    
 
 
 
@@ -281,9 +278,9 @@ Slack (MET) :             0.060ns  (arrival time - required time)
   Data Path Delay:        0.220ns  (logic 0.141ns (64.033%)  route 0.079ns (35.967%))
   Logic Levels:           0  
   Clock Path Skew:        0.013ns (DCD - SCD - CPR)
-    Destination Clock Delay (DCD):    1.941ns
-    Source Clock Delay      (SCD):    1.435ns
-    Clock Pessimism Removal (CPR):    0.492ns
+    Destination Clock Delay (DCD):    1.928ns
+    Source Clock Delay      (SCD):    1.423ns
+    Clock Pessimism Removal (CPR):    0.491ns
 
     Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
   -------------------------------------------------------------------    -------------------
@@ -294,12 +291,12 @@ Slack (MET) :             0.060ns  (arrival time - required time)
     E3                   IBUF (Prop_ibuf_I_O)         0.250     0.250 r  clk_IBUF_inst/O
                          net (fo=1, routed)           0.558     0.808    JA_OBUF[7]
     BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.026     0.834 r  JA_OBUF_BUFG[7]_inst/O
-                         net (fo=736, routed)         0.602     1.435    BOT/BOTSIMCPU/JA_OBUF_BUFG[7]
-    SLICE_X85Y84                                                      r  BOT/BOTSIMCPU/address_loop[4].pc_flop/C
+                         net (fo=740, routed)         0.590     1.423    BOT/BOTSIMCPU/JA_OBUF_BUFG[7]
+    SLICE_X81Y76                                                      r  BOT/BOTSIMCPU/address_loop[4].pc_flop/C
   -------------------------------------------------------------------    -------------------
-    SLICE_X85Y84         FDRE (Prop_fdre_C_Q)         0.141     1.576 r  BOT/BOTSIMCPU/address_loop[4].pc_flop/Q
-                         net (fo=3, routed)           0.079     1.656    BOT/BOTSIMCPU/stack_ram_high/DIA0
-    SLICE_X84Y84         RAMD32                                       r  BOT/BOTSIMCPU/stack_ram_high/RAMA/I
+    SLICE_X81Y76         FDRE (Prop_fdre_C_Q)         0.141     1.564 r  BOT/BOTSIMCPU/address_loop[4].pc_flop/Q
+                         net (fo=3, routed)           0.079     1.644    BOT/BOTSIMCPU/stack_ram_high/DIA0
+    SLICE_X80Y76         RAMD32                                       r  BOT/BOTSIMCPU/stack_ram_high/RAMA/I
   -------------------------------------------------------------------    -------------------
 
                          (clock sys_clk_pin rise edge)
@@ -309,14 +306,14 @@ Slack (MET) :             0.060ns  (arrival time - required time)
     E3                   IBUF (Prop_ibuf_I_O)         0.438     0.438 r  clk_IBUF_inst/O
                          net (fo=1, routed)           0.603     1.040    JA_OBUF[7]
     BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.029     1.069 r  JA_OBUF_BUFG[7]_inst/O
-                         net (fo=736, routed)         0.872     1.941    BOT/BOTSIMCPU/stack_ram_high/WCLK
-    SLICE_X84Y84                                                      r  BOT/BOTSIMCPU/stack_ram_high/RAMA/CLK
-                         clock pessimism             -0.492     1.448    
-    SLICE_X84Y84         RAMD32 (Hold_ramd32_CLK_I)
-                                                      0.147     1.595    BOT/BOTSIMCPU/stack_ram_high/RAMA
+                         net (fo=740, routed)         0.859     1.928    BOT/BOTSIMCPU/stack_ram_high/WCLK
+    SLICE_X80Y76                                                      r  BOT/BOTSIMCPU/stack_ram_high/RAMA/CLK
+                         clock pessimism             -0.491     1.436    
+    SLICE_X80Y76         RAMD32 (Hold_ramd32_CLK_I)
+                                                      0.147     1.583    BOT/BOTSIMCPU/stack_ram_high/RAMA
   -------------------------------------------------------------------
-                         required time                         -1.595    
-                         arrival time                           1.656    
+                         required time                         -1.583    
+                         arrival time                           1.644    
   -------------------------------------------------------------------
                          slack                                  0.060    
 
@@ -332,9 +329,9 @@ Period:             10.000
 Sources:            { clk }
 
 Check Type        Corner  Lib Pin             Reference Pin  Required  Actual  Slack  Location      Pin
-Min Period        n/a     RAMB18E1/CLKARDCLK  n/a            2.576     10.000  7.424  RAMB18_X3Y34  BOT/BOTSIMPGM/kcpsm6_rom/CLKARDCLK
-Low Pulse Width   Slow    RAMD64E/CLK         n/a            1.250     5.000   3.750  SLICE_X84Y88  BOT/BOTSIMCPU/data_path_loop[0].small_spm.small_spm_ram.spm_ram/RAMA/CLK
-High Pulse Width  Slow    RAMD64E/CLK         n/a            1.250     5.000   3.750  SLICE_X84Y88  BOT/BOTSIMCPU/data_path_loop[0].small_spm.small_spm_ram.spm_ram/RAMA/CLK
+Min Period        n/a     RAMB18E1/CLKARDCLK  n/a            2.576     10.000  7.424  RAMB18_X3Y30  BOT/BOTSIMPGM/kcpsm6_rom/CLKARDCLK
+Low Pulse Width   Slow    RAMD32/CLK          n/a            1.250     5.000   3.750  SLICE_X80Y76  BOT/BOTSIMCPU/stack_ram_high/RAMA/CLK
+High Pulse Width  Slow    RAMD64E/CLK         n/a            1.250     5.000   3.750  SLICE_X76Y74  BOT/BOTSIMCPU/data_path_loop[0].small_spm.small_spm_ram.spm_ram/RAMA/CLK
 
 
 

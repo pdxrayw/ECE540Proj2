@@ -28,6 +28,9 @@ module nexys4fpga_main (
 //formula is 100 Mhz / 10 HZ * 50% duty cycle
 //So for 25 Hz: 100000000 / 25 * 0.5 = 2000000 
     wire [31:0] c_CNT_25HZ = 32'b0000_0000_0001_1110_1000_0100_1000_0000;//2_000_000
+    wire [31:0] c_CNT_10HZ = 32'b0000_0000_0100_1100_0100_1011_0100_0000;//5_000_000
+    
+    
 
 // internal variables
 	wire 	[15:0]		db_sw;					// debounced switches
@@ -52,7 +55,7 @@ module nexys4fpga_main (
     wire    [9:0]       v_row,v_col;
     wire    [1:0]       v_pix;
     wire                up_sys;
-    wire    [15:0]      led_w;
+    //wire    [15:0]      led_w;
  // internal variables for picoblaze and program ROM signals
 // signal names taken from kcpsm6_design_template.v
 wire	[11:0]		address;
@@ -73,13 +76,19 @@ wire				kcpsm6_reset;
 wire 	[1:0]		wrld_loc_info;		// location value from world map
 wire 	[7:0]		wrld_col_addr,		// column address to map logic
 					wrld_row_addr;		// row address to map logic
-reg [11:0] address_reg; 
-reg [17:0] instruction_reg;
+//reg [11:0] address_reg; 
+//reg [17:0] instruction_reg;
+//reg [4:0] digi7,digi6,digi5,digi4,digi3,digi2,digi1,digi0;
+//reg [7:0] dp;
+
+
     
 //counter for clock
     reg [31:0] r_CNT_25HZ = 32'b0000_0000_0000_0000_0000_0000_0000_0000;
+    reg [31:0] r_CNT_10HZ = 32'b0000_0000_0000_0000_0000_0000_0000_0000;
 //toggles for clock
 	reg 	r_Toggle_25HZ = 1'b0;
+    reg 	r_Toggle_10HZ = 1'b0;
 //start 25 Hz clock
 	always @(posedge clk) //25 Hz clock
 		begin
@@ -92,25 +101,39 @@ reg [17:0] instruction_reg;
 			begin
 			r_CNT_25HZ <= r_CNT_25HZ + 1'b1; //if not, increment the counter
 			end
-		end 
+		end
+//start 10 Hz clock
+    always @(posedge clk) //10 Hz clock
+		begin
+		if (r_CNT_10HZ == c_CNT_10HZ)	//if counter for 10Hz is equal to what the count should be
+			begin
+			r_Toggle_10HZ <= !r_Toggle_10HZ; //toggle the switch and
+			r_CNT_10HZ <= 32'b0000_0000_0000_0000_0000_0000_0000_0000;				//reset the counter
+			end
+		else
+			begin
+			r_CNT_10HZ <= r_CNT_10HZ + 1'b1; //if not, increment the counter
+			end
+		end
 // global assigns
 	assign	sysclk = clk;
 	assign 	sysreset = db_btns[0]; // btnCpuReset is asserted low
 	
-	assign dp = segs_int[7];  //decimal point wire
+	//assign dp = segs_int[7];  //decimal point wire
 	assign seg = segs_int[6:0]; //7 seg wire
-    assign led_w = led;
- //   assign dig7 = digi7;
- //   assign dig6 = digi6;
-  //  assign dig5 = digi5;
- //   assign dig4 = digi4;
- //   assign dig3 = digi3;
-  //  assign dig2 = digi2;
-   // assign dig1 = digi1;
-   // assign dig0 = digi0;
-    //assign dpts = dp;
-    assign address = address_reg;
-    assign instruction = instruction_reg;
+    //assign led_w = led;
+    //assign	led = db_sw;
+/*    assign dig7 = digi7;
+    assign dig6 = digi6;
+    assign dig5 = digi5;
+    assign dig4 = digi4;
+    assign dig3 = digi3;
+    assign dig2 = digi2;
+    assign dig1 = digi1;
+    assign dig0 = digi0;
+    assign dpts = dp;*/
+    //assign address = address_reg;
+    //assign instruction = instruction_reg;
 	
 	assign	JA = {sysclk, sysreset, 6'b000000};
     assign kcpsm6_reset = sysreset;			// Picoblaze is reset w/ global reset signal
@@ -181,7 +204,7 @@ reg [17:0] instruction_reg;
 	.sleep		(kcpsm6_sleep),
 	.clk 			(clk)); 
 proj2demo PROJ2DEMO(
-    .address(address_reg), 
+    .address(address), 
     .instruction(instruction), 
     .enable(bram_enable), 
     .rdl(rdl), 
@@ -207,35 +230,6 @@ bot BOT(
 											// (LocX, LocY, Sensors, BotInfo)have been updated
 );
 //instantiate bot_if 
-/*nexys4_bot_if BOT_IF(
-    .clk(clk),
-    .reset(sysreset),
-    .port_id(port_id),
-    .out_port(out_port), //out of picoblaze 
-    .write_strobe(write_strobe), 
-    .read_strobe(read_strobe), 
-    //.interrupt_ack,  //from picoblase
-    .db_btns(db_btns), //from debounce
-    .db_sw(db_sw), //from debounce
-    .locX(loc_x), 
-    .locY(loc_y), 
-    .botinfo(boti), 
-    .sensors(sens), //from botsim 
-    .upd_sysregs(up_sys), //interrupt signal from bot sim
-    .led(led), //out led
-    .in_port(in_port), //into picoblaze
-    .motctl(motor), //into botsim
-    .dig7(dig7), 
-    .dig6(dig6), 
-    .dig5(dig5), 
-    .dig4(dig4), 
-    .dig3(dig3), 
-    .dig2(dig2), 
-    .dig1(dig1), 
-    .dig0(dig0), //7 seg display to sevenseg.v
-    .dp(decpts),  //decimal point out to sevenseg.v   
-    .interrupt(interrupt)
-);*/ 
 nexys4_bot_if BOT_IF(
 	// interface to the picoblaze
 	.Wr_Strobe(write_strobe),		// Write strobe - asserted to write I/O data
@@ -256,13 +250,13 @@ nexys4_bot_if BOT_IF(
 //	input 		[1:0]	MapVal,			// (Port 10) Map value for location [row_addr, col_addr]	
 
 	
-	.clk(clk),			// system clock
+	.clk(clk),			// system clock or r_Toggle_10HZ???
 	.reset(sysreset),			// system reset
 	.upd_sysregs(up_sys),	// flag from PicoBlaze to indicate that the system registers 
 										// (LocX, LocY, Sensors, BotInfo)have been updated	
-    .db_btns(db_btns[4:1]),
+    .db_btns(db_btns[5:0]),
     .db_sw(db_sw),
-    .led(led_w), //out led
+    .led(led), //out led
     .dig7(dig7), 
     .dig6(dig6), 
     .dig5(dig5), 

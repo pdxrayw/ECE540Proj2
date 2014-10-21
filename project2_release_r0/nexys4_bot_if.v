@@ -38,7 +38,7 @@ module nexys4_bot_if(
 						reset,			// system reset
 	input   			upd_sysregs,	// flag from PicoBlaze to indicate that the system registers 
 										// (LocX, LocY, Sensors, BotInfo)have been updated	
-    input       [4:1]   db_btns,
+    input       [5:0]   db_btns,
     input       [15:0]  db_sw,
     output reg [15:0]   led, //out led
     output reg [4:0]    dig7, dig6, dig5, dig4, dig3, dig2, dig1, dig0, //7 seg display to sevenseg.v
@@ -60,7 +60,7 @@ reg	[7:0] 	DataOut_int,
             dp_int;
 reg [15:0]   led_int;
 reg [4:0]    dig7_int, dig6_int, dig5_int, dig4_int, dig3_int, dig2_int, dig1_int, dig0_int;
-reg          interrupt_int;
+//reg          interrupt_int;
 // read registers
 always @(posedge clk) 
 begin
@@ -68,7 +68,8 @@ begin
     8'b0000_0000 : //pushbuttons inputs
     begin
     // format is: output(for this file) <= input (for this file)
-        DataOut <= {4'b0000, db_btns};
+    //dbbtns[5:0]
+        DataOut <= {4'b00, db_btns};//dataout is to picoblaze
     end
     8'b0000_0001 : //slide switches
     begin
@@ -90,9 +91,9 @@ begin
     begin
         DataOut <= Sensors;
     end
-    8'b0001_000 : //(i) pushbutton inputs alternate port address
+    8'b0001_0000 : //(i) pushbutton inputs alternate port address
     begin
-        DataOut <= 8'b0001_0000;//not sure if this is correct
+        DataOut <= {4'b00, db_btns};
     end
     8'b0001_0001 : //(i) slide switches 15:8 (high byte of switches
     begin
@@ -106,11 +107,11 @@ begin
     begin
         DataOut <= LocY;
     end
-    8'b0001_1001 : //(i) Rojobot info register
+    8'b0001_1100 : //(i) Rojobot info register
     begin
         DataOut <= BotInfo;
     end
-    8'b0001_1001 : //(i) Sensor register
+    8'b0001_1101 : //(i) Sensor register
     begin
         DataOut <= Sensors;
     end
@@ -124,25 +125,25 @@ end //always read registers
 
 // write registers
 always @(posedge clk) begin
-	/*if (reset) begin
-		LocX_int <= 0;		
+	if (reset) begin
+	/*	LocX_int <= 0;		
 		LocY_int <= 0;
 		BotInfo_int <= 0;
 		Sensors_int <= 0;
 		LMDist_int <= 0;
-		RMDist_int <= 0;
+		RMDist_int <= 0;*/
 		
 		load_sys_regs <= 0;
 		load_dist_regs <= 0;
-		upd_sysregs <= 0;
+		//upd_sysregs <= 0;
 	end
-	else begin*/
+	else begin
     if(Wr_Strobe) begin
     case (AddrIn[7:0])
     8'b0000_0010 : //(o) LEDs
         begin
         // format is: output(for this file) <= input (for this file)
-        led_int[7:0] <= DataIn; 
+        led_int[7:0] <= DataIn; //Datain is from picoblaze
         end
     8'b0000_0011 : // (o) digit 3 port address
         begin
@@ -162,7 +163,7 @@ always @(posedge clk) begin
         end
     8'b0000_0111 : //(o) decimal points 3:0 port address
         begin
-        dp_int[3:0] <= DataIn[3:0];
+        dp[3:0] <= DataIn[3:0];
         end
     8'b0000_1001 : //(o) Rojobot motor control output from system
         begin
@@ -197,8 +198,8 @@ always @(posedge clk) begin
         MotCtl_int <= DataIn; 
         end
     // I/O registers for system interface	
-	8'b0000_1100 : 	load_sys_regs <= ~load_sys_regs;		// toggles load system registers ctrl signal
-	8'b0000_1101 : 	load_dist_regs <= ~load_dist_regs;		// toggles load distance register ctrl signal
+	//8'b0000_1100 : 	load_sys_regs <= ~load_sys_regs;		// toggles load system registers ctrl signal
+	//8'b0000_1101 : 	load_dist_regs <= ~load_dist_regs;		// toggles load distance register ctrl signal
 	//4'b0000_1110 : 	upd_sysregs <= ~upd_sysregs;			// toggles update system registers flag
 	8'b0000_1111 : 	;										// reserved
     default :
@@ -207,7 +208,7 @@ always @(posedge clk) begin
         end
     endcase
     end
-	//end
+	end
 end // always - write registers
 
 	
@@ -220,7 +221,7 @@ always @(posedge clk) begin
 		BotInfo <= 0;
 	end
 	else*/ 
-    if (load_sys_regs) begin  // copy holding registers to system interface registers
+    if (upd_sysregs) begin  // copy holding registers to system interface registers
             MotCtl <= MotCtl_int;
             dp <= dp_int;
             led <= led_int;
@@ -232,7 +233,7 @@ always @(posedge clk) begin
             dig2 <= dig2_int;
             dig1 <= dig1_int;
             dig0 <= dig0_int;
-            interrupt <= interrupt_int;
+            interrupt <= interrupt;//interrupt_int;
 	end
 	else begin // refresh registers
 			MotCtl <= MotCtl;

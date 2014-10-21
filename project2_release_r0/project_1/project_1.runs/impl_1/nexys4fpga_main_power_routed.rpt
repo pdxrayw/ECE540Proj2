@@ -1,7 +1,7 @@
 Copyright 1986-2014 Xilinx, Inc. All Rights Reserved.
 -----------------------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2014.2 (win64) Build 932637 Wed Jun 11 13:33:10 MDT 2014
-| Date             : Sat Oct 18 16:22:42 2014
+| Date             : Tue Oct 21 16:15:01 2014
 | Host             : School-idea-PC running 64-bit major release  (build 9200)
 | Command          : report_power -file nexys4fpga_main_power_routed.rpt -pb nexys4fpga_main_power_summary_routed.pb
 | Design           : nexys4fpga_main
@@ -50,15 +50,15 @@ Table of Contents
 | On-Chip                  | Power (W) | Used     | Available | Utilization (%) |
 +--------------------------+-----------+----------+-----------+-----------------+
 | Clocks                   |     0.004 |        1 |       --- |             --- |
-| Slice Logic              |     0.002 |     1410 |       --- |             --- |
-|   LUT as Logic           |     0.001 |      386 |     63400 |            0.60 |
+| Slice Logic              |     0.002 |     1424 |       --- |             --- |
+|   LUT as Logic           |     0.001 |      394 |     63400 |            0.62 |
 |   LUT as Distributed RAM |    <0.001 |       48 |     19000 |            0.25 |
-|   Register               |    <0.001 |      687 |    126800 |            0.54 |
+|   Register               |    <0.001 |      691 |    126800 |            0.54 |
 |   CARRY4                 |    <0.001 |       36 |     15850 |            0.22 |
 |   BUFG                   |    <0.001 |        1 |        32 |            3.12 |
 |   Others                 |     0.000 |       73 |       --- |             --- |
 |   F7/F8 Muxes            |     0.000 |        7 |     63400 |            0.01 |
-| Signals                  |     0.002 |     1172 |       --- |             --- |
+| Signals                  |     0.002 |     1185 |       --- |             --- |
 | Block RAM                |     0.002 |      2.5 |       135 |            1.85 |
 | I/O                      |     0.012 |       62 |       210 |           29.52 |
 | Static Power             |     0.097 |          |           |                 |
