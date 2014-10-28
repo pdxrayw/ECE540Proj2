@@ -39,14 +39,19 @@ module nexys4_bot_if(
 	input   			upd_sysregs,	// flag from PicoBlaze to indicate that the system registers 
 										// (LocX, LocY, Sensors, BotInfo)have been updated	
     input       [5:0]   db_btns,
-    input       [15:0]  db_sw,
-    output reg [15:0]   led, //out led
+    input      [15:0]  db_sw,
+    output [15:0]   led, //out led
     output reg [4:0]    dig7, dig6, dig5, dig4, dig3, dig2, dig1, dig0, //7 seg display to sevenseg.v
     output reg [7:0]    dp,  //decimal point out to sevenseg.v   
     output reg          interrupt
 		
 );
-
+wire [15:0] led_w;
+reg [15:0] led_r;
+wire [15:0] db_sw_w;
+wire interrupt_w;
+wire [7:0] dp_w;
+assign interrupt_w = 1'b0;
 // internal variables		
 // used sot synchronize the register transfer so Application gets a consistant snapshot of the BOT status	
 reg			load_sys_regs,			// Load system register flip-flop			
@@ -69,11 +74,11 @@ begin
     begin
     // format is: output(for this file) <= input (for this file)
     //dbbtns[5:0]
-        DataOut <= {4'b00, db_btns};
+        DataOut <= {4'b00, db_btns};//dataout is to picoblaze
     end
     8'b0000_0001 : //slide switches
     begin
-        DataOut <= db_sw[7:0];
+        DataOut <= db_sw_w[7:0];
     end
     8'b0000_1010 :// X coordinate of rojobot location
     begin
@@ -97,7 +102,7 @@ begin
     end
     8'b0001_0001 : //(i) slide switches 15:8 (high byte of switches
     begin
-        DataOut <= db_sw[15:8];
+        DataOut <= db_sw_w[15:8];
     end
     8'b0001_1010 : //(i) X coordinate of rojobot location
     begin
@@ -143,7 +148,7 @@ always @(posedge clk) begin
     8'b0000_0010 : //(o) LEDs
         begin
         // format is: output(for this file) <= input (for this file)
-        led_int[7:0] <= DataIn; 
+        led_int[7:0] <= DataIn; //Datain is from picoblaze
         end
     8'b0000_0011 : // (o) digit 3 port address
         begin
@@ -163,7 +168,7 @@ always @(posedge clk) begin
         end
     8'b0000_0111 : //(o) decimal points 3:0 port address
         begin
-        dp[3:0] <= DataIn[3:0];
+        dp_int[3:0] <= DataIn[3:0];
         end
     8'b0000_1001 : //(o) Rojobot motor control output from system
         begin
@@ -221,10 +226,10 @@ always @(posedge clk) begin
 		BotInfo <= 0;
 	end
 	else*/ 
-    //if (upd_sysregs) begin  // copy holding registers to system interface registers
+    if (upd_sysregs) begin  // copy holding registers to system interface registers
             MotCtl <= MotCtl_int;
-            dp <= dp_int;
-            led <= led_int;
+            dp <= dp_w;
+            led_r <= led_w;
             dig7 <= dig7_int;
             dig6 <= dig6_int;
             dig5 <= dig5_int;
@@ -233,12 +238,12 @@ always @(posedge clk) begin
             dig2 <= dig2_int;
             dig1 <= dig1_int;
             dig0 <= dig0_int;
-            interrupt <= interrupt;//interrupt_int;
-	//end
-	/*else begin // refresh registers
+            interrupt <= interrupt_w;//interrupt_int;
+	end
+	else begin // refresh registers
 			MotCtl <= MotCtl;
             dp <= dp;
-            led <= led;
+            led_r <= led_r;
             dig7 <= dig7;
             dig6 <= dig6;
             dig5 <= dig5;
@@ -247,10 +252,13 @@ always @(posedge clk) begin
             dig2 <= dig2;
             dig1 <= dig1;
             dig0 <= dig0;
-            interrupt <= interrupt;
-	end	*/	
+            interrupt <= interrupt_w;
+	end		
 end // always - synchronized system register interface
-
+ assign led_w = led_int;
+ assign led = led_r;
+ assign db_sw_w = db_sw;
+ assign dp_w = dp_int;
 endmodule
 		
 				

@@ -61,7 +61,7 @@ Attempting to get a license for feature 'Synthesis' and/or device 'xc7a100t'
 INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a100t'
 WARNING: [Synth 8-2507] parameter declaration becomes local in debounce with formal parameter declaration list [C:/540_proj2/project2_release_r0/project_1/project_1.srcs/sources_1/imports/project2_release_r0/debounce.v:46]
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:18 ; elapsed = 00:00:32 . Memory (MB): peak = 232.313 ; gain = 103.316
+Starting RTL Elaboration : Time (s): cpu = 00:00:16 ; elapsed = 00:00:32 . Memory (MB): peak = 232.898 ; gain = 104.539
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-638] synthesizing module 'nexys4fpga_main' [C:/540_proj2/project2_release_r0/project_1/project_1.srcs/sources_1/imports/project2_release_r0/nexys4fpga_main.v:5]
 	Parameter SIMULATE bound to: 0 - type: integer 
@@ -619,7 +619,7 @@ WARNING: [Synth 8-3917] design nexys4fpga_main has port JA[2] driven by constant
 WARNING: [Synth 8-3917] design nexys4fpga_main has port JA[1] driven by constant 0
 WARNING: [Synth 8-3917] design nexys4fpga_main has port JA[0] driven by constant 0
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:25 ; elapsed = 00:00:40 . Memory (MB): peak = 256.273 ; gain = 127.277
+Finished RTL Elaboration : Time (s): cpu = 00:00:23 ; elapsed = 00:00:39 . Memory (MB): peak = 256.945 ; gain = 128.586
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start RTL Optimization
@@ -631,26 +631,26 @@ Report Check Netlist:
 +------+------------------+-------+---------+-------+------------------+
 |1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
 +------+------------------+-------+---------+-------+------------------+
-WARNING: [Synth 8-3295] tying undriven pin BOT:vid_row[9] to constant 0 [C:/540_proj2/project2_release_r0/project_1/project_1.srcs/sources_1/imports/project2_release_r0/nexys4fpga_main.v:213]
-WARNING: [Synth 8-3295] tying undriven pin BOT:vid_row[8] to constant 0 [C:/540_proj2/project2_release_r0/project_1/project_1.srcs/sources_1/imports/project2_release_r0/nexys4fpga_main.v:213]
-WARNING: [Synth 8-3295] tying undriven pin BOT:vid_row[7] to constant 0 [C:/540_proj2/project2_release_r0/project_1/project_1.srcs/sources_1/imports/project2_release_r0/nexys4fpga_main.v:213]
-WARNING: [Synth 8-3295] tying undriven pin BOT:vid_row[6] to constant 0 [C:/540_proj2/project2_release_r0/project_1/project_1.srcs/sources_1/imports/project2_release_r0/nexys4fpga_main.v:213]
-WARNING: [Synth 8-3295] tying undriven pin BOT:vid_row[5] to constant 0 [C:/540_proj2/project2_release_r0/project_1/project_1.srcs/sources_1/imports/project2_release_r0/nexys4fpga_main.v:213]
-WARNING: [Synth 8-3295] tying undriven pin BOT:vid_row[4] to constant 0 [C:/540_proj2/project2_release_r0/project_1/project_1.srcs/sources_1/imports/project2_release_r0/nexys4fpga_main.v:213]
-WARNING: [Synth 8-3295] tying undriven pin BOT:vid_row[3] to constant 0 [C:/540_proj2/project2_release_r0/project_1/project_1.srcs/sources_1/imports/project2_release_r0/nexys4fpga_main.v:213]
-WARNING: [Synth 8-3295] tying undriven pin BOT:vid_row[2] to constant 0 [C:/540_proj2/project2_release_r0/project_1/project_1.srcs/sources_1/imports/project2_release_r0/nexys4fpga_main.v:213]
-WARNING: [Synth 8-3295] tying undriven pin BOT:vid_row[1] to constant 0 [C:/540_proj2/project2_release_r0/project_1/project_1.srcs/sources_1/imports/project2_release_r0/nexys4fpga_main.v:213]
-WARNING: [Synth 8-3295] tying undriven pin BOT:vid_row[0] to constant 0 [C:/540_proj2/project2_release_r0/project_1/project_1.srcs/sources_1/imports/project2_release_r0/nexys4fpga_main.v:213]
-WARNING: [Synth 8-3295] tying undriven pin BOT:vid_col[9] to constant 0 [C:/540_proj2/project2_release_r0/project_1/project_1.srcs/sources_1/imports/project2_release_r0/nexys4fpga_main.v:213]
-WARNING: [Synth 8-3295] tying undriven pin BOT:vid_col[8] to constant 0 [C:/540_proj2/project2_release_r0/project_1/project_1.srcs/sources_1/imports/project2_release_r0/nexys4fpga_main.v:213]
-WARNING: [Synth 8-3295] tying undriven pin BOT:vid_col[7] to constant 0 [C:/540_proj2/project2_release_r0/project_1/project_1.srcs/sources_1/imports/project2_release_r0/nexys4fpga_main.v:213]
-WARNING: [Synth 8-3295] tying undriven pin BOT:vid_col[6] to constant 0 [C:/540_proj2/project2_release_r0/project_1/project_1.srcs/sources_1/imports/project2_release_r0/nexys4fpga_main.v:213]
-WARNING: [Synth 8-3295] tying undriven pin BOT:vid_col[5] to constant 0 [C:/540_proj2/project2_release_r0/project_1/project_1.srcs/sources_1/imports/project2_release_r0/nexys4fpga_main.v:213]
-WARNING: [Synth 8-3295] tying undriven pin BOT:vid_col[4] to constant 0 [C:/540_proj2/project2_release_r0/project_1/project_1.srcs/sources_1/imports/project2_release_r0/nexys4fpga_main.v:213]
-WARNING: [Synth 8-3295] tying undriven pin BOT:vid_col[3] to constant 0 [C:/540_proj2/project2_release_r0/project_1/project_1.srcs/sources_1/imports/project2_release_r0/nexys4fpga_main.v:213]
-WARNING: [Synth 8-3295] tying undriven pin BOT:vid_col[2] to constant 0 [C:/540_proj2/project2_release_r0/project_1/project_1.srcs/sources_1/imports/project2_release_r0/nexys4fpga_main.v:213]
-WARNING: [Synth 8-3295] tying undriven pin BOT:vid_col[1] to constant 0 [C:/540_proj2/project2_release_r0/project_1/project_1.srcs/sources_1/imports/project2_release_r0/nexys4fpga_main.v:213]
-WARNING: [Synth 8-3295] tying undriven pin BOT:vid_col[0] to constant 0 [C:/540_proj2/project2_release_r0/project_1/project_1.srcs/sources_1/imports/project2_release_r0/nexys4fpga_main.v:213]
+WARNING: [Synth 8-3295] tying undriven pin BOT:vid_row[9] to constant 0 [C:/540_proj2/project2_release_r0/project_1/project_1.srcs/sources_1/imports/project2_release_r0/nexys4fpga_main.v:214]
+WARNING: [Synth 8-3295] tying undriven pin BOT:vid_row[8] to constant 0 [C:/540_proj2/project2_release_r0/project_1/project_1.srcs/sources_1/imports/project2_release_r0/nexys4fpga_main.v:214]
+WARNING: [Synth 8-3295] tying undriven pin BOT:vid_row[7] to constant 0 [C:/540_proj2/project2_release_r0/project_1/project_1.srcs/sources_1/imports/project2_release_r0/nexys4fpga_main.v:214]
+WARNING: [Synth 8-3295] tying undriven pin BOT:vid_row[6] to constant 0 [C:/540_proj2/project2_release_r0/project_1/project_1.srcs/sources_1/imports/project2_release_r0/nexys4fpga_main.v:214]
+WARNING: [Synth 8-3295] tying undriven pin BOT:vid_row[5] to constant 0 [C:/540_proj2/project2_release_r0/project_1/project_1.srcs/sources_1/imports/project2_release_r0/nexys4fpga_main.v:214]
+WARNING: [Synth 8-3295] tying undriven pin BOT:vid_row[4] to constant 0 [C:/540_proj2/project2_release_r0/project_1/project_1.srcs/sources_1/imports/project2_release_r0/nexys4fpga_main.v:214]
+WARNING: [Synth 8-3295] tying undriven pin BOT:vid_row[3] to constant 0 [C:/540_proj2/project2_release_r0/project_1/project_1.srcs/sources_1/imports/project2_release_r0/nexys4fpga_main.v:214]
+WARNING: [Synth 8-3295] tying undriven pin BOT:vid_row[2] to constant 0 [C:/540_proj2/project2_release_r0/project_1/project_1.srcs/sources_1/imports/project2_release_r0/nexys4fpga_main.v:214]
+WARNING: [Synth 8-3295] tying undriven pin BOT:vid_row[1] to constant 0 [C:/540_proj2/project2_release_r0/project_1/project_1.srcs/sources_1/imports/project2_release_r0/nexys4fpga_main.v:214]
+WARNING: [Synth 8-3295] tying undriven pin BOT:vid_row[0] to constant 0 [C:/540_proj2/project2_release_r0/project_1/project_1.srcs/sources_1/imports/project2_release_r0/nexys4fpga_main.v:214]
+WARNING: [Synth 8-3295] tying undriven pin BOT:vid_col[9] to constant 0 [C:/540_proj2/project2_release_r0/project_1/project_1.srcs/sources_1/imports/project2_release_r0/nexys4fpga_main.v:214]
+WARNING: [Synth 8-3295] tying undriven pin BOT:vid_col[8] to constant 0 [C:/540_proj2/project2_release_r0/project_1/project_1.srcs/sources_1/imports/project2_release_r0/nexys4fpga_main.v:214]
+WARNING: [Synth 8-3295] tying undriven pin BOT:vid_col[7] to constant 0 [C:/540_proj2/project2_release_r0/project_1/project_1.srcs/sources_1/imports/project2_release_r0/nexys4fpga_main.v:214]
+WARNING: [Synth 8-3295] tying undriven pin BOT:vid_col[6] to constant 0 [C:/540_proj2/project2_release_r0/project_1/project_1.srcs/sources_1/imports/project2_release_r0/nexys4fpga_main.v:214]
+WARNING: [Synth 8-3295] tying undriven pin BOT:vid_col[5] to constant 0 [C:/540_proj2/project2_release_r0/project_1/project_1.srcs/sources_1/imports/project2_release_r0/nexys4fpga_main.v:214]
+WARNING: [Synth 8-3295] tying undriven pin BOT:vid_col[4] to constant 0 [C:/540_proj2/project2_release_r0/project_1/project_1.srcs/sources_1/imports/project2_release_r0/nexys4fpga_main.v:214]
+WARNING: [Synth 8-3295] tying undriven pin BOT:vid_col[3] to constant 0 [C:/540_proj2/project2_release_r0/project_1/project_1.srcs/sources_1/imports/project2_release_r0/nexys4fpga_main.v:214]
+WARNING: [Synth 8-3295] tying undriven pin BOT:vid_col[2] to constant 0 [C:/540_proj2/project2_release_r0/project_1/project_1.srcs/sources_1/imports/project2_release_r0/nexys4fpga_main.v:214]
+WARNING: [Synth 8-3295] tying undriven pin BOT:vid_col[1] to constant 0 [C:/540_proj2/project2_release_r0/project_1/project_1.srcs/sources_1/imports/project2_release_r0/nexys4fpga_main.v:214]
+WARNING: [Synth 8-3295] tying undriven pin BOT:vid_col[0] to constant 0 [C:/540_proj2/project2_release_r0/project_1/project_1.srcs/sources_1/imports/project2_release_r0/nexys4fpga_main.v:214]
 INFO: [Netlist 29-17] Analyzing 304 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 Loading clock regions from C:/Xilinx/Vivado/2014.2/data\parts/xilinx/artix7/artix7/xc7a100t/ClockRegion.xml
@@ -663,10 +663,8 @@ Loading device configuration modes from C:/Xilinx/Vivado/2014.2/data\parts/xilin
 
 Processing XDC Constraints
 Parsing XDC File [C:/540_proj2/project2_release_r0/project_1/project_1.srcs/constrs_1/imports/constraints/nexys4fpga_novideo.xdc]
-WARNING: [Vivado 12-584] No ports matched 'dp'. [C:/540_proj2/project2_release_r0/project_1/project_1.srcs/constrs_1/imports/constraints/nexys4fpga_novideo.xdc:161]
-WARNING: [Vivado 12-584] No ports matched 'dp'. [C:/540_proj2/project2_release_r0/project_1/project_1.srcs/constrs_1/imports/constraints/nexys4fpga_novideo.xdc:162]
+CRITICAL WARNING: [Common 17-69] Command failed: Site cannot be assigned to more than one port [C:/540_proj2/project2_release_r0/project_1/project_1.srcs/constrs_1/imports/constraints/nexys4fpga_novideo.xdc:161]
 Finished Parsing XDC File [C:/540_proj2/project2_release_r0/project_1/project_1.srcs/constrs_1/imports/constraints/nexys4fpga_novideo.xdc]
-WARNING: [Project 1-498] One or more constraints failed evaluation while reading constraint file [C:/540_proj2/project2_release_r0/project_1/project_1.srcs/constrs_1/imports/constraints/nexys4fpga_novideo.xdc] and the design contains unresolved black boxes. These constraints will be read post-synthesis (as long as their source constraint file is marked as used_in_implementation) and should be applied correctly then. You should review the constraints listed in the file [.Xil/nexys4fpga_main_propImpl.xdc] and check the run log file to verify that these constraints were correctly applied.
 Completed Processing XDC Constraints
 
 INFO: [Project 1-111] Unisim Transformation Summary:
@@ -685,16 +683,16 @@ Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7a100tcsg324-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:01:03 ; elapsed = 00:01:21 . Memory (MB): peak = 479.273 ; gain = 350.277
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:54 ; elapsed = 00:01:16 . Memory (MB): peak = 475.945 ; gain = 347.586
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:01:05 ; elapsed = 00:01:24 . Memory (MB): peak = 479.273 ; gain = 350.277
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:57 ; elapsed = 00:01:19 . Memory (MB): peak = 475.945 ; gain = 347.586
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization : Time (s): cpu = 00:01:05 ; elapsed = 00:01:24 . Memory (MB): peak = 479.273 ; gain = 350.277
+Finished RTL Optimization : Time (s): cpu = 00:00:57 ; elapsed = 00:01:19 . Memory (MB): peak = 475.945 ; gain = 347.586
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-802] inferred FSM for state register 'an_reg' in module 'sevensegment'
 INFO: [Synth 8-3354] encoded FSM with state register 'an_reg' using encoding 'one-hot' in module 'sevensegment'
@@ -716,7 +714,7 @@ Detailed RTL Component Info :
 	               32 Bit    Registers := 2     
 	               16 Bit    Registers := 3     
 	               14 Bit    Registers := 2     
-	                8 Bit    Registers := 29    
+	                8 Bit    Registers := 30    
 	                6 Bit    Registers := 1     
 	                5 Bit    Registers := 16    
 	                4 Bit    Registers := 22    
@@ -725,18 +723,19 @@ Detailed RTL Component Info :
 	   2 Input     32 Bit        Muxes := 2     
 	   2 Input     18 Bit        Muxes := 1     
 	   3 Input     16 Bit        Muxes := 1     
-	   2 Input     16 Bit        Muxes := 3     
 	  16 Input     16 Bit        Muxes := 1     
+	   2 Input     16 Bit        Muxes := 3     
 	   8 Input      9 Bit        Muxes := 1     
+	  11 Input      8 Bit        Muxes := 1     
+	   2 Input      8 Bit        Muxes := 3     
+	  16 Input      8 Bit        Muxes := 1     
+	   3 Input      8 Bit        Muxes := 1     
 	  13 Input      8 Bit        Muxes := 1     
 	   9 Input      8 Bit        Muxes := 2     
-	  11 Input      8 Bit        Muxes := 1     
-	   2 Input      4 Bit        Muxes := 6     
-	  16 Input      4 Bit        Muxes := 2     
-	  16 Input      2 Bit        Muxes := 1     
+	  16 Input      2 Bit        Muxes := 2     
 	   3 Input      1 Bit        Muxes := 22    
-	  16 Input      1 Bit        Muxes := 20    
 	   2 Input      1 Bit        Muxes := 32    
+	  16 Input      1 Bit        Muxes := 20    
 ---------------------------------------------------------------------------------
 Finished RTL Component Statistics 
 ---------------------------------------------------------------------------------
@@ -807,19 +806,20 @@ Module nexys4_bot_if
 Detailed RTL Component Info : 
 +---Registers : 
 	               16 Bit    Registers := 2     
-	                8 Bit    Registers := 4     
+	                8 Bit    Registers := 5     
 	                5 Bit    Registers := 16    
 	                1 Bit    Registers := 1     
 +---Muxes : 
-	   3 Input     16 Bit        Muxes := 1     
 	   2 Input     16 Bit        Muxes := 3     
 	  16 Input     16 Bit        Muxes := 1     
+	   3 Input     16 Bit        Muxes := 1     
+	  16 Input      8 Bit        Muxes := 1     
+	   2 Input      8 Bit        Muxes := 3     
 	  13 Input      8 Bit        Muxes := 1     
-	   2 Input      4 Bit        Muxes := 6     
-	  16 Input      4 Bit        Muxes := 2     
-	  16 Input      2 Bit        Muxes := 1     
-	   2 Input      1 Bit        Muxes := 9     
+	   3 Input      8 Bit        Muxes := 1     
+	  16 Input      2 Bit        Muxes := 2     
 	  16 Input      1 Bit        Muxes := 9     
+	   2 Input      1 Bit        Muxes := 9     
 ---------------------------------------------------------------------------------
 Finished RTL Hierarchical Component Statistics
 ---------------------------------------------------------------------------------
@@ -832,7 +832,7 @@ BRAMs: 270 (col length: RAMB18 80 RAMB36 40)
 ---------------------------------------------------------------------------------
 Finished Part Resource Summary
 ---------------------------------------------------------------------------------
-Workers Ready, Starting Parallel Section  : Time (s): cpu = 00:01:09 ; elapsed = 00:01:27 . Memory (MB): peak = 487.387 ; gain = 358.391
+Workers Ready, Starting Parallel Section  : Time (s): cpu = 00:01:00 ; elapsed = 00:01:22 . Memory (MB): peak = 485.594 ; gain = 357.234
 ---------------------------------------------------------------------------------
 Start Cross Boundary Optimization
 ---------------------------------------------------------------------------------
@@ -843,9 +843,9 @@ WARNING: [Synth 8-3917] design nexys4fpga_main has port JA[2] driven by constant
 WARNING: [Synth 8-3917] design nexys4fpga_main has port JA[1] driven by constant 0
 WARNING: [Synth 8-3917] design nexys4fpga_main has port JA[0] driven by constant 0
 ---------------------------------------------------------------------------------
-Finished Cross Boundary Optimization : Time (s): cpu = 00:01:13 ; elapsed = 00:01:32 . Memory (MB): peak = 487.797 ; gain = 358.801
+Finished Cross Boundary Optimization : Time (s): cpu = 00:01:03 ; elapsed = 00:01:26 . Memory (MB): peak = 486.090 ; gain = 357.730
 ---------------------------------------------------------------------------------
-Finished Parallel Reinfer  : Time (s): cpu = 00:01:13 ; elapsed = 00:01:32 . Memory (MB): peak = 487.797 ; gain = 358.801
+Finished Parallel Reinfer  : Time (s): cpu = 00:01:03 ; elapsed = 00:01:26 . Memory (MB): peak = 486.090 ; gain = 357.730
 ---------------------------------------------------------------------------------
 Start RAM, DSP and Shift Register Reporting
 ---------------------------------------------------------------------------------
@@ -875,11 +875,13 @@ Finished RAM, DSP and Shift Register Reporting
 ---------------------------------------------------------------------------------
 Start Area Optimization
 ---------------------------------------------------------------------------------
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\BOT/BOTSIMCPU/sync_sleep_flop )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\BOT/BOTSIMCPU/sync_interrupt_flop )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\BOT_IF/interrupt_reg )
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (\processor/sync_sleep_flop )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\BOT/BOTSIMCPU/sync_sleep_flop )
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (\PROJ2DEMO/instantiate_loader.jtag_loader_6_inst/jtag_loader_gen.control_dout_int_reg[5] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\BOT/BOTSIMCPU/sync_interrupt_flop )
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (SSBi_0/\SSB/FSM_onehot_an_reg[0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\processor/sync_interrupt_flop )
 WARNING: [Synth 8-3332] Sequential element (\SSB/FSM_onehot_an_reg[0] ) is unused and will be removed from module nexys4fpga_main.
 WARNING: [Synth 8-3332] Sequential element (\SSB/seg_reg[7] ) is unused and will be removed from module nexys4fpga_main.
 WARNING: [Synth 8-3332] Sequential element (\SSB/Digit0/seg_reg[7] ) is unused and will be removed from module nexys4fpga_main.
@@ -891,6 +893,7 @@ WARNING: [Synth 8-3332] Sequential element (\SSB/Digit5/seg_reg[7] ) is unused a
 WARNING: [Synth 8-3332] Sequential element (\SSB/Digit6/seg_reg[7] ) is unused and will be removed from module nexys4fpga_main.
 WARNING: [Synth 8-3332] Sequential element (\SSB/Digit7/seg_reg[7] ) is unused and will be removed from module nexys4fpga_main.
 WARNING: [Synth 8-3332] Sequential element (\processor/sync_sleep_flop ) is unused and will be removed from module nexys4fpga_main.
+WARNING: [Synth 8-3332] Sequential element (\processor/sync_interrupt_flop ) is unused and will be removed from module nexys4fpga_main.
 WARNING: [Synth 8-3332] Sequential element (\processor/interrupt_ack_flop ) is unused and will be removed from module nexys4fpga_main.
 WARNING: [Synth 8-3332] Sequential element (\processor/k_write_strobe_flop ) is unused and will be removed from module nexys4fpga_main.
 WARNING: [Synth 8-3332] Sequential element (\processor/read_strobe_flop ) is unused and will be removed from module nexys4fpga_main.
@@ -920,29 +923,13 @@ WARNING: [Synth 8-3332] Sequential element (\BOT/WRLDIF/RMDist_reg[3] ) is unuse
 WARNING: [Synth 8-3332] Sequential element (\BOT/WRLDIF/RMDist_reg[2] ) is unused and will be removed from module nexys4fpga_main.
 WARNING: [Synth 8-3332] Sequential element (\BOT/WRLDIF/RMDist_reg[1] ) is unused and will be removed from module nexys4fpga_main.
 WARNING: [Synth 8-3332] Sequential element (\BOT/WRLDIF/RMDist_reg[0] ) is unused and will be removed from module nexys4fpga_main.
-WARNING: [Synth 8-3332] Sequential element (\BOT/WRLDIF/upd_sysregs_reg ) is unused and will be removed from module nexys4fpga_main.
 WARNING: [Synth 8-3332] Sequential element (\BOT/WRLDIF/load_dist_regs_reg ) is unused and will be removed from module nexys4fpga_main.
-WARNING: [Synth 8-3332] Sequential element (\BOT_IF/dp_reg[7] ) is unused and will be removed from module nexys4fpga_main.
-WARNING: [Synth 8-3332] Sequential element (\BOT_IF/dp_reg[6] ) is unused and will be removed from module nexys4fpga_main.
-WARNING: [Synth 8-3332] Sequential element (\BOT_IF/dp_reg[5] ) is unused and will be removed from module nexys4fpga_main.
-WARNING: [Synth 8-3332] Sequential element (\BOT_IF/dp_reg[4] ) is unused and will be removed from module nexys4fpga_main.
-WARNING: [Synth 8-3332] Sequential element (\BOT_IF/dp_reg[3] ) is unused and will be removed from module nexys4fpga_main.
-WARNING: [Synth 8-3332] Sequential element (\BOT_IF/dp_reg[2] ) is unused and will be removed from module nexys4fpga_main.
-WARNING: [Synth 8-3332] Sequential element (\BOT_IF/dp_reg[1] ) is unused and will be removed from module nexys4fpga_main.
-WARNING: [Synth 8-3332] Sequential element (\BOT_IF/dp_reg[0] ) is unused and will be removed from module nexys4fpga_main.
-WARNING: [Synth 8-3332] Sequential element (\BOT_IF/dp_reg[3]__0 ) is unused and will be removed from module nexys4fpga_main.
-WARNING: [Synth 8-3332] Sequential element (\BOT_IF/dp_reg[2]__0 ) is unused and will be removed from module nexys4fpga_main.
-WARNING: [Synth 8-3332] Sequential element (\BOT_IF/dp_reg[1]__0 ) is unused and will be removed from module nexys4fpga_main.
-WARNING: [Synth 8-3332] Sequential element (\BOT_IF/dp_reg[0]__0 ) is unused and will be removed from module nexys4fpga_main.
-WARNING: [Synth 8-3332] Sequential element (\BOT_IF/dp_int_reg[7] ) is unused and will be removed from module nexys4fpga_main.
-WARNING: [Synth 8-3332] Sequential element (\BOT_IF/dp_int_reg[6] ) is unused and will be removed from module nexys4fpga_main.
-WARNING: [Synth 8-3332] Sequential element (\BOT_IF/dp_int_reg[5] ) is unused and will be removed from module nexys4fpga_main.
-WARNING: [Synth 8-3332] Sequential element (\BOT_IF/dp_int_reg[4] ) is unused and will be removed from module nexys4fpga_main.
+WARNING: [Synth 8-3332] Sequential element (\BOT_IF/interrupt_reg ) is unused and will be removed from module nexys4fpga_main.
 ---------------------------------------------------------------------------------
-Finished Area Optimization : Time (s): cpu = 00:01:18 ; elapsed = 00:01:37 . Memory (MB): peak = 506.484 ; gain = 377.488
+Finished Area Optimization : Time (s): cpu = 00:01:08 ; elapsed = 00:01:31 . Memory (MB): peak = 505.039 ; gain = 376.680
 ---------------------------------------------------------------------------------
-Finished Parallel Area Opt  : Time (s): cpu = 00:01:18 ; elapsed = 00:01:37 . Memory (MB): peak = 506.484 ; gain = 377.488
-Finished Parallel Section  : Time (s): cpu = 00:01:18 ; elapsed = 00:01:37 . Memory (MB): peak = 506.484 ; gain = 377.488
+Finished Parallel Area Opt  : Time (s): cpu = 00:01:08 ; elapsed = 00:01:31 . Memory (MB): peak = 505.039 ; gain = 376.680
+Finished Parallel Section  : Time (s): cpu = 00:01:08 ; elapsed = 00:01:31 . Memory (MB): peak = 505.039 ; gain = 376.680
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
@@ -950,10 +937,10 @@ Start Timing Optimization
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:02:16 ; elapsed = 00:02:36 . Memory (MB): peak = 549.332 ; gain = 420.336
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:01:55 ; elapsed = 00:02:21 . Memory (MB): peak = 548.918 ; gain = 420.559
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:02:17 ; elapsed = 00:02:37 . Memory (MB): peak = 550.477 ; gain = 421.480
+Finished Timing Optimization : Time (s): cpu = 00:01:56 ; elapsed = 00:02:22 . Memory (MB): peak = 550.000 ; gain = 421.641
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Technology Mapping
@@ -973,7 +960,7 @@ WARNING: [Synth 8-3332] Sequential element (\BOT/MAP/vid_addr_reg[2] ) is unused
 WARNING: [Synth 8-3332] Sequential element (\BOT/MAP/vid_addr_reg[1] ) is unused and will be removed from module nexys4fpga_main.
 WARNING: [Synth 8-3332] Sequential element (\BOT/MAP/vid_addr_reg[0] ) is unused and will be removed from module nexys4fpga_main.
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:02:20 ; elapsed = 00:02:39 . Memory (MB): peak = 566.719 ; gain = 437.723
+Finished Technology Mapping : Time (s): cpu = 00:01:59 ; elapsed = 00:02:25 . Memory (MB): peak = 565.039 ; gain = 436.680
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start IO Insertion
@@ -990,9 +977,8 @@ Start Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
-WARNING: [Synth 8-3295] tying undriven pin \processor/sync_interrupt_flop :D to constant 0
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:02:22 ; elapsed = 00:02:42 . Memory (MB): peak = 566.719 ; gain = 437.723
+Finished IO Insertion : Time (s): cpu = 00:02:00 ; elapsed = 00:02:27 . Memory (MB): peak = 565.039 ; gain = 436.680
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -1005,13 +991,13 @@ Report Check Netlist:
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:02:22 ; elapsed = 00:02:42 . Memory (MB): peak = 566.719 ; gain = 437.723
+Finished Renaming Generated Instances : Time (s): cpu = 00:02:01 ; elapsed = 00:02:27 . Memory (MB): peak = 565.039 ; gain = 436.680
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:02:23 ; elapsed = 00:02:42 . Memory (MB): peak = 566.719 ; gain = 437.723
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:02:01 ; elapsed = 00:02:28 . Memory (MB): peak = 565.039 ; gain = 436.680
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start RAM, DSP and Shift Register Reporting
@@ -1039,11 +1025,11 @@ Report Cell Usage:
 |3     |BUFG      |     2|
 |4     |CARRY4    |    16|
 |5     |LUT1      |    68|
-|6     |LUT2      |    36|
-|7     |LUT3      |     6|
+|6     |LUT2      |    37|
+|7     |LUT3      |    28|
 |8     |LUT4      |    15|
-|9     |LUT5      |   136|
-|10    |LUT6      |   158|
+|9     |LUT5      |   135|
+|10    |LUT6      |   140|
 |11    |LUT6_2    |   100|
 |12    |MUXCY     |    58|
 |13    |MUXF7     |     7|
@@ -1052,27 +1038,27 @@ Report Cell Usage:
 |16    |RAMB18E1  |     1|
 |17    |RAMB36E1  |     1|
 |18    |XORCY     |    54|
-|19    |FD        |    91|
+|19    |FD        |    90|
 |20    |FDR       |    36|
-|21    |FDRE      |   563|
+|21    |FDRE      |   580|
 |22    |FDSE      |     1|
 |23    |IBUF      |    23|
-|24    |OBUF      |    39|
+|24    |OBUF      |    47|
 +------+----------+------+
 
 Report Instance Areas: 
 +------+--------------------------------------------+--------------+------+
 |      |Instance                                    |Module        |Cells |
 +------+--------------------------------------------+--------------+------+
-|1     |top                                         |              |  1428|
-|2     |  BOT                                       |bot           |   395|
+|1     |top                                         |              |  1456|
+|2     |  BOT                                       |bot           |   387|
 |3     |    BOTSIMCPU                               |kcpsm6_7      |   218|
-|4     |    BOTSIMPGM                               |bot_pgm       |    48|
+|4     |    BOTSIMPGM                               |bot_pgm       |    29|
 |5     |    MAP                                     |map           |    18|
-|6     |    WRLDIF                                  |world_if      |   111|
-|7     |  BOT_IF                                    |nexys4_bot_if |   136|
+|6     |    WRLDIF                                  |world_if      |   122|
+|7     |  BOT_IF                                    |nexys4_bot_if |   152|
 |8     |  DB                                        |debounce      |   212|
-|9     |  PROJ2DEMO                                 |proj2demo     |   107|
+|9     |  PROJ2DEMO                                 |proj2demo     |   114|
 |10    |    \instantiate_loader.jtag_loader_6_inst  |jtag_loader_6 |    64|
 |11    |  SSB                                       |sevensegment  |   294|
 |12    |    Digit0                                  |Digit         |    21|
@@ -1083,36 +1069,36 @@ Report Instance Areas:
 |17    |    Digit5                                  |Digit_4       |    21|
 |18    |    Digit6                                  |Digit_5       |    14|
 |19    |    Digit7                                  |Digit_6       |    14|
-|20    |  processor                                 |kcpsm6        |   221|
+|20    |  processor                                 |kcpsm6        |   226|
 +------+--------------------------------------------+--------------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:02:23 ; elapsed = 00:02:42 . Memory (MB): peak = 566.719 ; gain = 437.723
+Finished Writing Synthesis Report : Time (s): cpu = 00:02:01 ; elapsed = 00:02:28 . Memory (MB): peak = 565.039 ; gain = 436.680
 ---------------------------------------------------------------------------------
-Synthesis finished with 0 errors, 0 critical warnings and 81 warnings.
-Synthesis Optimization Complete : Time (s): cpu = 00:02:23 ; elapsed = 00:02:43 . Memory (MB): peak = 566.719 ; gain = 437.723
+Synthesis finished with 0 errors, 0 critical warnings and 65 warnings.
+Synthesis Optimization Complete : Time (s): cpu = 00:02:01 ; elapsed = 00:02:28 . Memory (MB): peak = 565.039 ; gain = 436.680
 Reading core file 'C:/540_proj2/project2_release_r0/project_1/project_1.srcs/sources_1/imports/world_map_part1/world_map.ngc' for (cell view 'world_map', library 'work')
 Parsing EDIF File [./.ngc2edfcache/world_map_ngc_1d25125e.edif]
 Finished Parsing EDIF File [./.ngc2edfcache/world_map_ngc_1d25125e.edif]
-INFO: [Netlist 29-17] Analyzing 335 Unisim elements for replacement
+INFO: [Netlist 29-17] Analyzing 334 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-479] Netlist was created with Xilinx ngc2edif P.20140520
 INFO: [Opt 31-140] Inserted 0 IBUFs to IO ports without IO buffers.
 INFO: [Opt 31-141] Inserted 0 OBUFs to IO ports without IO buffers.
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
 INFO: [Project 1-111] Unisim Transformation Summary:
-  A total of 259 instances were transformed.
+  A total of 258 instances were transformed.
   (MUXCY,XORCY) => CARRY4: 20 instances
-  FD => FDRE: 91 instances
+  FD => FDRE: 90 instances
   FDR => FDRE: 36 instances
   LUT6_2 => LUT6_2 (LUT5, LUT6): 100 instances
   RAM32M => RAM32M (RAMD32, RAMD32, RAMD32, RAMD32, RAMD32, RAMD32, RAMS32, RAMS32): 8 instances
   RAM64M => RAM64M (RAMD64E, RAMD64E, RAMD64E, RAMD64E): 4 instances
 
 INFO: [Common 17-83] Releasing license: Synthesis
-161 Infos, 114 Warnings, 0 Critical Warnings and 0 Errors encountered.
+163 Infos, 95 Warnings, 1 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:02:25 ; elapsed = 00:02:43 . Memory (MB): peak = 572.434 ; gain = 401.055
+synth_design: Time (s): cpu = 00:02:03 ; elapsed = 00:02:27 . Memory (MB): peak = 572.184 ; gain = 400.254
 # write_checkpoint nexys4fpga_main.dcp
 # report_utilization -file nexys4fpga_main_utilization_synth.rpt -pb nexys4fpga_main_utilization_synth.pb
-report_utilization: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.228 . Memory (MB): peak = 572.434 ; gain = 0.000
-INFO: [Common 17-206] Exiting Vivado at Tue Oct 21 16:09:16 2014...
+report_utilization: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.303 . Memory (MB): peak = 572.184 ; gain = 0.000
+INFO: [Common 17-206] Exiting Vivado at Thu Oct 23 10:31:08 2014...

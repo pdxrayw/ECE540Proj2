@@ -13,7 +13,7 @@ module nexys4fpga_main (
 	output [15:0] led,    // LED outputs
     //output reg [4:0]    digi7,digi6,digi5,digi4,digi3,digi2,digi1,digi0,
 	output [6:0] seg,	// Seven segment display cathode pins
-	//output [7:0] dp,          //decimal point
+	output [7:0] dp,          //decimal point
 	output [7:0] an,	// Seven segment display anode pins	
 	output [7:0] JA		// JA Header
     //output      rdl
@@ -44,7 +44,7 @@ module nexys4fpga_main (
 						dig3, dig2, 
 						dig1, dig0;				// display digits
     wire    [4:0]       dig7;                   
-	wire 	[7:0]		dpts;					// decimal points
+	//wire 	[7:0]		dpts;					// decimal points
 	wire 	[15:0]		chase_segs;				// chase segments from Rojobot (debug)
 	
 	wire    [7:0]       segs_int;              // sevensegment module the segments and the decimal point
@@ -119,6 +119,7 @@ wire 	[7:0]		wrld_col_addr,		// column address to map logic
 	assign	sysclk = clk;
 	assign 	sysreset = db_btns[0]; // btnCpuReset is asserted low
 	
+   // assign dpts = dp;
 	//assign dp = segs_int[7];  //decimal point wire
 	assign seg = segs_int[6:0]; //7 seg wire
     //assign led_w = led;
@@ -170,7 +171,7 @@ wire 	[7:0]		wrld_col_addr,		// column address to map logic
 		.d5(dig5),
 		.d6(dig6),
 		.d7(dig7),
-		.dp(dpts),
+		.dp(dp),
 		
 		// outputs to seven segment display
 		.seg(segs_int),			
@@ -265,7 +266,7 @@ nexys4_bot_if BOT_IF(
     .dig2(dig2), 
     .dig1(dig1), 
     .dig0(dig0), //7 seg display to sevenseg.v
-    .dp(dpts),  //decimal point out to sevenseg.v   
+    .dp(dp),  //decimal point out to sevenseg.v   
     .interrupt(interrupt)		
 );
 

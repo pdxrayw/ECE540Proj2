@@ -82,7 +82,7 @@
       <File Path="$PSRCDIR/sources_1/imports/project2_release_r0/nexys4_bot_if.v">
         <FileInfo>
           <Attr Name="ImportPath" Val="$PPRDIR/../nexys4_bot_if.v"/>
-          <Attr Name="ImportTime" Val="1413932752"/>
+          <Attr Name="ImportTime" Val="1414078425"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -118,7 +118,7 @@
       <File Path="$PSRCDIR/sources_1/imports/project2_release_r0/nexys4fpga_main.v">
         <FileInfo>
           <Attr Name="ImportPath" Val="$PPRDIR/../nexys4fpga_main.v"/>
-          <Attr Name="ImportTime" Val="1413932762"/>
+          <Attr Name="ImportTime" Val="1414085292"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -164,6 +164,15 @@
     </FileSet>
     <FileSet Name="sim_1" Type="SimulationSrcs" RelSrcDir="$PSRCDIR/sim_1">
       <Filter Type="Srcs"/>
+      <File Path="$PSRCDIR/sim_1/imports/project2_release_r0/tb.v">
+        <FileInfo>
+          <Attr Name="ImportPath" Val="$PPRDIR/../tb.v"/>
+          <Attr Name="ImportTime" Val="1412620474"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
       <Config>
         <Option Name="DesignMode" Val="RTL"/>
         <Option Name="TopModule" Val="nexys4fpga_main"/>

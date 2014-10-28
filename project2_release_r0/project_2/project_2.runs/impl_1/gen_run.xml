@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GenRun Id="impl_1" LaunchPart="xc7a100tcsg324-1" LaunchTime="1414465144">
+  <File Type="RUN-CONSTRS" Name="$PDATADIR/runs/impl_1/constrs_in.xml"/>
+  <File Type="PWROPT-DCP" Name="nexys4fpga_main_pwropt.dcp"/>
+  <File Type="RUN-STRAT" Name="$PDATADIR/runs/impl_1/impl_1.psg"/>
+  <File Type="OPT-DRC" Name="nexys4fpga_main_drc_opted.rpt"/>
+  <File Type="ROUTE-TIMING-PB" Name="nexys4fpga_main_timing_summary_routed.pb"/>
+  <File Type="PA-TCL" Name="nexys4fpga_main.tcl"/>
+  <File Type="OPT-DCP" Name="nexys4fpga_main_opt.dcp"/>
+  <File Type="PWROPT-DRC" Name="nexys4fpga_main_drc_pwropted.rpt"/>
+  <File Type="PLACE-DCP" Name="nexys4fpga_main_placed.dcp"/>
+  <File Type="PLACE-IO" Name="nexys4fpga_main_io_placed.rpt"/>
+  <File Type="PLACE-CLK" Name="nexys4fpga_main_clock_utilization_placed.rpt"/>
+  <File Type="PLACE-UTIL" Name="nexys4fpga_main_utilization_placed.rpt"/>
+  <File Type="PLACE-UTIL-PB" Name="nexys4fpga_main_utilization_placed.pb"/>
+  <File Type="PLACE-CTRL" Name="nexys4fpga_main_control_sets_placed.rpt"/>
+  <File Type="PLACE-SIMILARITY" Name="nexys4fpga_main_incremental_reuse_placed.rpt"/>
+  <File Type="PLACE-PRE-SIMILARITY" Name="nexys4fpga_main_incremental_reuse_pre_placed.rpt"/>
+  <File Type="POSTPLACE-PWROPT-DCP" Name="nexys4fpga_main_postplace_pwropt.dcp"/>
+  <File Type="PHYSOPT-DCP" Name="nexys4fpga_main_physopt.dcp"/>
+  <File Type="PHYSOPT-DRC" Name="nexys4fpga_main_drc_physopted.rpt"/>
+  <File Type="ROUTE-DCP" Name="nexys4fpga_main_routed.dcp"/>
+  <File Type="ROUTE-DRC" Name="nexys4fpga_main_drc_routed.rpt"/>
+  <File Type="ROUTE-DRC-PB" Name="nexys4fpga_main_drc_routed.pb"/>
+  <File Type="ROUTE-PWR" Name="nexys4fpga_main_power_routed.rpt"/>
+  <File Type="ROUTE-PWR-SUM" Name="nexys4fpga_main_power_summary_routed.pb"/>
+  <File Type="ROUTE-STATUS" Name="nexys4fpga_main_route_status.rpt"/>
+  <File Type="ROUTE-STATUS-PB" Name="nexys4fpga_main_route_status.pb"/>
+  <File Type="ROUTE-TIMINGSUMMARY" Name="nexys4fpga_main_timing_summary_routed.rpt"/>
+  <File Type="ROUTE-SIMILARITY" Name="nexys4fpga_main_incremental_reuse_routed.rpt"/>
+  <File Type="POSTROUTE-PHYSOPT-DCP" Name="nexys4fpga_main_postroute_physopt.dcp"/>
+  <File Type="POSTROUTE-PHYSOPT-TIMING" Name="nexys4fpga_main_timing_summary_postroute_physopted.rpt"/>
+  <File Type="RDI-RDI" Name="nexys4fpga_main.vdi"/>
+  <File Type="POSTROUTE-PHYSOPT-TIMING-PB" Name="nexys4fpga_main_timing_summary_postroute_physopted.pb"/>
+  <File Type="BG-BIT" Name="nexys4fpga_main.bit"/>
+  <File Type="BG-BIN" Name="nexys4fpga_main.bin"/>
+  <File Type="BITSTR-MSK" Name="nexys4fpga_main.msk"/>
+  <File Type="BITSTR-RBT" Name="nexys4fpga_main.rbt"/>
+  <File Type="BITSTR-NKY" Name="nexys4fpga_main.nky"/>
+  <File Type="BITSTR-BMM" Name="nexys4fpga_main_bd.bmm"/>
+  <File Type="BITSTR-MMI" Name="nexys4fpga_main.mmi"/>
+  <File Type="BITSTR-SYSDEF" Name="nexys4fpga_main.sysdef"/>
+  <File Type="BG-BGN" Name="nexys4fpga_main.bgn"/>
+  <File Type="BG-DRC" Name="nexys4fpga_main.drc"/>
+  <File Type="WBT-USG" Name="usage_statistics_webtalk.html"/>
+  <FileSet Name="constrs_in" Type="Constrs" RelSrcDir="$PSRCDIR/constrs_1">
+    <Filter Type="Constrs"/>
+    <File Path="$PSRCDIR/constrs_1/imports/constraints/nexys4fpga_novideo.xdc">
+      <FileInfo>
+        <Attr Name="Library" Val="xil_defaultlib"/>
+        <Attr Name="ImportPath" Val="$PPRDIR/../constraints/nexys4fpga_novideo.xdc"/>
+        <Attr Name="ImportTime" Val="1413388110"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+      </FileInfo>
+    </File>
+    <Config>
+      <Option Name="TargetConstrsFile" Val="$PSRCDIR/constrs_1/imports/constraints/nexys4fpga_novideo.xdc"/>
+      <Option Name="ConstrsType" Val="XDC"/>
+    </Config>
+  </FileSet>
+  <Strategy Version="1" Minor="2">
+    <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2014"/>
+    <Step Id="init_design"/>
+    <Step Id="opt_design"/>
+    <Step Id="power_opt_design"/>
+    <Step Id="place_design"/>
+    <Step Id="post_place_power_opt_design"/>
+    <Step Id="phys_opt_design"/>
+    <Step Id="route_design"/>
+    <Step Id="post_route_phys_opt_design"/>
+    <Step Id="write_bitstream"/>
+  </Strategy>
+</GenRun>

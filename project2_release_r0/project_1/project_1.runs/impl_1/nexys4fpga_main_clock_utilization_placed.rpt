@@ -1,7 +1,7 @@
 Copyright 1986-2014 Xilinx, Inc. All Rights Reserved.
 ---------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2014.2 (win64) Build 932637 Wed Jun 11 13:33:10 MDT 2014
-| Date         : Tue Oct 21 16:11:44 2014
+| Date         : Thu Oct 23 10:33:44 2014
 | Host         : School-idea-PC running 64-bit major release  (build 9200)
 | Command      : report_clock_utilization -file nexys4fpga_main_clock_utilization_placed.rpt
 | Design       : nexys4fpga_main
@@ -21,6 +21,7 @@ Table of Contents
 7. Clock Regions : Key Resource Utilization
 8. Net wise resources used in clock region X1Y1
 9. Net wise resources used in clock region X0Y2
+10. Net wise resources used in clock region X1Y2
 
 1. Clock Primitive Utilization
 ------------------------------
@@ -46,8 +47,8 @@ Table of Contents
 +-------+------------------------------------------------------------------------------+-----------------------------------------------------------+------+-------+-------+---------------+-----------+
 | Index | BUFG Cell                                                                    | Net Name                                                  | BELs | Sites | Fixed | MaxDelay (ns) | Skew (ns) |
 +-------+------------------------------------------------------------------------------+-----------------------------------------------------------+------+-------+-------+---------------+-----------+
-|     1 | PROJ2DEMO/instantiate_loader.jtag_loader_6_inst/jtag_loader_gen.upload_clock | PROJ2DEMO/instantiate_loader.jtag_loader_6_inst/shift_clk |   32 |    12 |    no |         1.882 |     0.162 |
-|     2 | JA_OBUF_BUFG[7]_inst                                                         | JA_OBUF_BUFG[7]                                           |  739 |   232 |    no |         2.865 |     1.201 |
+|     1 | PROJ2DEMO/instantiate_loader.jtag_loader_6_inst/jtag_loader_gen.upload_clock | PROJ2DEMO/instantiate_loader.jtag_loader_6_inst/shift_clk |   32 |    10 |    no |         1.881 |     0.157 |
+|     2 | JA_OBUF_BUFG[7]_inst                                                         | JA_OBUF_BUFG[7]                                           |  756 |   227 |    no |         2.865 |     1.206 |
 +-------+------------------------------------------------------------------------------+-----------------------------------------------------------+------+-------+-------+---------------+-----------+
 
 
@@ -83,9 +84,9 @@ Table of Contents
 | X0Y0              |    0 |    12 |    0 |     4 |    0 |     2 |    0 |     4 |    0 |     1 |    0 |     1 |    0 |     0 |    0 |     0 |    0 |    50 |    0 |    50 |    0 | 20800 |    0 |  2400 |    0 |    20 |    0 |    10 |    0 |    20 |
 | X1Y0              |    0 |    12 |    0 |     0 |    0 |     0 |    0 |     0 |    0 |     0 |    0 |     0 |    0 |     5 |    0 |     0 |    0 |     0 |    0 |     0 |    0 | 12000 |    0 |  2200 |    0 |    40 |    0 |    20 |    0 |    40 |
 | X0Y1              |    0 |    12 |    0 |     4 |    0 |     2 |    0 |     4 |    0 |     1 |    0 |     1 |    0 |     0 |    0 |     0 |    0 |    50 |    0 |    50 |    0 | 16000 |    0 |  2400 |    0 |    20 |    0 |    10 |    0 |    20 |
-| X1Y1              |    2 |    12 |    0 |     4 |    0 |     2 |    0 |     4 |    0 |     1 |    0 |     1 |    0 |     0 |    0 |     0 |    0 |    50 |    0 |    50 |  691 | 15200 |   80 |  2600 |    1 |    60 |    2 |    30 |    0 |    40 |
+| X1Y1              |    2 |    12 |    0 |     4 |    0 |     2 |    0 |     4 |    0 |     1 |    0 |     1 |    0 |     0 |    0 |     0 |    0 |    50 |    0 |    50 |  703 | 15200 |   80 |  2600 |    1 |    60 |    2 |    30 |    0 |    40 |
 | X0Y2              |    1 |    12 |    0 |     4 |    0 |     2 |    0 |     4 |    0 |     1 |    0 |     1 |    0 |     0 |    0 |     0 |    0 |    50 |    0 |    50 |    0 | 16000 |    0 |  2400 |    0 |    20 |    0 |    10 |    0 |    20 |
-| X1Y2              |    0 |    12 |    0 |     4 |    0 |     2 |    0 |     4 |    0 |     1 |    0 |     1 |    0 |     0 |    0 |     0 |    0 |    50 |    0 |    50 |    0 | 15200 |    0 |  2600 |    0 |    60 |    0 |    30 |    0 |    40 |
+| X1Y2              |    1 |    12 |    0 |     4 |    0 |     2 |    0 |     4 |    0 |     1 |    0 |     1 |    0 |     0 |    0 |     0 |    0 |    50 |    0 |    50 |    5 | 15200 |    0 |  2600 |    0 |    60 |    0 |    30 |    0 |    40 |
 | X0Y3              |    0 |    12 |    0 |     4 |    0 |     2 |    0 |     4 |    0 |     1 |    0 |     1 |    0 |     0 |    0 |     0 |    0 |    50 |    0 |    50 |    0 | 20800 |    0 |  2400 |    0 |    20 |    0 |    10 |    0 |    20 |
 | X1Y3              |    0 |    12 |    0 |     0 |    0 |     0 |    0 |     0 |    0 |     0 |    0 |     0 |    0 |     5 |    0 |     1 |    0 |     0 |    0 |     0 |    0 | 10800 |    0 |  2000 |    0 |    30 |    0 |    15 |    0 |    40 |
 +-------------------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+
@@ -99,7 +100,7 @@ Table of Contents
 | Source Type | BUFHCE Site | Fixed | MMCM Pins | PLL Pins | GT Pins | BRAM Pins | ILOGICs | OLOGICs | FFs | LUTMs | DSP48E1s |                       Clock Net Name                      |
 +-------------+-------------+-------+-----------+----------+---------+-----------+---------+---------+-----+-------+----------+-----------------------------------------------------------+
 | BUFG        |     ---     |   no  |         0 |        0 |       0 |         0 |       0 |       0 |  32 |     0 |        0 | PROJ2DEMO/instantiate_loader.jtag_loader_6_inst/shift_clk |
-| BUFG        |     ---     |   no  |         0 |        0 |       0 |         4 |       0 |       0 | 655 |    80 |        0 | JA_OBUF_BUFG[7]                                           |
+| BUFG        |     ---     |   no  |         0 |        0 |       0 |         4 |       0 |       0 | 667 |    80 |        0 | JA_OBUF_BUFG[7]                                           |
 +-------------+-------------+-------+-----------+----------+---------+-----------+---------+---------+-----+-------+----------+-----------------------------------------------------------+
 
 
@@ -109,6 +110,16 @@ Table of Contents
 +-------------+-------------+-------+-----------+----------+---------+-----------+---------+---------+-----+-------+----------+----------------+
 | Source Type | BUFHCE Site | Fixed | MMCM Pins | PLL Pins | GT Pins | BRAM Pins | ILOGICs | OLOGICs | FFs | LUTMs | DSP48E1s | Clock Net Name |
 +-------------+-------------+-------+-----------+----------+---------+-----------+---------+---------+-----+-------+----------+----------------+
+
+
+10. Net wise resources used in clock region X1Y2
+------------------------------------------------
+
++-------------+-------------+-------+-----------+----------+---------+-----------+---------+---------+-----+-------+----------+-----------------+
+| Source Type | BUFHCE Site | Fixed | MMCM Pins | PLL Pins | GT Pins | BRAM Pins | ILOGICs | OLOGICs | FFs | LUTMs | DSP48E1s |  Clock Net Name |
++-------------+-------------+-------+-----------+----------+---------+-----------+---------+---------+-----+-------+----------+-----------------+
+| BUFG        |     ---     |   no  |         0 |        0 |       0 |         0 |       0 |       0 |   5 |     0 |        0 | JA_OBUF_BUFG[7] |
++-------------+-------------+-------+-----------+----------+---------+-----------+---------+---------+-----+-------+----------+-----------------+
 
 
 
@@ -138,7 +149,7 @@ set_property LOC IOB_X1Y126 [get_ports clk]
 #startgroup
 create_pblock CLKAG_JA_OBUF_BUFG[7]
 add_cells_to_pblock [get_pblocks  CLKAG_JA_OBUF_BUFG[7]] [get_cells  -filter { IS_PRIMITIVE==1 && PRIMITIVE_LEVEL !=INTERNAL && NAME!=JA_OBUF[7]_inst} -of_object [get_pins -filter {DIRECTION==IN} -of_objects [get_nets -hierarchical -filter {PARENT=="JA_OBUF_BUFG[7]"}]]]
-resize_pblock [get_pblocks CLKAG_JA_OBUF_BUFG[7]] -add {CLOCKREGION_X1Y1:CLOCKREGION_X1Y1}
+resize_pblock [get_pblocks CLKAG_JA_OBUF_BUFG[7]] -add {CLOCKREGION_X1Y1:CLOCKREGION_X1Y1 CLOCKREGION_X1Y2:CLOCKREGION_X1Y2}
 #endgroup
 
 # Clock net "PROJ2DEMO/instantiate_loader.jtag_loader_6_inst/jtag_clk" driven by instance "PROJ2DEMO/instantiate_loader.jtag_loader_6_inst/jtag_loader_gen.BSCAN_7SERIES_gen.BSCAN_BLOCK_inst" located at site "BSCAN_X0Y1"

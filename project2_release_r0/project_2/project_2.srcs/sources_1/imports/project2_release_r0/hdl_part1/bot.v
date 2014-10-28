@@ -37,8 +37,8 @@ module bot(
 							LocY_reg,		// Y-coordinate of rojobot's location
 							Sensors_reg,	// Sensor readings
 							BotInfo_reg,	// Information about rojobot's activity
-	//						LMDist_reg,		// left motor distance register
-	//						RMDist_reg,		// right motor distance register
+							LMDist_reg,		// left motor distance register
+							RMDist_reg,		// right motor distance register
 						
 	// interface to the video logic
 	input 		[9:0]		vid_row,		// video logic row address

@@ -1,7 +1,7 @@
 Copyright 1986-2014 Xilinx, Inc. All Rights Reserved.
 --------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2014.2 (win64) Build 932637 Wed Jun 11 13:33:10 MDT 2014
-| Date         : Tue Oct 21 16:11:44 2014
+| Date         : Thu Oct 23 10:33:45 2014
 | Host         : School-idea-PC running 64-bit major release  (build 9200)
 | Command      : report_control_sets -verbose -file nexys4fpga_main_control_sets_placed.rpt
 | Design       : nexys4fpga_main
@@ -22,8 +22,8 @@ Table of Contents
 +-------------------------------------------------------------------+-------+
 |                               Status                              | Count |
 +-------------------------------------------------------------------+-------+
-| Number of unique control sets                                     |    43 |
-| Minimum Number of register sites lost to control set restrictions |    69 |
+| Number of unique control sets                                     |    46 |
+| Minimum Number of register sites lost to control set restrictions |    84 |
 +-------------------------------------------------------------------+-------+
 
 
@@ -33,12 +33,12 @@ Table of Contents
 +--------------+-----------------------+------------------------+-----------------+--------------+
 | Clock Enable | Synchronous Set/Reset | Asynchronous Set/Reset | Total Registers | Total Slices |
 +--------------+-----------------------+------------------------+-----------------+--------------+
-| No           | No                    | No                     |             285 |          100 |
+| No           | No                    | No                     |             222 |           78 |
 | No           | No                    | Yes                    |               0 |            0 |
-| No           | Yes                   | No                     |              91 |           28 |
-| Yes          | No                    | No                     |             199 |           67 |
+| No           | Yes                   | No                     |              91 |           27 |
+| Yes          | No                    | No                     |             255 |           81 |
 | Yes          | No                    | Yes                    |               0 |            0 |
-| Yes          | Yes                   | No                     |             116 |           33 |
+| Yes          | Yes                   | No                     |             140 |           35 |
 +--------------+-----------------------+------------------------+-----------------+--------------+
 
 
@@ -49,34 +49,36 @@ Table of Contents
 |                        Clock Signal                        |                                           Enable Signal                                          |       Set/Reset Signal       | Slice Load Count | Bel Load Count |
 +------------------------------------------------------------+--------------------------------------------------------------------------------------------------+------------------------------+------------------+----------------+
 |  PROJ2DEMO/instantiate_loader.jtag_loader_6_inst/shift_clk |                                                                                                  |                              |                1 |              1 |
-|  JA_OBUF_BUFG[7]                                           | processor/flag_enable                                                                            | processor/internal_reset     |                1 |              2 |
 |  JA_OBUF_BUFG[7]                                           | BOT/BOTSIMCPU/flag_enable                                                                        | BOT/BOTSIMCPU/internal_reset |                1 |              2 |
+|  JA_OBUF_BUFG[7]                                           | processor/flag_enable                                                                            | processor/internal_reset     |                1 |              2 |
 |  PROJ2DEMO/instantiate_loader.jtag_loader_6_inst/jtag_clk  |                                                                                                  |                              |                1 |              4 |
-|  JA_OBUF_BUFG[7]                                           | PROJ2DEMO/I10[0]                                                                                 |                              |                1 |              5 |
+|  JA_OBUF_BUFG[7]                                           | PROJ2DEMO/O3                                                                                     | PROJ2DEMO/O15                |                1 |              4 |
+|  JA_OBUF_BUFG[7]                                           | PROJ2DEMO/O1                                                                                     | PROJ2DEMO/O13                |                2 |              4 |
 |  JA_OBUF_BUFG[7]                                           | PROJ2DEMO/I8[0]                                                                                  |                              |                2 |              5 |
-|  JA_OBUF_BUFG[7]                                           | PROJ2DEMO/I9[0]                                                                                  |                              |                1 |              5 |
-|  JA_OBUF_BUFG[7]                                           | PROJ2DEMO/I7[0]                                                                                  |                              |                1 |              5 |
-|  JA_OBUF_BUFG[7]                                           | PROJ2DEMO/I6[0]                                                                                  |                              |                1 |              5 |
-|  JA_OBUF_BUFG[7]                                           | PROJ2DEMO/I5[0]                                                                                  |                              |                1 |              5 |
-|  JA_OBUF_BUFG[7]                                           | PROJ2DEMO/I4[0]                                                                                  |                              |                1 |              5 |
-|  JA_OBUF_BUFG[7]                                           | PROJ2DEMO/I3[0]                                                                                  |                              |                3 |              5 |
+|  JA_OBUF_BUFG[7]                                           | PROJ2DEMO/I7[0]                                                                                  |                              |                2 |              5 |
+|  JA_OBUF_BUFG[7]                                           | PROJ2DEMO/I6[0]                                                                                  |                              |                2 |              5 |
+|  JA_OBUF_BUFG[7]                                           | PROJ2DEMO/I9[0]                                                                                  |                              |                2 |              5 |
+|  JA_OBUF_BUFG[7]                                           | PROJ2DEMO/I10[0]                                                                                 |                              |                2 |              5 |
+|  JA_OBUF_BUFG[7]                                           | PROJ2DEMO/I11[0]                                                                                 |                              |                1 |              5 |
+|  JA_OBUF_BUFG[7]                                           | PROJ2DEMO/I12[0]                                                                                 |                              |                1 |              5 |
+|  JA_OBUF_BUFG[7]                                           | PROJ2DEMO/I13[0]                                                                                 |                              |                2 |              5 |
 |  JA_OBUF_BUFG[7]                                           |                                                                                                  | BOT/BOTSIMCPU/internal_reset |                3 |              6 |
 |  JA_OBUF_BUFG[7]                                           |                                                                                                  | processor/internal_reset     |                3 |              6 |
-|  JA_OBUF_BUFG[7]                                           |                                                                                                  | BOT/BOTSIMPGM/instruction[7] |                2 |              8 |
+|  JA_OBUF_BUFG[7]                                           |                                                                                                  | BOT/BOTSIMPGM/instruction[7] |                3 |              8 |
 |  JA_OBUF_BUFG[7]                                           |                                                                                                  | PROJ2DEMO/instruction[7]     |                3 |              8 |
 |  JA_OBUF_BUFG[7]                                           | BOT/BOTSIMCPU/spm_enable                                                                         |                              |                2 |              8 |
-|  JA_OBUF_BUFG[7]                                           | PROJ2DEMO/O2                                                                                     |                              |                4 |              8 |
-|  JA_OBUF_BUFG[7]                                           | SSB/n_0_FSM_onehot_an[8]_i_2                                                                     | DB/SR[0]                     |                3 |              8 |
-|  JA_OBUF_BUFG[7]                                           | BOT/BOTSIMPGM/E[0]                                                                               |                              |                1 |              8 |
-|  JA_OBUF_BUFG[7]                                           | PROJ2DEMO/E[0]                                                                                   |                              |                4 |              8 |
-|  JA_OBUF_BUFG[7]                                           | BOT/BOTSIMPGM/O11[0]                                                                             | DB/JA_OBUF[0]                |                2 |              8 |
-|  JA_OBUF_BUFG[7]                                           | BOT/BOTSIMPGM/O6[0]                                                                              | DB/JA_OBUF[0]                |                4 |              8 |
-|  JA_OBUF_BUFG[7]                                           | BOT/BOTSIMPGM/O2[0]                                                                              |                              |                2 |              8 |
-|  JA_OBUF_BUFG[7]                                           | BOT/BOTSIMPGM/O3[0]                                                                              | DB/JA_OBUF[0]                |                2 |              8 |
-|  JA_OBUF_BUFG[7]                                           | BOT/BOTSIMPGM/O4[0]                                                                              | DB/JA_OBUF[0]                |                2 |              8 |
-|  JA_OBUF_BUFG[7]                                           | BOT/BOTSIMPGM/O8[0]                                                                              | DB/JA_OBUF[0]                |                3 |              8 |
-|  JA_OBUF_BUFG[7]                                           | PROJ2DEMO/O1                                                                                     |                              |                5 |              8 |
-|  JA_OBUF_BUFG[7]                                           | BOT/BOTSIMPGM/O9[0]                                                                              | DB/JA_OBUF[0]                |                2 |              8 |
+|  JA_OBUF_BUFG[7]                                           | BOT/BOTSIMPGM/O7[0]                                                                              |                              |                2 |              8 |
+|  JA_OBUF_BUFG[7]                                           | PROJ2DEMO/O4                                                                                     | PROJ2DEMO/O16                |                2 |              8 |
+|  JA_OBUF_BUFG[7]                                           | SSB/n_0_FSM_onehot_an[8]_i_2                                                                     | DB/SR[0]                     |                2 |              8 |
+|  JA_OBUF_BUFG[7]                                           | BOT/BOTSIMPGM/O6[0]                                                                              | DB/JA_OBUF[0]                |                2 |              8 |
+|  JA_OBUF_BUFG[7]                                           | BOT/BOTSIMPGM/O5[0]                                                                              | DB/JA_OBUF[0]                |                3 |              8 |
+|  JA_OBUF_BUFG[7]                                           | BOT/BOTSIMPGM/O4[0]                                                                              | DB/JA_OBUF[0]                |                1 |              8 |
+|  JA_OBUF_BUFG[7]                                           | BOT/BOTSIMPGM/O3[0]                                                                              | DB/JA_OBUF[0]                |                1 |              8 |
+|  JA_OBUF_BUFG[7]                                           | PROJ2DEMO/I1[0]                                                                                  |                              |                3 |              8 |
+|  JA_OBUF_BUFG[7]                                           | BOT/BOTSIMPGM/O2[0]                                                                              | DB/JA_OBUF[0]                |                1 |              8 |
+|  JA_OBUF_BUFG[7]                                           | BOT/BOTSIMPGM/E[0]                                                                               | DB/JA_OBUF[0]                |                2 |              8 |
+|  JA_OBUF_BUFG[7]                                           | BOT/BOTSIMPGM/O8[0]                                                                              |                              |                3 |              8 |
+|  JA_OBUF_BUFG[7]                                           | PROJ2DEMO/O2                                                                                     | PROJ2DEMO/O14                |                2 |              8 |
 |  JA_OBUF_BUFG[7]                                           | processor/spm_enable                                                                             |                              |                2 |              8 |
 |  JA_OBUF_BUFG[7]                                           | BOT/BOTSIMCPU/p_1_in                                                                             | BOT/BOTSIMCPU/internal_reset |                3 |             12 |
 |  JA_OBUF_BUFG[7]                                           | processor/p_1_in                                                                                 | processor/internal_reset     |                3 |             12 |
@@ -85,12 +87,13 @@ Table of Contents
 |  JA_OBUF_BUFG[7]                                           | BOT/BOTSIMCPU/p_1_in                                                                             |                              |                2 |             16 |
 |  JA_OBUF_BUFG[7]                                           | processor/p_1_in                                                                                 |                              |                2 |             16 |
 |  JA_OBUF_BUFG[7]                                           | processor/register_enable                                                                        |                              |                2 |             16 |
-|  PROJ2DEMO/instantiate_loader.jtag_loader_6_inst/shift_clk | PROJ2DEMO/instantiate_loader.jtag_loader_6_inst/n_0_jtag_loader_gen.loop2[0].jtag_din_int[1]_i_1 |                              |                7 |             17 |
+|  PROJ2DEMO/instantiate_loader.jtag_loader_6_inst/shift_clk | PROJ2DEMO/instantiate_loader.jtag_loader_6_inst/n_0_jtag_loader_gen.loop2[0].jtag_din_int[1]_i_1 |                              |                5 |             17 |
 |  JA_OBUF_BUFG[7]                                           |                                                                                                  | DB/n_0_shift_pb0[3]_i_1      |                8 |             31 |
-|  JA_OBUF_BUFG[7]                                           |                                                                                                  | DB/SR[0]                     |                9 |             32 |
-|  JA_OBUF_BUFG[7]                                           | BOT/WRLDIF/E[0]                                                                                  | DB/JA_OBUF[0]                |                7 |             32 |
-|  JA_OBUF_BUFG[7]                                           | DB/n_0_shift_pb0[3]_i_1                                                                          |                              |               29 |             88 |
-|  JA_OBUF_BUFG[7]                                           |                                                                                                  |                              |               98 |            280 |
+|  JA_OBUF_BUFG[7]                                           |                                                                                                  | DB/SR[0]                     |                7 |             32 |
+|  JA_OBUF_BUFG[7]                                           | BOT/WRLDIF/O1[0]                                                                                 | DB/JA_OBUF[0]                |                8 |             32 |
+|  JA_OBUF_BUFG[7]                                           | BOT/WRLDIF/E[0]                                                                                  |                              |               18 |             72 |
+|  JA_OBUF_BUFG[7]                                           | DB/n_0_shift_pb0[3]_i_1                                                                          |                              |               32 |             88 |
+|  JA_OBUF_BUFG[7]                                           |                                                                                                  |                              |               76 |            217 |
 +------------------------------------------------------------+--------------------------------------------------------------------------------------------------+------------------------------+------------------+----------------+
 
 

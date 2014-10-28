@@ -13,7 +13,7 @@ module nexys4fpga_main (
 	output [15:0] led,    // LED outputs
     //output reg [4:0]    digi7,digi6,digi5,digi4,digi3,digi2,digi1,digi0,
 	output [6:0] seg,	// Seven segment display cathode pins
-	//output [7:0] dp,          //decimal point
+	output  dp,          //decimal point
 	output [7:0] an,	// Seven segment display anode pins	
 	output [7:0] JA		// JA Header
     //output      rdl
@@ -55,7 +55,6 @@ module nexys4fpga_main (
     wire    [9:0]       v_row,v_col;
     wire    [1:0]       v_pix;
     wire                up_sys;
-    //wire    [15:0]      led_w;
  // internal variables for picoblaze and program ROM signals
 // signal names taken from kcpsm6_design_template.v
 wire	[11:0]		address;
@@ -68,18 +67,14 @@ wire	[7:0]		out_port;
 wire	[7:0]		in_port;
 wire				write_strobe;
 wire				read_strobe;
-wire				interrupt;
-wire				interrupt_ack;
+wire				interrupt_w;
+wire				interrupt_ack_w;
 wire				kcpsm6_sleep; 
 wire				kcpsm6_reset;
 	
 wire 	[1:0]		wrld_loc_info;		// location value from world map
 wire 	[7:0]		wrld_col_addr,		// column address to map logic
 					wrld_row_addr;		// row address to map logic
-//reg [11:0] address_reg; 
-//reg [17:0] instruction_reg;
-//reg [4:0] digi7,digi6,digi5,digi4,digi3,digi2,digi1,digi0;
-//reg [7:0] dp;
 
 
     
@@ -117,33 +112,20 @@ wire 	[7:0]		wrld_col_addr,		// column address to map logic
 		end
 // global assigns
 	assign	sysclk = clk;
-	assign 	sysreset = db_btns[0]; // btnCpuReset is asserted low
+	assign 	sysreset = ~db_btns[0]; // btnCpuReset is asserted low (fixed to be asserted high)
 	
-	//assign dp = segs_int[7];  //decimal point wire
+    //assign dp = up_sys; //used for debug, when turned on all decimal points were solid, not blinking
+	assign dp = segs_int[7];  //decimal point wire
 	assign seg = segs_int[6:0]; //7 seg wire
-    //assign led_w = led;
-    //assign	led = db_sw;
-/*    assign dig7 = digi7;
-    assign dig6 = digi6;
-    assign dig5 = digi5;
-    assign dig4 = digi4;
-    assign dig3 = digi3;
-    assign dig2 = digi2;
-    assign dig1 = digi1;
-    assign dig0 = digi0;
-    assign dpts = dp;*/
-    //assign address = address_reg;
-    //assign instruction = instruction_reg;
 	
 	assign	JA = {sysclk, sysreset, 6'b000000};
     assign kcpsm6_reset = sysreset;			// Picoblaze is reset w/ global reset signal
     assign kcpsm6_sleep = 1'b0;				// kcpsm6 sleep mode is not used
-    //assign interrupt = 1'b0;				// kcpsm6 interrupt is not used	
 	
 //instantiate the debounce module
 	debounce
 	#(
-		.RESET_POLARITY_LOW(1),
+		.RESET_POLARITY_LOW(0), //change to 0 to match other resets
 		.SIMULATE(SIMULATE)
 	)  	DB
 	(
@@ -157,7 +139,7 @@ wire 	[7:0]		wrld_col_addr,		// column address to map logic
 // instantiate the 7-segment, 8-digit display
 	sevensegment
 	#(
-		.RESET_POLARITY_LOW(1),
+		.RESET_POLARITY_LOW(0), //change to 0 match other resets
 		.SIMULATE(SIMULATE)
 	) SSB
 	(
@@ -198,8 +180,8 @@ wire 	[7:0]		wrld_col_addr,		// column address to map logic
 	.out_port 		(out_port),
 	.read_strobe 	(read_strobe),
 	.in_port 		(in_port),
-	.interrupt 		(interrupt),
-	.interrupt_ack 	(),
+	.interrupt 		(interrupt_w),
+	.interrupt_ack 	(interrupt_ack_w),
 	.reset 		(kcpsm6_reset),
 	.sleep		(kcpsm6_sleep),
 	.clk 			(clk)); 
@@ -237,7 +219,8 @@ nexys4_bot_if BOT_IF(
     .AddrIn(port_id),			// I/O port address port_id
 	.DataIn(out_port),			// Data to be written to I/O register out_port
 	.DataOut(in_port),		// I/O register data to picoblaze in_port
-
+    .interrupt(interrupt_w),
+	.interrupt_ack(interrupt_ack_w),
 	// interface to the system	
 	.MotCtl(motor),			// (Port 0) Motor control input	into botsim
 	.LocX(loc_x),			// (Port 1) X-coordinate of rojobot's location		
@@ -249,7 +232,6 @@ nexys4_bot_if BOT_IF(
 //	output reg	[7:0]	MapY,			// (Port 9) Row address of world map location
 //	input 		[1:0]	MapVal,			// (Port 10) Map value for location [row_addr, col_addr]	
 
-	
 	.clk(clk),			// system clock or r_Toggle_10HZ???
 	.reset(sysreset),			// system reset
 	.upd_sysregs(up_sys),	// flag from PicoBlaze to indicate that the system registers 
@@ -265,8 +247,7 @@ nexys4_bot_if BOT_IF(
     .dig2(dig2), 
     .dig1(dig1), 
     .dig0(dig0), //7 seg display to sevenseg.v
-    .dp(dpts),  //decimal point out to sevenseg.v   
-    .interrupt(interrupt)		
+    .dp(dpts)  //decimal point out to sevenseg.v   		
 );
 
     

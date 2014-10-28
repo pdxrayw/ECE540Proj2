@@ -33,7 +33,7 @@ module nexys4_bot_if(
 //	output reg	[7:0]	MapY,			// (Port 9) Row address of world map location
 //	input 		[1:0]	MapVal,			// (Port 10) Map value for location [row_addr, col_addr]	
 
-	
+	input               interrupt_ack,
 	input				clk,			// system clock
 						reset,			// system reset
 	input   			upd_sysregs,	// flag from PicoBlaze to indicate that the system registers 
@@ -51,6 +51,7 @@ module nexys4_bot_if(
 // used sot synchronize the register transfer so Application gets a consistant snapshot of the BOT status	
 reg			load_sys_regs,			// Load system register flip-flop			
 			load_dist_regs;			// Load distance register flip-flop
+//reg         up_sys_reg = 0;
 
 // holding registers for bot.  We want all registers to be updated
 // at the same time (from system's point of view) to make sure
@@ -68,8 +69,9 @@ begin
     8'b0000_0000 : //pushbuttons inputs
     begin
     // format is: output(for this file) <= input (for this file)
-    //dbbtns[5:0]
-        DataOut <= {4'b00, db_btns};//dataout is to picoblaze
+    //dbbtns is total of [5:0]
+        //DataOut <= {4'b00, db_btns};//dataout is to picoblaze
+        DataOut[4:0] <= db_btns[5:1];
     end
     8'b0000_0001 : //slide switches
     begin
@@ -93,7 +95,8 @@ begin
     end
     8'b0001_0000 : //(i) pushbutton inputs alternate port address
     begin
-        DataOut <= {4'b00, db_btns};
+        //DataOut <= {4'b00, db_btns};
+        DataOut[4:0] <= db_btns[5:1];
     end
     8'b0001_0001 : //(i) slide switches 15:8 (high byte of switches
     begin
@@ -133,8 +136,8 @@ always @(posedge clk) begin
 		LMDist_int <= 0;
 		RMDist_int <= 0;*/
 		
-		load_sys_regs <= 0;
-		load_dist_regs <= 0;
+		//load_sys_regs <= 0;
+		//load_dist_regs <= 0;
 		//upd_sysregs <= 0;
 	end
 	else begin
@@ -143,23 +146,23 @@ always @(posedge clk) begin
     8'b0000_0010 : //(o) LEDs
         begin
         // format is: output(for this file) <= input (for this file)
-        led_int[7:0] <= DataIn; //Datain is from picoblaze
+        led[7:0] <= DataIn; //Datain is from picoblaze
         end
     8'b0000_0011 : // (o) digit 3 port address
         begin
-        dig3_int <= DataIn;
+        dig3 <= DataIn;
         end
     8'b0000_0100 : //(o) digit 2 port address
         begin
-        dig2_int <= DataIn;
+        dig2 <= DataIn;
         end
     8'b0000_0101 : //(o) digit 1 port address
         begin
-        dig1_int <= DataIn;
+        dig1 <= DataIn;
         end
     8'b0000_0110 : //(o) digit 0 port address
         begin
-        dig0_int <= DataIn;
+        dig0 <= DataIn;
         end
     8'b0000_0111 : //(o) decimal points 3:0 port address
         begin
@@ -167,41 +170,41 @@ always @(posedge clk) begin
         end
     8'b0000_1001 : //(o) Rojobot motor control output from system
         begin
-        MotCtl_int <= DataIn;
+        MotCtl <= DataIn;
         end
     8'b0001_0010 : //(o) LEDs 15:8 (high byte of switches)
         begin
-        led_int[15:8] <= DataIn;
+        led[15:8] <= DataIn;
         end
     8'b0001_0011 : //(o) digit 7 port address
         begin
-        dig7_int <= DataIn;
+        dig7 <= DataIn;
         end
     8'b0001_0100 : //(o) digit 6 port address
         begin
-        dig6_int <= DataIn;
+        dig6 <= DataIn;
         end
     8'b0001_0101 : //(o) digit 5 port address
         begin
-        dig5_int <= DataIn;
+        dig5 <= DataIn;
         end
     8'b0001_0110 : //(o) digit 4 port address
         begin
-        dig4_int <= DataIn;
+        dig4 <= DataIn;
         end 
     8'b0001_0111 : //(o) decimal points 7:4 port address
         begin
-        dp_int[7:4] <= DataIn; 
+        dp[7:4] <= DataIn; 
         end         
     8'b0001_1001 : //(o) Rojobot motor control output from system
         begin
-        MotCtl_int <= DataIn; 
+        MotCtl <= DataIn; 
         end
     // I/O registers for system interface	
 	//8'b0000_1100 : 	load_sys_regs <= ~load_sys_regs;		// toggles load system registers ctrl signal
 	//8'b0000_1101 : 	load_dist_regs <= ~load_dist_regs;		// toggles load distance register ctrl signal
-	//4'b0000_1110 : 	upd_sysregs <= ~upd_sysregs;			// toggles update system registers flag
-	8'b0000_1111 : 	;										// reserved
+	//8'b0000_1110 : 	up_sys_reg <= ~up_sys_reg;			// toggles update system registers flag
+	//8'b0000_1111 : 	;										// reserved
     default :
         begin
         ;
@@ -212,44 +215,22 @@ always @(posedge clk) begin
 end // always - write registers
 
 	
-// synchronized system register interface
-always @(posedge clk) begin
-	/*if (reset) begin
-		LocX <= 0;
-		LocY <= 0;
-		Sensors <= 0;
-		BotInfo <= 0;
-	end
-	else*/ 
-    if (upd_sysregs) begin  // copy holding registers to system interface registers
-            MotCtl <= MotCtl_int;
-            dp <= dp_int;
-            led <= led_int;
-            dig7 <= dig7_int;
-            dig6 <= dig6_int;
-            dig5 <= dig5_int;
-            dig4 <= dig4_int;
-            dig3 <= dig3_int;
-            dig2 <= dig2_int;
-            dig1 <= dig1_int;
-            dig0 <= dig0_int;
-            interrupt <= interrupt;//interrupt_int;
-	end
-	else begin // refresh registers
-			MotCtl <= MotCtl;
-            dp <= dp;
-            led <= led;
-            dig7 <= dig7;
-            dig6 <= dig6;
-            dig5 <= dig5;
-            dig4 <= dig4;
-            dig3 <= dig3;
-            dig2 <= dig2;
-            dig1 <= dig1;
-            dig0 <= dig0;
-            interrupt <= interrupt;
-	end		
-end // always - synchronized system register interface
+always @ (posedge clk)
+  begin
+      //up_sys_reg <= ~up_sys_reg;  
+      if (interrupt_ack == 1'b1) begin
+         interrupt <= 1'b0;
+         //up_sys_reg <= 1'b0;
+      end
+      else if (upd_sysregs == 1'b1) begin
+          interrupt <= 1'b1;
+      end
+      else begin
+          interrupt <= interrupt;
+          //up_sys_reg <= ~up_sys_reg;
+      end
+      //interrupt <= upd_sysregs;
+  end
 
 endmodule
 		

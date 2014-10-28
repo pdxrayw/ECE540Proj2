@@ -317,10 +317,10 @@ main:			CALL	init_btnluptbl				; initialize button to MotCtl lookup table
 				LOAD	s1,		00					; clear the semaphore
 				STORE	s1,		SP_SEM				;
 				LOAD	s1,		00					; turn off decimal points 3-0.  Decimal point 0 (rightmost
+				STORE	s1,		SP_OLDDP			; and save the value	
 				CALL	SS_wrdpts					; will be toggled in the interrupt handler
 				LOAD	s1,		03					; turn on decimal points 5 and 4 to offset the movement digit
-				CALL	SS_wrdpts_hi				;
-				STORE	s1,		SP_OLDDP			; and save the value	
+				CALL	SS_wrdpts_hi				; we don't need to save this value because these decimal points don't change
 				ENABLE	INTERRUPT					; get the ball rolling
 									
 
@@ -782,7 +782,7 @@ SS_wrdigx_hi:	LOAD		s0,		07					; check if the number is <= 7
 				RETURN	C							; C=10 says s2 <= 07 - out of range so return
 				LOAD		s0,		03					; next check if the number is >= 3
 				COMPARE	s0,		s2					; next check if the number is > 3
-				RETURN	C							; C=1 says s2 < 4 - out of range so return
+				RETURN	NC							; C=0 says s2 < 4 - out of range so return
 				LOAD		s0,		PA_DIG4				; set base port address to PA_DIG4
 				ADD		s0,		04					; adjust digit number offset (ex: digit 4 should be PA_DIG4+4-4)
 				SUB		s0,		s2					; next subtract out the digit number.  This will give the port address

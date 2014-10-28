@@ -6,7 +6,7 @@
 <Project Version="7" Minor="1" Path="C:/540_proj2/project2_release_r0/project_2/project_2.xpr">
   <DefaultLaunch Dir="$PRUNDIR"/>
   <Configuration>
-    <Option Name="Id" Val="69e37811d1ff4128bcd29130c5be09a6"/>
+    <Option Name="Id" Val="bb140edf003c43ed84938d2af9b0fd35"/>
     <Option Name="Part" Val="xc7a100tcsg324-1"/>
     <Option Name="CompiledLibDir" Val="$PCACHEDIR/compile_simlib"/>
     <Option Name="SimulatorLanguage" Val="Verilog"/>
@@ -17,10 +17,27 @@
   <FileSets Version="1" Minor="31">
     <FileSet Name="sources_1" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1">
       <Filter Type="Srcs"/>
+      <File Path="$PSRCDIR/sources_1/imports/world_map_part1/world_map.ngc">
+        <FileInfo>
+          <Attr Name="ImportPath" Val="$PPRDIR/../world_maps/world_map_part1/world_map.ngc"/>
+          <Attr Name="ImportTime" Val="1413388112"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+        </FileInfo>
+      </File>
       <File Path="$PSRCDIR/sources_1/imports/project2_release_r0/hdl_part1/world_map.v">
         <FileInfo>
           <Attr Name="ImportPath" Val="$PPRDIR/../hdl_part1/world_map.v"/>
-          <Attr Name="ImportTime" Val="1413388111"/>
+          <Attr Name="ImportTime" Val="1414450923"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/imports/project2_release_r0/KCPSM6_Release9_30Sept14/Verilog/kcpsm6.v">
+        <FileInfo>
+          <Attr Name="ImportPath" Val="$PPRDIR/../KCPSM6_Release9_30Sept14/Verilog/kcpsm6.v"/>
+          <Attr Name="ImportTime" Val="1413665851"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -29,7 +46,7 @@
       <File Path="$PSRCDIR/sources_1/imports/project2_release_r0/hdl_part1/world_if.v">
         <FileInfo>
           <Attr Name="ImportPath" Val="$PPRDIR/../hdl_part1/world_if.v"/>
-          <Attr Name="ImportTime" Val="1413388111"/>
+          <Attr Name="ImportTime" Val="1414450904"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -38,7 +55,7 @@
       <File Path="$PSRCDIR/sources_1/imports/project2_release_r0/hdl_part1/map.v">
         <FileInfo>
           <Attr Name="ImportPath" Val="$PPRDIR/../hdl_part1/map.v"/>
-          <Attr Name="ImportTime" Val="1413388111"/>
+          <Attr Name="ImportTime" Val="1414450953"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -47,7 +64,7 @@
       <File Path="$PSRCDIR/sources_1/imports/project2_release_r0/hdl_part1/bot_pgm.v">
         <FileInfo>
           <Attr Name="ImportPath" Val="$PPRDIR/../hdl_part1/bot_pgm.v"/>
-          <Attr Name="ImportTime" Val="1413388111"/>
+          <Attr Name="ImportTime" Val="1414450886"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -65,7 +82,16 @@
       <File Path="$PSRCDIR/sources_1/imports/project2_release_r0/nexys4_bot_if.v">
         <FileInfo>
           <Attr Name="ImportPath" Val="$PPRDIR/../nexys4_bot_if.v"/>
-          <Attr Name="ImportTime" Val="1413665365"/>
+          <Attr Name="ImportTime" Val="1414463928"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/imports/project2_release_r0/hdl_part1/proj2demo.v">
+        <FileInfo>
+          <Attr Name="ImportPath" Val="$PPRDIR/../firmware_part1/proj2demo/proj2demo.v"/>
+          <Attr Name="ImportTime" Val="1414449693"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -74,7 +100,7 @@
       <File Path="$PSRCDIR/sources_1/imports/project2_release_r0/hdl_part1/bot.v">
         <FileInfo>
           <Attr Name="ImportPath" Val="$PPRDIR/../hdl_part1/bot.v"/>
-          <Attr Name="ImportTime" Val="1413557034"/>
+          <Attr Name="ImportTime" Val="1414450869"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -92,16 +118,25 @@
       <File Path="$PSRCDIR/sources_1/imports/project2_release_r0/nexys4fpga_main.v">
         <FileInfo>
           <Attr Name="ImportPath" Val="$PPRDIR/../nexys4fpga_main.v"/>
-          <Attr Name="ImportTime" Val="1413665076"/>
+          <Attr Name="ImportTime" Val="1414465132"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
       </File>
-      <File Path="$PSRCDIR/sources_1/imports/project2_release_r0/hdl_part1/proj2demo.v">
+      <File Path="$PSRCDIR/sources_1/imports/project2_release_r0/KCPSM6_Release9_30Sept14/UART_and_PicoTerm/uart_tx6.v">
         <FileInfo>
-          <Attr Name="ImportPath" Val="$PPRDIR/../hdl_part1/proj2demo.v"/>
-          <Attr Name="ImportTime" Val="1413388111"/>
+          <Attr Name="ImportPath" Val="$PPRDIR/../KCPSM6_Release9_30Sept14/UART_and_PicoTerm/uart_tx6.v"/>
+          <Attr Name="ImportTime" Val="1413665851"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/imports/project2_release_r0/KCPSM6_Release9_30Sept14/UART_and_PicoTerm/uart_rx6.v">
+        <FileInfo>
+          <Attr Name="ImportPath" Val="$PPRDIR/../KCPSM6_Release9_30Sept14/UART_and_PicoTerm/uart_rx6.v"/>
+          <Attr Name="ImportTime" Val="1413665851"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -109,7 +144,7 @@
       </File>
       <Config>
         <Option Name="DesignMode" Val="RTL"/>
-        <Option Name="TopModule" Val="nexys4_main"/>
+        <Option Name="TopModule" Val="nexys4fpga_main"/>
         <Option Name="TopAutoSet" Val="TRUE"/>
       </Config>
     </FileSet>
@@ -124,6 +159,7 @@
         </FileInfo>
       </File>
       <Config>
+        <Option Name="TargetConstrsFile" Val="$PSRCDIR/constrs_1/imports/constraints/nexys4fpga_novideo.xdc"/>
         <Option Name="ConstrsType" Val="XDC"/>
       </Config>
     </FileSet>
@@ -131,7 +167,7 @@
       <Filter Type="Srcs"/>
       <Config>
         <Option Name="DesignMode" Val="RTL"/>
-        <Option Name="TopModule" Val="nexys4_main"/>
+        <Option Name="TopModule" Val="nexys4fpga_main"/>
         <Option Name="TopLib" Val="xil_defaultlib"/>
         <Option Name="TopAutoSet" Val="TRUE"/>
         <Option Name="SrcSet" Val="sources_1"/>
@@ -146,7 +182,7 @@
       </Strategy>
       <GeneratedRun Dir="$PRUNDIR" File="gen_run.xml"/>
     </Run>
-    <Run Id="impl_1" Type="Ft2:EntireDesign" Part="xc7a100tcsg324-1" ConstrsSet="constrs_1" Description="Vivado Implementation Defaults" State="current" SynthRun="synth_1">
+    <Run Id="impl_1" Type="Ft2:EntireDesign" Part="xc7a100tcsg324-1" ConstrsSet="constrs_1" Description="Vivado Implementation Defaults" State="current" Dir="$PRUNDIR/impl_1" SynthRun="synth_1">
       <Strategy Version="1" Minor="2">
         <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2014"/>
         <Step Id="init_design"/>
@@ -159,6 +195,8 @@
         <Step Id="post_route_phys_opt_design"/>
         <Step Id="write_bitstream"/>
       </Strategy>
+      <GeneratedRun Dir="$PRUNDIR" File="gen_run.xml"/>
     </Run>
   </Runs>
+  <HWSession Dir="hw_1" File="hw.xml"/>
 </Project>

@@ -1,0 +1,48 @@
+Vivado Simulator 2014.2
+Copyright 1986-1999, 2001-2014 Xilinx, Inc. All Rights Reserved.
+Running: C:/Xilinx/Vivado/2014.2/bin/unwrapped/win64.o/xelab.exe --debug typical --relax -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip --snapshot nexys4fpga_main_behav --prj C:/540_proj2/project2_release_r0/project_1/project_1.sim/sim_1/behav/nexys4fpga_main.prj xil_defaultlib.nexys4fpga_main xil_defaultlib.glbl 
+Multi-threading is on. Using 2 slave threads.
+Determining compilation order of HDL files.
+INFO: [VRFC 10-165] Analyzing Verilog file "C:/540_proj2/project2_release_r0/project_1/project_1.srcs/sources_1/imports/project2_release_r0/hdl_part1/world_map.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module world_map
+INFO: [VRFC 10-165] Analyzing Verilog file "C:/540_proj2/project2_release_r0/project_1/project_1.srcs/sources_1/imports/project2_release_r0/hdl_part1/world_if.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module world_if
+INFO: [VRFC 10-165] Analyzing Verilog file "C:/540_proj2/project2_release_r0/project_1/project_1.srcs/sources_1/imports/project2_release_r0/hdl_part1/map.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module map
+INFO: [VRFC 10-165] Analyzing Verilog file "C:/540_proj2/project2_release_r0/project_1/project_1.srcs/sources_1/imports/project2_release_r0/hdl_part1/bot_pgm.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module bot_pgm
+INFO: [VRFC 10-165] Analyzing Verilog file "C:/540_proj2/project2_release_r0/project_1/project_1.srcs/sources_1/imports/KCPSM6_Release9_30Sept14/Verilog/kcpsm6.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module kcpsm6
+WARNING: [VRFC 10-2021] parameter declaration is not allowed here in this mode of verilog [C:/540_proj2/project2_release_r0/project_1/project_1.srcs/sources_1/imports/KCPSM6_Release9_30Sept14/Verilog/kcpsm6.v:1483]
+WARNING: [VRFC 10-2021] parameter declaration is not allowed here in this mode of verilog [C:/540_proj2/project2_release_r0/project_1/project_1.srcs/sources_1/imports/KCPSM6_Release9_30Sept14/Verilog/kcpsm6.v:1484]
+WARNING: [VRFC 10-2021] parameter declaration is not allowed here in this mode of verilog [C:/540_proj2/project2_release_r0/project_1/project_1.srcs/sources_1/imports/KCPSM6_Release9_30Sept14/Verilog/kcpsm6.v:1485]
+WARNING: [VRFC 10-2021] parameter declaration is not allowed here in this mode of verilog [C:/540_proj2/project2_release_r0/project_1/project_1.srcs/sources_1/imports/KCPSM6_Release9_30Sept14/Verilog/kcpsm6.v:1796]
+WARNING: [VRFC 10-2021] parameter declaration is not allowed here in this mode of verilog [C:/540_proj2/project2_release_r0/project_1/project_1.srcs/sources_1/imports/KCPSM6_Release9_30Sept14/Verilog/kcpsm6.v:1885]
+WARNING: [VRFC 10-2021] parameter declaration is not allowed here in this mode of verilog [C:/540_proj2/project2_release_r0/project_1/project_1.srcs/sources_1/imports/KCPSM6_Release9_30Sept14/Verilog/kcpsm6.v:1886]
+WARNING: [VRFC 10-2021] parameter declaration is not allowed here in this mode of verilog [C:/540_proj2/project2_release_r0/project_1/project_1.srcs/sources_1/imports/KCPSM6_Release9_30Sept14/Verilog/kcpsm6.v:1887]
+INFO: [VRFC 10-165] Analyzing Verilog file "C:/540_proj2/project2_release_r0/project_1/project_1.srcs/sources_1/imports/project2_release_r0/sevensegment.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module sevensegment
+INFO: [VRFC 10-311] analyzing module Digit
+INFO: [VRFC 10-165] Analyzing Verilog file "C:/540_proj2/project2_release_r0/project_1/project_1.srcs/sources_1/imports/project2_release_r0/nexys4_bot_if.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module nexys4_bot_if
+INFO: [VRFC 10-165] Analyzing Verilog file "C:/540_proj2/project2_release_r0/project_1/project_1.srcs/sources_1/imports/project2_release_r0/hdl_part1/proj2demo.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module proj2demo
+INFO: [VRFC 10-311] analyzing module jtag_loader_6
+INFO: [VRFC 10-165] Analyzing Verilog file "C:/540_proj2/project2_release_r0/project_1/project_1.srcs/sources_1/imports/project2_release_r0/hdl_part1/bot.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module bot
+INFO: [VRFC 10-165] Analyzing Verilog file "C:/540_proj2/project2_release_r0/project_1/project_1.srcs/sources_1/imports/project2_release_r0/debounce.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module debounce
+INFO: [VRFC 10-165] Analyzing Verilog file "C:/540_proj2/project2_release_r0/project_1/project_1.srcs/sources_1/imports/project2_release_r0/nexys4fpga_main.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module nexys4fpga_main
+INFO: [VRFC 10-165] Analyzing Verilog file "C:/Xilinx/Vivado/2014.2/data/verilog/src/glbl.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module glbl
+Starting static elaboration
+ERROR: [VRFC 10-2063] Module <BLK_MEM_GEN_V7_3> not found while processing module instance <inst> [C:/540_proj2/project2_release_r0/project_1/project_1.srcs/sources_1/imports/project2_release_r0/hdl_part1/world_map.v:57]
+WARNING: [VRFC 10-1783] select index 1 into picoblaze_reset_int is out of bounds [C:/540_proj2/project2_release_r0/project_1/project_1.srcs/sources_1/imports/project2_release_r0/hdl_part1/proj2demo.v:2158]
+WARNING: [VRFC 10-1783] select index 2 into picoblaze_reset_int is out of bounds [C:/540_proj2/project2_release_r0/project_1/project_1.srcs/sources_1/imports/project2_release_r0/hdl_part1/proj2demo.v:2164]
+WARNING: [VRFC 10-1783] select index 3 into picoblaze_reset_int is out of bounds [C:/540_proj2/project2_release_r0/project_1/project_1.srcs/sources_1/imports/project2_release_r0/hdl_part1/proj2demo.v:2170]
+WARNING: [VRFC 10-1783] select index 4 into picoblaze_reset_int is out of bounds [C:/540_proj2/project2_release_r0/project_1/project_1.srcs/sources_1/imports/project2_release_r0/hdl_part1/proj2demo.v:2176]
+WARNING: [VRFC 10-1783] select index 5 into picoblaze_reset_int is out of bounds [C:/540_proj2/project2_release_r0/project_1/project_1.srcs/sources_1/imports/project2_release_r0/hdl_part1/proj2demo.v:2182]
+WARNING: [VRFC 10-1783] select index 6 into picoblaze_reset_int is out of bounds [C:/540_proj2/project2_release_r0/project_1/project_1.srcs/sources_1/imports/project2_release_r0/hdl_part1/proj2demo.v:2188]
+WARNING: [VRFC 10-1783] select index 7 into picoblaze_reset_int is out of bounds [C:/540_proj2/project2_release_r0/project_1/project_1.srcs/sources_1/imports/project2_release_r0/hdl_part1/proj2demo.v:2194]
+ERROR: [XSIM 43-3322] Static elaboration of top level Verilog design unit(s) in library work failed.

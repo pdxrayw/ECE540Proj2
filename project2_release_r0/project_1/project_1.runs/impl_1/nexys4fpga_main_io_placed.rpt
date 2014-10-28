@@ -1,7 +1,7 @@
 Copyright 1986-2014 Xilinx, Inc. All Rights Reserved.
 -----------------------------------------------------------------------------------
 | Tool Version : Vivado v.2014.2 (win64) Build 932637 Wed Jun 11 13:33:10 MDT 2014
-| Date         : Tue Oct 21 16:11:43 2014
+| Date         : Thu Oct 23 10:33:43 2014
 | Host         : School-idea-PC running 64-bit major release  (build 9200)
 | Command      : report_io -file nexys4fpga_main_io_placed.rpt
 | Design       : nexys4fpga_main
@@ -23,7 +23,7 @@ Table of Contents
 +---------------+
 | Total User IO |
 +---------------+
-|            62 |
+|            70 |
 +---------------+
 
 
@@ -162,9 +162,9 @@ Table of Contents
 | H1         |             | High Range | IO_L17P_T2_35                | User IO     |             |      35 |            |      |                     |                      |         |            |           |      |                  |
 | H2         |             | High Range | IO_L15P_T2_DQS_35            | User IO     |             |      35 |            |      |                     |                      |         |            |           |      |                  |
 | H3         |             |            | GND                          | GND         |             |         |            |      |                     |                      |     0.0 |            |           |      |                  |
-| H4         |             | High Range | IO_L21N_T3_DQS_35            | User IO     |             |      35 |            |      |                     |                      |         |            |           |      |                  |
-| H5         |             | High Range | IO_L24N_T3_35                | User IO     |             |      35 |            |      |                     |                      |         |            |           |      |                  |
-| H6         |             | High Range | IO_L24P_T3_35                | User IO     |             |      35 |            |      |                     |                      |         |            |           |      |                  |
+| H4         | dp[7]       | High Range | IO_L21N_T3_DQS_35            | OUTPUT      | LVCMOS33    |      35 |         12 | SLOW |                     |            FP_VTT_50 |         | UNFIXED    |           |      | NONE             |
+| H5         | dp[1]       | High Range | IO_L24N_T3_35                | OUTPUT      | LVCMOS33    |      35 |         12 | SLOW |                     |            FP_VTT_50 |         | UNFIXED    |           |      | NONE             |
+| H6         | dp[2]       | High Range | IO_L24P_T3_35                | OUTPUT      | LVCMOS33    |      35 |         12 | SLOW |                     |            FP_VTT_50 |         | UNFIXED    |           |      | NONE             |
 | H7         |             |            | GND                          | GND         |             |         |            |      |                     |                      |     0.0 |            |           |      |                  |
 | H8         |             |            | VCCINT                       | VCCINT      |             |         |            |      |                     |                      |         |            |           |      |                  |
 | H9         |             | Dedicated  | GNDADC_0                     | XADC        |             |       0 |            |      |                     |                      |         |            |           |      |                  |
@@ -178,10 +178,10 @@ Table of Contents
 | H17        |             | High Range | IO_L18P_T2_A24_15            | User IO     |             |      15 |            |      |                     |                      |         |            |           |      |                  |
 | H18        |             | High Range | VCCO_15                      | VCCO        |             |      15 |            |      |                     |                      |    3.30 |            |           |      |                  |
 | J1         |             | High Range | VCCO_35                      | VCCO        |             |      35 |            |      |                     |                      |    3.30 |            |           |      |                  |
-| J2         |             | High Range | IO_L22N_T3_35                | User IO     |             |      35 |            |      |                     |                      |         |            |           |      |                  |
-| J3         |             | High Range | IO_L22P_T3_35                | User IO     |             |      35 |            |      |                     |                      |         |            |           |      |                  |
+| J2         | dp[5]       | High Range | IO_L22N_T3_35                | OUTPUT      | LVCMOS33    |      35 |         12 | SLOW |                     |            FP_VTT_50 |         | UNFIXED    |           |      | NONE             |
+| J3         | dp[6]       | High Range | IO_L22P_T3_35                | OUTPUT      | LVCMOS33    |      35 |         12 | SLOW |                     |            FP_VTT_50 |         | UNFIXED    |           |      | NONE             |
 | J4         |             | High Range | IO_L21P_T3_DQS_35            | User IO     |             |      35 |            |      |                     |                      |         |            |           |      |                  |
-| J5         |             | High Range | IO_25_35                     | User IO     |             |      35 |            |      |                     |                      |         |            |           |      |                  |
+| J5         | dp[0]       | High Range | IO_25_35                     | OUTPUT      | LVCMOS33    |      35 |         12 | SLOW |                     |            FP_VTT_50 |         | UNFIXED    |           |      | NONE             |
 | J6         |             |            | GND                          | GND         |             |         |            |      |                     |                      |     0.0 |            |           |      |                  |
 | J7         |             |            | VCCINT                       | VCCINT      |             |         |            |      |                     |                      |         |            |           |      |                  |
 | J8         |             |            | GND                          | GND         |             |         |            |      |                     |                      |     0.0 |            |           |      |                  |
@@ -195,8 +195,8 @@ Table of Contents
 | J16        |             |            | GND                          | GND         |             |         |            |      |                     |                      |     0.0 |            |           |      |                  |
 | J17        |             | High Range | IO_L23P_T3_FOE_B_15          | User IO     |             |      15 |            |      |                     |                      |         |            |           |      |                  |
 | J18        |             | High Range | IO_L23N_T3_FWE_B_15          | User IO     |             |      15 |            |      |                     |                      |         |            |           |      |                  |
-| K1         |             | High Range | IO_L23N_T3_35                | User IO     |             |      35 |            |      |                     |                      |         |            |           |      |                  |
-| K2         |             | High Range | IO_L23P_T3_35                | User IO     |             |      35 |            |      |                     |                      |         |            |           |      |                  |
+| K1         | dp[3]       | High Range | IO_L23N_T3_35                | OUTPUT      | LVCMOS33    |      35 |         12 | SLOW |                     |            FP_VTT_50 |         | UNFIXED    |           |      | NONE             |
+| K2         | dp[4]       | High Range | IO_L23P_T3_35                | OUTPUT      | LVCMOS33    |      35 |         12 | SLOW |                     |            FP_VTT_50 |         | UNFIXED    |           |      | NONE             |
 | K3         | seg[4]      | High Range | IO_L2P_T0_34                 | OUTPUT      | LVCMOS33    |      34 |         12 | SLOW |                     |            FP_VTT_50 |         | FIXED      |           |      | NONE             |
 | K4         |             | High Range | VCCO_34                      | VCCO        |             |      34 |            |      |                     |                      |    3.30 |            |           |      |                  |
 | K5         |             | High Range | IO_L5P_T0_34                 | User IO     |             |      34 |            |      |                     |                      |         |            |           |      |                  |

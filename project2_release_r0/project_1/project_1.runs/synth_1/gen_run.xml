@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="synth_1" LaunchPart="xc7a100tcsg324-1" LaunchTime="1413932772">
+<GenRun Id="synth_1" LaunchPart="xc7a100tcsg324-1" LaunchTime="1414085304">
   <File Type="RDS-UTIL-PB" Name="nexys4fpga_main_utilization_synth.pb"/>
   <File Type="RUN-CONSTRS" Name="$PDATADIR/runs/synth_1/constrs_in.xml"/>
   <File Type="RDS-UTIL" Name="nexys4fpga_main_utilization_synth.rpt"/>
@@ -86,7 +86,7 @@
       <FileInfo>
         <Attr Name="Library" Val="xil_defaultlib"/>
         <Attr Name="ImportPath" Val="$PPRDIR/../nexys4_bot_if.v"/>
-        <Attr Name="ImportTime" Val="1413932752"/>
+        <Attr Name="ImportTime" Val="1414078425"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
         <Attr Name="UsedIn" Val="simulation"/>
@@ -126,7 +126,7 @@
       <FileInfo>
         <Attr Name="Library" Val="xil_defaultlib"/>
         <Attr Name="ImportPath" Val="$PPRDIR/../nexys4fpga_main.v"/>
-        <Attr Name="ImportTime" Val="1413932762"/>
+        <Attr Name="ImportTime" Val="1414085292"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
         <Attr Name="UsedIn" Val="simulation"/>

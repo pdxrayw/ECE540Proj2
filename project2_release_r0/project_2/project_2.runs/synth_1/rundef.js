@@ -23,7 +23,7 @@ eval( EAInclude(ISEJScriptLib) );
 
 
 ISEStep( "vivado",
-         "-log nexys4_main.vds -m64 -mode batch -messageDb vivado.pb -source nexys4_main.tcl" );
+         "-log nexys4fpga_main.vds -m64 -mode batch -messageDb vivado.pb -source nexys4fpga_main.tcl" );
 
 
 

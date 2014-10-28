@@ -1,0 +1,167 @@
+Copyright 1986-2014 Xilinx, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2014.2 (win64) Build 932637 Wed Jun 11 13:33:10 MDT 2014
+| Date         : Mon Oct 27 20:05:40 2014
+| Host         : School-idea-PC running 64-bit major release  (build 9200)
+| Command      : report_clock_utilization -file nexys4fpga_main_clock_utilization_placed.rpt
+| Design       : nexys4fpga_main
+| Device       : xc7a100t
+---------------------------------------------------------------------------------------------
+
+Clock Utilization Report
+
+Table of Contents
+-----------------
+1. Clock Primitive Utilization
+2. Details of Global Clocks
+3. Details of Regional Clocks
+4. Details of Multi-Regional Clocks
+5. Details of I/O Clocks
+6. Details of Local Clocks
+7. Clock Regions : Key Resource Utilization
+8. Net wise resources used in clock region X1Y1
+9. Net wise resources used in clock region X0Y2
+10. Net wise resources used in clock region X1Y2
+
+1. Clock Primitive Utilization
+------------------------------
+
++-------+------+-----------+-----------+
+| Type  | Used | Available | Num Fixed |
++-------+------+-----------+-----------+
+| BUFG  |    2 |        32 |         0 |
+| BUFH  |    0 |        96 |         0 |
+| BUFIO |    0 |        24 |         0 |
+| MMCM  |    0 |         6 |         0 |
+| PLL   |    0 |         6 |         0 |
+| BUFR  |    0 |        24 |         0 |
+| BUFMR |    0 |        12 |         0 |
++-------+------+-----------+-----------+
+
+
+2. Details of Global Clocks
+---------------------------
+
++-------+------------------------------------------------------------------------------+-----------------------------------------------------------+--------------+-------+---------------+-----------+
+|       |                                                                              |                                                           |   Num Loads  |       |               |           |
++-------+------------------------------------------------------------------------------+-----------------------------------------------------------+------+-------+-------+---------------+-----------+
+| Index | BUFG Cell                                                                    | Net Name                                                  | BELs | Sites | Fixed | MaxDelay (ns) | Skew (ns) |
++-------+------------------------------------------------------------------------------+-----------------------------------------------------------+------+-------+-------+---------------+-----------+
+|     1 | PROJ2DEMO/instantiate_loader.jtag_loader_6_inst/jtag_loader_gen.upload_clock | PROJ2DEMO/instantiate_loader.jtag_loader_6_inst/shift_clk |   32 |    12 |    no |         1.881 |     0.151 |
+|     2 | JA_OBUF_BUFG[7]_inst                                                         | JA_OBUF_BUFG[7]                                           |  697 |   207 |    no |         2.865 |     1.201 |
++-------+------------------------------------------------------------------------------+-----------------------------------------------------------+------+-------+-------+---------------+-----------+
+
+
+3. Details of Regional Clocks
+-----------------------------
+
+4. Details of Multi-Regional Clocks
+-----------------------------------
+
+5. Details of I/O Clocks
+------------------------
+
+6. Details of Local Clocks
+--------------------------
+
++-------+----------------------------------------------------------------------------------------------------+----------------------------------------------------------+--------------+-------+---------------+-----------+
+|       |                                                                                                    |                                                          |   Num Loads  |       |               |           |
++-------+----------------------------------------------------------------------------------------------------+----------------------------------------------------------+------+-------+-------+---------------+-----------+
+| Index | Local Clk Src                                                                                      | Net Name                                                 | BELs | Sites | Fixed | MaxDelay (ns) | Skew (ns) |
++-------+----------------------------------------------------------------------------------------------------+----------------------------------------------------------+------+-------+-------+---------------+-----------+
+|     1 | PROJ2DEMO/instantiate_loader.jtag_loader_6_inst/jtag_loader_gen.BSCAN_7SERIES_gen.BSCAN_BLOCK_inst | PROJ2DEMO/instantiate_loader.jtag_loader_6_inst/jtag_clk |    5 |     2 |   yes |         0.000 |     0.000 |
++-------+----------------------------------------------------------------------------------------------------+----------------------------------------------------------+------+-------+-------+---------------+-----------+
+
+
+7. Clock Regions : Key Resource Utilization
+-------------------------------------------
+
++-------------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+
+|                   | Global Clock |     BUFRs    |    BUFMRs    |    BUFIOs    |     MMCM     |      PLL     |      GT      |      PCI     |    ILOGIC    |    OLOGIC    |      FF      |     LUTM     |    RAMB18    |    RAMB36    |    DSP48E1   |
++-------------------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+
+| Clock Region Name | Used | Avail | Used | Avail | Used | Avail | Used | Avail | Used | Avail | Used | Avail | Used | Avail | Used | Avail | Used | Avail | Used | Avail | Used | Avail | Used | Avail | Used | Avail | Used | Avail | Used | Avail |
++-------------------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+
+| X0Y0              |    0 |    12 |    0 |     4 |    0 |     2 |    0 |     4 |    0 |     1 |    0 |     1 |    0 |     0 |    0 |     0 |    0 |    50 |    0 |    50 |    0 | 20800 |    0 |  2400 |    0 |    20 |    0 |    10 |    0 |    20 |
+| X1Y0              |    0 |    12 |    0 |     0 |    0 |     0 |    0 |     0 |    0 |     0 |    0 |     0 |    0 |     5 |    0 |     0 |    0 |     0 |    0 |     0 |    0 | 12000 |    0 |  2200 |    0 |    40 |    0 |    20 |    0 |    40 |
+| X0Y1              |    0 |    12 |    0 |     4 |    0 |     2 |    0 |     4 |    0 |     1 |    0 |     1 |    0 |     0 |    0 |     0 |    0 |    50 |    0 |    50 |    0 | 16000 |    0 |  2400 |    0 |    20 |    0 |    10 |    0 |    20 |
+| X1Y1              |    2 |    12 |    0 |     4 |    0 |     2 |    0 |     4 |    0 |     1 |    0 |     1 |    0 |     0 |    0 |     0 |    0 |    50 |    0 |    50 |  631 | 15200 |   80 |  2600 |    1 |    60 |    2 |    30 |    0 |    40 |
+| X0Y2              |    1 |    12 |    0 |     4 |    0 |     2 |    0 |     4 |    0 |     1 |    0 |     1 |    0 |     0 |    0 |     0 |    0 |    50 |    0 |    50 |    0 | 16000 |    0 |  2400 |    0 |    20 |    0 |    10 |    0 |    20 |
+| X1Y2              |    1 |    12 |    0 |     4 |    0 |     2 |    0 |     4 |    0 |     1 |    0 |     1 |    0 |     0 |    0 |     0 |    0 |    50 |    0 |    50 |   18 | 15200 |    0 |  2600 |    0 |    60 |    0 |    30 |    0 |    40 |
+| X0Y3              |    0 |    12 |    0 |     4 |    0 |     2 |    0 |     4 |    0 |     1 |    0 |     1 |    0 |     0 |    0 |     0 |    0 |    50 |    0 |    50 |    0 | 20800 |    0 |  2400 |    0 |    20 |    0 |    10 |    0 |    20 |
+| X1Y3              |    0 |    12 |    0 |     0 |    0 |     0 |    0 |     0 |    0 |     0 |    0 |     0 |    0 |     5 |    0 |     1 |    0 |     0 |    0 |     0 |    0 | 10800 |    0 |  2000 |    0 |    30 |    0 |    15 |    0 |    40 |
++-------------------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+
+* RAMB36 site can be used as two RAMB18/FIFO18 sites
+
+
+8. Net wise resources used in clock region X1Y1
+-----------------------------------------------
+
++-------------+-------------+-------+-----------+----------+---------+-----------+---------+---------+-----+-------+----------+-----------------------------------------------------------+
+| Source Type | BUFHCE Site | Fixed | MMCM Pins | PLL Pins | GT Pins | BRAM Pins | ILOGICs | OLOGICs | FFs | LUTMs | DSP48E1s |                       Clock Net Name                      |
++-------------+-------------+-------+-----------+----------+---------+-----------+---------+---------+-----+-------+----------+-----------------------------------------------------------+
+| BUFG        |     ---     |   no  |         0 |        0 |       0 |         0 |       0 |       0 |  32 |     0 |        0 | PROJ2DEMO/instantiate_loader.jtag_loader_6_inst/shift_clk |
+| BUFG        |     ---     |   no  |         0 |        0 |       0 |         4 |       0 |       0 | 595 |    80 |        0 | JA_OBUF_BUFG[7]                                           |
++-------------+-------------+-------+-----------+----------+---------+-----------+---------+---------+-----+-------+----------+-----------------------------------------------------------+
+
+
+9. Net wise resources used in clock region X0Y2
+-----------------------------------------------
+
++-------------+-------------+-------+-----------+----------+---------+-----------+---------+---------+-----+-------+----------+----------------+
+| Source Type | BUFHCE Site | Fixed | MMCM Pins | PLL Pins | GT Pins | BRAM Pins | ILOGICs | OLOGICs | FFs | LUTMs | DSP48E1s | Clock Net Name |
++-------------+-------------+-------+-----------+----------+---------+-----------+---------+---------+-----+-------+----------+----------------+
+
+
+10. Net wise resources used in clock region X1Y2
+------------------------------------------------
+
++-------------+-------------+-------+-----------+----------+---------+-----------+---------+---------+-----+-------+----------+-----------------+
+| Source Type | BUFHCE Site | Fixed | MMCM Pins | PLL Pins | GT Pins | BRAM Pins | ILOGICs | OLOGICs | FFs | LUTMs | DSP48E1s |  Clock Net Name |
++-------------+-------------+-------+-----------+----------+---------+-----------+---------+---------+-----+-------+----------+-----------------+
+| BUFG        |     ---     |   no  |         0 |        0 |       0 |         0 |       0 |       0 |  18 |     0 |        0 | JA_OBUF_BUFG[7] |
++-------------+-------------+-------+-----------+----------+---------+-----------+---------+---------+-----+-------+----------+-----------------+
+
+
+
+# Location of BUFG Primitives 
+set_property LOC BUFGCTRL_X0Y16 [get_cells JA_OBUF_BUFG[7]_inst]
+set_property LOC BUFGCTRL_X0Y0 [get_cells PROJ2DEMO/instantiate_loader.jtag_loader_6_inst/jtag_loader_gen.upload_clock]
+
+# Location of IO Clock Primitives
+
+# Location of MMCM Clock Primitives
+
+# Location of BUFH Clock Primitives
+
+# Location of BUFR Clock Primitives
+
+# Location of BUFMR Clock Primitives
+
+# Location of PLL Clock Primitives
+
+# Location of IO Primitives which is load of clock spine
+set_property LOC IOB_X0Y108 [get_cells JA_OBUF[7]_inst]
+
+# Location of clock ports
+set_property LOC IOB_X1Y126 [get_ports clk]
+
+# Clock net "JA_OBUF_BUFG[7]" driven by instance "JA_OBUF_BUFG[7]_inst" located at site "BUFGCTRL_X0Y16"
+#startgroup
+create_pblock CLKAG_JA_OBUF_BUFG[7]
+add_cells_to_pblock [get_pblocks  CLKAG_JA_OBUF_BUFG[7]] [get_cells  -filter { IS_PRIMITIVE==1 && PRIMITIVE_LEVEL !=INTERNAL && NAME!=JA_OBUF[7]_inst} -of_object [get_pins -filter {DIRECTION==IN} -of_objects [get_nets -hierarchical -filter {PARENT=="JA_OBUF_BUFG[7]"}]]]
+resize_pblock [get_pblocks CLKAG_JA_OBUF_BUFG[7]] -add {CLOCKREGION_X1Y1:CLOCKREGION_X1Y1 CLOCKREGION_X1Y2:CLOCKREGION_X1Y2}
+#endgroup
+
+# Clock net "PROJ2DEMO/instantiate_loader.jtag_loader_6_inst/jtag_clk" driven by instance "PROJ2DEMO/instantiate_loader.jtag_loader_6_inst/jtag_loader_gen.BSCAN_7SERIES_gen.BSCAN_BLOCK_inst" located at site "BSCAN_X0Y1"
+#startgroup
+create_pblock CLKAG_PROJ2DEMO/instantiate_loader.jtag_loader_6_inst/jtag_clk
+add_cells_to_pblock [get_pblocks  CLKAG_PROJ2DEMO/instantiate_loader.jtag_loader_6_inst/jtag_clk] [get_cells  -filter { IS_PRIMITIVE==1 && PRIMITIVE_LEVEL !=INTERNAL } -of_object [get_pins -filter {DIRECTION==IN} -of_objects [get_nets -hierarchical -filter {PARENT=="PROJ2DEMO/instantiate_loader.jtag_loader_6_inst/jtag_clk"}]]]
+resize_pblock [get_pblocks CLKAG_PROJ2DEMO/instantiate_loader.jtag_loader_6_inst/jtag_clk] -add {CLOCKREGION_X1Y1:CLOCKREGION_X1Y1}
+#endgroup
+
+# Clock net "PROJ2DEMO/instantiate_loader.jtag_loader_6_inst/shift_clk" driven by instance "PROJ2DEMO/instantiate_loader.jtag_loader_6_inst/jtag_loader_gen.upload_clock" located at site "BUFGCTRL_X0Y0"
+#startgroup
+create_pblock CLKAG_PROJ2DEMO/instantiate_loader.jtag_loader_6_inst/shift_clk
+add_cells_to_pblock [get_pblocks  CLKAG_PROJ2DEMO/instantiate_loader.jtag_loader_6_inst/shift_clk] [get_cells  -filter { IS_PRIMITIVE==1 && PRIMITIVE_LEVEL !=INTERNAL } -of_object [get_pins -filter {DIRECTION==IN} -of_objects [get_nets -hierarchical -filter {PARENT=="PROJ2DEMO/instantiate_loader.jtag_loader_6_inst/shift_clk"}]]]
+resize_pblock [get_pblocks CLKAG_PROJ2DEMO/instantiate_loader.jtag_loader_6_inst/shift_clk] -add {CLOCKREGION_X1Y1:CLOCKREGION_X1Y1}
+#endgroup
