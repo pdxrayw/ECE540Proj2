@@ -301,7 +301,24 @@ CONSTANT	SP_DIG6,		31		;
 CONSTANT	SP_DIG5,		32		;
 CONSTANT	SP_DIG4,		33		;
 
+;==========================
+;====Scratch pads variables for find line
+;==========================
 
+CONSTANT    SP_STOP,        34      ; stop variable
+CONSTANT    SP_REV_T,       35      ;
+CONSTANT    SP_REV_C,       36      ;
+CONSTANT    SP_RT_T,        37      ;
+CONSTANT    SP_RT_C,        38      ;
+CONSTANT    SP_RLOCX,       39      ;
+CONSTANT    SP_RLOCY,       40      ;
+CONSTANT    SP_RORT,        41      ;
+CONSTANT    SP_FIND,        42       ;
+CONSTANT    SP_ORT,         43      ;
+CONSTANT    SP_RT_COMP,     44      ;
+CONSTANT    SP_ORT_T,       45      ;
+CONSTANT    SP_ORT_C,       46      ;
+CONSTANT    SP_RTS,         47      ;
 ; ===============
 ; === main()  ===
 ; ===============
@@ -314,6 +331,7 @@ ADDRESS	000
 													;
 main:			CALL	init_btnluptbl				; initialize button to MotCtl lookup table
 				CALL	init_mvmttbl				; initialize movement to character code lookup table
+                CALL    init_find_line              ; initialize find line variables
 				LOAD	s1,		00					; clear the semaphore
 				STORE	s1,		SP_SEM				;
 				LOAD	s1,		00					; turn off decimal points 3-0.  Decimal point 0 (rightmost
@@ -338,7 +356,7 @@ main_L0:		FETCH	s6,		SP_SEM				;		while (SP_SEMA == 0)  {}   // loop until isr u
 main_L2:		CALL	wr_alldigits				;		write all of the digits to the display
 				LOAD	s1,		Sensor				;		update LEDs with new sensor information
 				CALL	LED_wrleds					;
-				CALL	next_step					;		tell rojobot what to do next
+                CALL    find_line                   ; tell rojobot to move
 				FETCH	s6,		SP_SEM
 				SUB	s6,		01					;		decrement semaphore
 				STORE	s6,		SP_SEM				;
@@ -515,7 +533,29 @@ init_mvmttbl:	LOAD	s0,		SP_MVMTBASE			; s0 gets base of movement translation loo
 				LOAD	s1,		SP_MVMTF			; s1 gets values for 0x0F								
 				STORE	s1,		(s0)				; store the entry in the table
 				RETURN								; done...at last			
-				
+; ===============================================================================
+; === init_find_line() - initialize find line scratch pad variables ===
+; === Registers affected: s0, s1                                              ===
+; ===============================================================================
+
+init_find_line:
+                LOAD    s0, 00
+                STORE   s0, SP_STOP
+                STORE   s0, SP_REV_T
+                STORE   s0, SP_REV_C
+                STORE   s0, SP_RT_T
+                STORE   s0, SP_RT_C
+                STORE   s0, SP_RLOCX
+                STORE   s0, SP_RLOCY
+                STORE   s0, SP_RORT
+                STORE   s0, SP_FIND
+                STORE   s0, SP_ORT
+                STORE   s0, SP_RT_COMP
+                STORE   s0, SP_ORT_T
+                STORE   s0, SP_ORT_C
+                STORE   s0, SP_RTS
+                RETURN
+
 
 ; =============================================================================
 ; === mvmt2cc() - movement to character code conversion function            ===
@@ -655,13 +695,147 @@ next_loc:		LOAD		s0,		LocX				; Dig[3:2] gets X-coordinate
 ; === This version reads the pushbuttons, calculates the new Motor Control   ===
 ; === register value and then writes MotCtl so Rojobot knows what to do      ===  
 ; ==============================================================================
-next_step:		CALL		DEB_rdbtns					; Read the pushbuttons. buttons returned in s0
-				CALL		btn2mot						; and calculate new MotCtl - returned in s1
-				OUTPUT	s1,		PA_MOTCTL_IN		; tell Rojobot what to do
+next_step:		;CALL		DEB_rdbtns					; Read the pushbuttons. buttons returned in s0
+                CALL        find_line                   ; See if the line is under the bot. returns movement needed in s0
+				;CALL		btn2mot						; and calculate new MotCtl - returned in s1
+				;OUTPUT	s1,		PA_MOTCTL_IN		; tell Rojobot what to do
 				RETURN																
+               
+                
+find_line:      LOAD        s1, 00
+                STORE       s1, SP_STOP     ;make sure that we can go to stop
+                FETCH       s1, SP_FIND     ;get variable 
+                COMPARE     s1, 00          ;check to see if find is complete
+                JUMP NZ, stop            ; if find is complete go to stop
+                LOAD        s3, Botinf          ;read the botinfo into s3: s3[3:0] = Botinf[7:4]
+                SR0	s3							; this will get the movement speed
+				SR0	s3							;
+				SR0	s3							;
+				SR0	s3							;
+                LOAD        s1, Sensor          ;read the sensor into s1
+                LOAD        s4, s1              ; load sensor info into s4
+                AND         s4, 07              ;mask out unused bits (00000111 = 7 hex)
+                COMPARE     s4, 00              ;check to see if the line is there
+                JUMP NZ, stop                   ;if line is not there stop
+                ;FETCH   s1, SP_RTS              ;see if right turn has started
+                ;COMPARE S1, 00                  
+                ;CALL NZ,  clean_up2               ;if right turn has started and the line was found clean up all variables                
+                ;STORE   s1, SP_ORT_C            ;set flag that the orientation is complete
+                LOAD    s0, 33                  ;make bot go forward 00110011 = 33 hex (forward)
+                                                   ; 00 hex = stop
+                                                   ; 22 hex = backward
+                                                   ;30 hex = slow right turn
+                                                   ;03 hex = slow left turn
+				OUTPUT	s0,		PA_MOTCTL_IN	;tell Rojobot to go forward
+                RETURN                          ;if bot moved go back to main
 
 
-				
+stop:           LOAD        s1, 00
+                STORE       s1, SP_REV_T     ;make sure that we can go to reverse
+                STORE       s1, SP_REV_C
+                FETCH       s1, SP_STOP     ;get variable that tells if stop has completed
+                COMPARE     s1, 00          ;check to see if stop is complete
+                JUMP NZ, reverse            ; if stop is complete go to reverse
+                LOAD        s3, Botinf          ;read the botinfo into s3: s3[3:0] = Botinf[7:4]
+                SR0	s3							; this will get the movement speed
+				SR0	s3							;
+				SR0	s3							;
+				SR0	s3							;
+                COMPARE     s3, 00          ; check if botinfo shows bot as stopped
+                JUMP Z, reverse             ; if bot is stopped go to reverse
+                LOAD        s1, 00         ; load stop into s1 
+                OUTPUT	    s1,	PA_MOTCTL_IN	; tell Rojobot what to do 
+                LOAD        s0, 01          ; load number to toggle SP_FIND
+                STORE       s0, SP_FIND     ; put number into SP_FIND (so we stop looking for line this cycle)
+				RETURN                                 
+          
+reverse:        LOAD        s1, 00
+                STORE       s1, SP_ORT_T     ;make sure that we can go to right turn
+                STORE       s1, SP_ORT_C       
+                FETCH       s1, SP_REV_T    ; get value from reverse toggle
+                COMPARE     s1, 00          ; check if this is the first time in this loop
+                JUMP NZ,    reverse2        ; if not, go to reverse 2 loop
+                LOAD        s0, 01          ; load number to toggle SP_STOP and SP_REV_T
+                STORE       s0, SP_STOP     ; put number into SP_STOP (stop is complete)
+                STORE       s0, SP_REV_T    ; put number into reverse toggle (reverse 1 is complete)
+                STORE       LocX, SP_RLOCX  ; put the current location X in the SP
+                STORE       LocY, SP_RLOCY  ; put the current Y location in the SP
+reverse2:       FETCH       s1, SP_REV_C    ; get value from reverse complete
+                COMPARE     s1, 00          ; check if reverse is complete
+                JUMP NZ,    right_turn      ; if yes, go to right turn loop
+                FETCH        s0, SP_RLOCX    ;load the old value of locx 
+                FETCH        s1, SP_RLOCY    ; load the old value of locy
+                COMPARE     s0, LocX        ; see if the x has moved
+                JUMP NZ,    right_turn
+                COMPARE     s1, SP_RLOCY    ;see if the y has moved
+                JUMP NZ,    right_turn
+                LOAD        s0, 22           ;make bot go reverse 00100010 = 22 hex (reverse)
+				OUTPUT	    s0,	PA_MOTCTL_IN	;tell Rojobot to go reverse
+                RETURN
+                
+right_turn:     FETCH       s1, SP_ORT_T    ; get value from ort toggle
+                COMPARE     s1, 00          ; check if this is the first time in this loop
+                JUMP NZ,    right_turn2     ; if not, go to right turn 2 loop
+                LOAD        s0, 01          ; load number to toggle reverse complete
+                STORE       s0, SP_REV_C     ; put number into SP_REV_C
+                STORE       s0, SP_ORT_T     ; put number into SP_ORT_T so this loop only executed once per 45 degree turn
+                LOAD        s3, Botinf      ;load the botinfo register value
+                AND         s3, 07          ;mask off the unused bits
+                STORE       s3, SP_RORT     ;Store the orientation value into scratch pad
+                FETCH       s1, SP_RTS      ; get value for right turn started
+                COMPARE     s1, 00          ; check if right turn has started
+                JUMP NZ, right_turn2         ; if the right turn has started skip the following STOREs
+                STORE       s3, SP_ORT      ;Store the orientation value into scratch pad (saved only 1 time per whole turn)
+                STORE       s0, SP_RTS      ; put number into SP_RTS so that we know a right turn has started                
+ right_turn2:   FETCH       s1, SP_ORT_C    ; get value from ort complete
+                COMPARE     s1, 00          ; check if ort is complete
+                JUMP NZ,    clean_up1      ; if yes, go to cleanup1
+                LOAD        s3, Botinf      ;load the botinfo register value
+                AND         s3, 07          ;mask off the unused bits
+                FETCH       s0, SP_RORT     ;get the value of the start of the turn
+                COMPARE     s3, s0          ;see if the bot has turned (see if orientation changed)
+                JUMP NZ,    set_tcomp       ;if the turn is complete clean up1 (continues to turn if needed)
+                LOAD        s0, 30          ;30 hex = slow right turn
+                OUTPUT      s0, PA_MOTCTL_IN;send right turn to motors
+                RETURN
+            
+set_tcomp:      LOAD        s0, 01
+                STORE       s0, SP_ORT_C ;set that ort is complete
+                RETURN
+                
+clean_up2:  LOAD    s2, 00         ;used to clean up all variables after line has been found
+            STORE   s2, SP_RT_COMP
+            LOAD    s2, 00
+            STORE   s2, SP_RTS
+            LOAD    s2, 00
+            STORE   s2, SP_ORT
+clean_up1:  LOAD    s2, 00          ;only used while line has not been found
+            STORE   s2, SP_STOP
+            LOAD    s2, 00
+            STORE   s2, SP_ORT_C
+            LOAD    s2, 00
+            STORE   s2, SP_REV_T
+            LOAD    s2, 00
+            STORE   s2, SP_REV_C
+            LOAD    s2, 00
+            STORE   s2, SP_RT_T
+            LOAD    s2, 00
+            STORE   s2, SP_RT_C
+            LOAD    s2, 00
+            STORE   s2, SP_RLOCX
+            LOAD    s2, 00
+            STORE   s2, SP_RLOCY
+            LOAD    s2, 00
+            STORE   s2, SP_RORT
+            LOAD    s2, 00
+            STORE   s2, SP_FIND
+            LOAD    s2, 00
+            STORE   s2, SP_ORT_T
+            LOAD    s2, 00
+            RETURN
+
+
+            
 ;*************************
 ; Nexys4 I/O Functions
 ;*************************

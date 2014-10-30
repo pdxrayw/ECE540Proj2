@@ -217,19 +217,15 @@ end // always - write registers
 	
 always @ (posedge clk)
   begin
-      //up_sys_reg <= ~up_sys_reg;  
       if (interrupt_ack == 1'b1) begin
          interrupt <= 1'b0;
-         //up_sys_reg <= 1'b0;
       end
       else if (upd_sysregs == 1'b1) begin
           interrupt <= 1'b1;
       end
       else begin
           interrupt <= interrupt;
-          //up_sys_reg <= ~up_sys_reg;
       end
-      //interrupt <= upd_sysregs;
   end
 
 endmodule

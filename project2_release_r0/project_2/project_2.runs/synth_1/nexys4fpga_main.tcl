@@ -17,9 +17,9 @@ read_verilog -library xil_defaultlib {
   C:/540_proj2/project2_release_r0/project_2/project_2.srcs/sources_1/imports/project2_release_r0/hdl_part1/bot_pgm.v
   C:/540_proj2/project2_release_r0/project_2/project_2.srcs/sources_1/imports/project2_release_r0/sevensegment.v
   C:/540_proj2/project2_release_r0/project_2/project_2.srcs/sources_1/imports/project2_release_r0/nexys4_bot_if.v
-  C:/540_proj2/project2_release_r0/project_2/project_2.srcs/sources_1/imports/project2_release_r0/hdl_part1/proj2demo.v
   C:/540_proj2/project2_release_r0/project_2/project_2.srcs/sources_1/imports/project2_release_r0/hdl_part1/bot.v
   C:/540_proj2/project2_release_r0/project_2/project_2.srcs/sources_1/imports/project2_release_r0/debounce.v
+  C:/540_proj2/project2_release_r0/project_2/project_2.srcs/sources_1/imports/proj2demo/proj2demo.v
   C:/540_proj2/project2_release_r0/project_2/project_2.srcs/sources_1/imports/project2_release_r0/nexys4fpga_main.v
 }
 read_edif C:/540_proj2/project2_release_r0/project_2/project_2.srcs/sources_1/imports/world_map_part1/world_map.ngc
