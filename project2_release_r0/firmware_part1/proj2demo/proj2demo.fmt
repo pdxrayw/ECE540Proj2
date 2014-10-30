@@ -640,10 +640,15 @@ init_find_line:
                 AND s4, 07                    ;mask out unused bits (00000111 = 7 hex)
                 COMPARE s4, 00                ;check to see if the line is there
                 JUMP NZ, stop                 ;if line is not there stop
-                ;FETCH   s1, SP_RTS              ;see if right turn has started
-                ;COMPARE S1, 00
-                ;CALL NZ,  clean_up2               ;if right turn has started and the line was found clean up all variables
-                ;STORE   s1, SP_ORT_C            ;set flag that the orientation is complete
+                FETCH s1, SP_RTS              ;see if right turn has started
+                COMPARE s1, 00
+                CALL NZ, clean_up2            ;if right turn has started and the line was found clean up all variables
+                LOAD s1, Sensor               ;read the sensor into s1
+                LOAD s4, s1                   ;load sensor info into s4
+                AND s4, 18                    ;mask out unused bits (00011000 = 18 hex)
+                COMPARE s4, 18                ;check to see if the wall is there
+                JUMP Z, end1
+                STORE s1, SP_ORT_C            ;set flag that the orientation is complete
                 LOAD s0, 33                   ;make bot go forward 00110011 = 33 hex (forward)
                 ; 00 hex = stop
                 ; 22 hex = backward
@@ -711,7 +716,7 @@ init_find_line:
                 STORE s0, SP_RTS              ; put number into SP_RTS so that we know a right turn has started
    right_turn2: FETCH s1, SP_ORT_C            ; get value from ort complete
                 COMPARE s1, 00                ; check if ort is complete
-                JUMP NZ, clean_up2            ; if yes, go to cleanup1
+                JUMP NZ, clean_up1            ; if yes, go to cleanup1
                 LOAD s3, Botinf               ;load the botinfo register value
                 AND s3, 07                    ;mask off the unused bits
                 FETCH s0, SP_RORT             ;get the value of the start of the turn
@@ -752,6 +757,9 @@ init_find_line:
                 LOAD s2, 00
                 STORE s2, SP_ORT_T
                 LOAD s2, 00
+                RETURN 
+          end1: LOAD s1, 00                   ; load stop into s1
+                OUTPUT s1, PA_MOTCTL_IN       ; tell Rojobot to stop
                 RETURN 
                 ;*************************
                 ; Nexys4 I/O Functions

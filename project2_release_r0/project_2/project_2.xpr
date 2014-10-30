@@ -109,7 +109,7 @@
       <File Path="$PSRCDIR/sources_1/imports/proj2demo/proj2demo.v">
         <FileInfo>
           <Attr Name="ImportPath" Val="$PPRDIR/../firmware_part1/proj2demo/proj2demo.v"/>
-          <Attr Name="ImportTime" Val="1414683130"/>
+          <Attr Name="ImportTime" Val="1414690799"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>

@@ -704,7 +704,7 @@ next_step:		;CALL		DEB_rdbtns					; Read the pushbuttons. buttons returned in s0
                 
 find_line:      FETCH       s1, SP_FIND     ;get variable 
                 COMPARE     s1, 00          ;check to see if find is complete
-                JUMP NZ, stop            ; if find is complete go to stop
+                JUMP NZ, stop               ; if find is complete go to stop
                 LOAD        s1, 00
                 STORE       s1, SP_STOP     ;make sure that we can go to stop
                 LOAD        s3, Botinf          ;read the botinfo into s3: s3[3:0] = Botinf[7:4]
@@ -717,10 +717,15 @@ find_line:      FETCH       s1, SP_FIND     ;get variable
                 AND         s4, 07              ;mask out unused bits (00000111 = 7 hex)
                 COMPARE     s4, 00              ;check to see if the line is there
                 JUMP NZ, stop                   ;if line is not there stop
-                ;FETCH   s1, SP_RTS              ;see if right turn has started
-                ;COMPARE S1, 00                  
-                ;CALL NZ,  clean_up2               ;if right turn has started and the line was found clean up all variables                
-                ;STORE   s1, SP_ORT_C            ;set flag that the orientation is complete
+                FETCH   s1, SP_RTS              ;see if right turn has started
+                COMPARE S1, 00                  
+                CALL NZ,  clean_up2               ;if right turn has started and the line was found clean up all variables                
+                LOAD        s1, Sensor          ;read the sensor into s1
+                LOAD        s4, s1              ;load sensor info into s4
+                AND         s4, 18              ;mask out unused bits (00011000 = 18 hex)
+                COMPARE     s4, 18              ;check to see if the wall is there
+                JUMP  Z,    end1
+                STORE   s1, SP_ORT_C            ;set flag that the orientation is complete
                 LOAD    s0, 33                  ;make bot go forward 00110011 = 33 hex (forward)
                                                    ; 00 hex = stop
                                                    ; 22 hex = backward
@@ -837,7 +842,10 @@ clean_up1:  LOAD    s2, 00          ;only used while line has not been found
             LOAD    s2, 00
             RETURN
 
-
+            
+end1:       LOAD        s1, 00              ; load stop into s1 
+            OUTPUT	    s1,	PA_MOTCTL_IN	; tell Rojobot to stop
+            RETURN
             
 ;*************************
 ; Nexys4 I/O Functions
