@@ -319,9 +319,6 @@ CONSTANT    SP_RT_COMP,     44      ;
 CONSTANT    SP_ORT_T,       45      ;
 CONSTANT    SP_ORT_C,       46      ;
 CONSTANT    SP_RTS,         47      ;
-CONSTANT    SP_NTY_C,       48      ;
-CONSTANT    SP_NTY_T,       49      ;
-CONSTANT    SP_NTY_ORT,     50      ;
 ; ===============
 ; === main()  ===
 ; ===============
@@ -557,9 +554,6 @@ init_find_line:
                 STORE   s0, SP_ORT_T
                 STORE   s0, SP_ORT_C
                 STORE   s0, SP_RTS
-                STORE   s0, SP_NTY_C
-                STORE   s0, SP_NTY_T
-                STORE   s0, SP_NTY_ORT
                 RETURN
 
 
@@ -710,53 +704,54 @@ next_step:		;CALL		DEB_rdbtns					; Read the pushbuttons. buttons returned in s0
                 
 find_line:      FETCH       s1, SP_FIND     ;get variable 
                 COMPARE     s1, 00          ;check to see if find is complete
-                JUMP NZ,    stop            ; if find is complete go to stop
+                JUMP NZ, stop               ; if find is complete go to stop
                 LOAD        s1, 00
-                STORE       s1, SP_STOP     ;make sure that we can go to stop               
-                LOAD        s3, Botinf      ;read the botinfo into s3: s3[3:0] = Botinf[7:4]
-                SR0	s3					    ; this will get the movement speed
-				SR0	s3						;
-				SR0	s3						;
-				SR0	s3						;
-                LOAD        s1, Sensor      ;read the sensor into s1
-                LOAD        s4, s1          ; load sensor info into s4
-                AND         s4, 07          ;mask out unused bits (00000111 = 7 hex)
-                COMPARE     s4, 00          ;check to see if the line is there
-                JUMP NZ,    stop            ;if line is not there stop
-                FETCH       s1, SP_RTS      ;see if right turn has started
-                COMPARE     S1, 00                  
-                CALL NZ,    clean_up2       ;if right turn has started and the line was found clean up all variables                
-                LOAD        s1, Sensor      ;read the sensor into s1
-                LOAD        s4, s1          ;load sensor info into s4
-                AND         s4, 18          ;mask out unused bits (00011000 = 18 hex)
-                COMPARE     s4, 18          ;check to see if the wall is there
+                STORE       s1, SP_STOP     ;make sure that we can go to stop
+                LOAD        s3, Botinf          ;read the botinfo into s3: s3[3:0] = Botinf[7:4]
+                SR0	s3							; this will get the movement speed
+				SR0	s3							;
+				SR0	s3							;
+				SR0	s3							;
+                LOAD        s1, Sensor          ;read the sensor into s1
+                LOAD        s4, s1              ; load sensor info into s4
+                AND         s4, 07              ;mask out unused bits (00000111 = 7 hex)
+                COMPARE     s4, 00              ;check to see if the line is there
+                JUMP NZ, stop                   ;if line is not there stop
+                FETCH   s1, SP_RTS              ;see if right turn has started
+                COMPARE S1, 00                  
+                CALL NZ,  clean_up2               ;if right turn has started and the line was found clean up all variables                
+                LOAD        s1, Sensor          ;read the sensor into s1
+                LOAD        s4, s1              ;load sensor info into s4
+                AND         s4, 18              ;mask out unused bits (00011000 = 18 hex)
+                COMPARE     s4, 18              ;check to see if the wall is there
                 JUMP  Z,    end1
-                LOAD        s0, 33          ;make bot go forward 00110011 = 33 hex (forward)
-                                            ; 00 hex = stop
-                                            ; 22 hex = backward
-                                            ;30 hex = slow right turn
-                                            ;03 hex = slow left turn
-				OUTPUT	    s0,	PA_MOTCTL_IN;tell Rojobot to go forward
-                RETURN                   
+                STORE   s1, SP_ORT_C            ;set flag that the orientation is complete
+                LOAD    s0, 33                  ;make bot go forward 00110011 = 33 hex (forward)
+                                                   ; 00 hex = stop
+                                                   ; 22 hex = backward
+                                                   ;30 hex = slow right turn
+                                                   ;03 hex = slow left turn
+				OUTPUT	s0,		PA_MOTCTL_IN	;tell Rojobot to go forward
+                RETURN                          ;if bot moved go back to main
 
 
 stop:           LOAD        s1, 01
                 STORE       s1, SP_FIND     ;make sure that find flag is set
                 FETCH       s1, SP_STOP     ;get variable that tells if stop has completed
                 COMPARE     s1, 00          ;check to see if stop is complete
-                JUMP NZ,    reverse         ; if stop is complete go to reverse
+                JUMP NZ, reverse            ; if stop is complete go to reverse
                 LOAD        s1, 00
-                STORE       s1, SP_REV_T    ;make sure that we can go to reverse
+                STORE       s1, SP_REV_T     ;make sure that we can go to reverse
                 STORE       s1, SP_REV_C    ;make sure reverse is not flagged as complete
-                LOAD        s3, Botinf      ;read the botinfo into s3: s3[3:0] = Botinf[7:4]
-                SR0	s3						; this will get the movement speed
-				SR0	s3						;
-				SR0	s3						;
-				SR0	s3						;
+                LOAD        s3, Botinf          ;read the botinfo into s3: s3[3:0] = Botinf[7:4]
+                SR0	s3							; this will get the movement speed
+				SR0	s3							;
+				SR0	s3							;
+				SR0	s3							;
                 COMPARE     s3, 00          ; check if botinfo shows bot as stopped
-                JUMP Z,     reverse         ; if bot is stopped go to reverse
-                LOAD        s1, 00          ; load stop into s1 
-                OUTPUT	    s1,	PA_MOTCTL_IN; tell Rojobot what to STOP
+                JUMP Z, reverse             ; if bot is stopped go to reverse
+                LOAD        s1, 00         ; load stop into s1 
+                OUTPUT	    s1,	PA_MOTCTL_IN	; tell Rojobot what to do 
 				RETURN                                 
           
 reverse:        LOAD        s1, 01
@@ -765,8 +760,8 @@ reverse:        LOAD        s1, 01
                 COMPARE     s1, 00          ; check if this is the first time in this loop
                 JUMP NZ,    reverse2        ; if not, go to reverse 2 loop
                 LOAD        s1, 00
-                STORE       s1, SP_ORT_T    ;make sure that we can go to right turn
-                STORE       s1, SP_ORT_C    ;make sure that right turn flag is not marked complete
+                STORE       s1, SP_ORT_T     ;make sure that we can go to right turn
+                STORE       s1, SP_ORT_C     ;make sure that right turn flag is not marked complete
                 STORE       LocX, SP_RLOCX  ; put the current location X in the SP
                 STORE       LocY, SP_RLOCY  ; put the current Y location in the SP
                 LOAD        s1, 01
@@ -780,37 +775,29 @@ reverse2:       FETCH       s1, SP_REV_C    ; get value from reverse complete
                 JUMP NZ,    right_turn
                 COMPARE     s1, LocY        ;see if the y has moved
                 JUMP NZ,    right_turn
-                LOAD        s0, 22          ;make bot go reverse 00100010 = 22 hex (reverse)
-				OUTPUT	    s0,	PA_MOTCTL_IN;tell Rojobot to go reverse
+                LOAD        s0, 22            ;make bot go reverse 00100010 = 22 hex (reverse)
+				OUTPUT	    s0,	PA_MOTCTL_IN	;tell Rojobot to go reverse
                 RETURN
                 
 right_turn:     LOAD        s1, 01
-                STORE       s1, SP_REV_T    ;make sure that reverse flag is set
-                STORE       s1, SP_REV_C    ;make sure that reverse complete flag is set 
-                LOAD        s1, 00
-                STORE       s1, SP_NTY_C    ; make sure that ninety turn is not complete
+                STORE       s1, SP_REV_T     ;make sure that reverse flag is set
+                STORE       s1, SP_REV_C
                 FETCH       s1, SP_ORT_T    ; get value from ort toggle
                 COMPARE     s1, 00          ; check if this is the first time in this loop
                 JUMP NZ,    right_turn2     ; if not, go to right turn 2 loop
                 LOAD        s0, 01          ; load number to toggle reverse complete
-                STORE       s0, SP_ORT_T    ; put number into SP_ORT_T so this loop only executed once per 45 degree turn
+                STORE       s0, SP_ORT_T     ; put number into SP_ORT_T so this loop only executed once per 45 degree turn
                 LOAD        s3, Botinf      ;load the botinfo register value
                 AND         s3, 07          ;mask off the unused bits
                 STORE       s3, SP_RORT     ;Store the orientation value into scratch pad
                 FETCH       s1, SP_RTS      ; get value for right turn started
                 COMPARE     s1, 00          ; check if right turn has started
-                JUMP NZ, right_turn2        ; if the right turn has started skip the following STOREs
+                JUMP NZ, right_turn2         ; if the right turn has started skip the following STOREs
                 STORE       s3, SP_ORT      ;Store the orientation value into scratch pad (saved only 1 time per whole turn)
                 STORE       s0, SP_RTS      ; put number into SP_RTS so that we know a right turn has started                
- right_turn2:   ;enter the left turn if needed
-                FETCH       s1, SP_ORT      ;get original orientation from scratch pad
-                FETCH       s2, SP_RORT     ;get the current orentation
-                ADD         s1, 03          ;add 3 to the original orientation to tell if left turn is needed
-                COMPARE     s1, s2          ;see if the bot has reached the last position before the line it was alreay on
-                JUMP Z,     ninety_turn     ;go do ninety turn if it is needed
-                FETCH       s1, SP_ORT_C    ; get value from ort complete
+ right_turn2:   FETCH       s1, SP_ORT_C    ; get value from ort complete
                 COMPARE     s1, 00          ; check if ort is complete
-                JUMP NZ,    clean_up1       ; if yes, go to cleanup1
+                JUMP NZ,    clean_up1      ; if yes, go to cleanup1
                 LOAD        s3, Botinf      ;load the botinfo register value
                 AND         s3, 07          ;mask off the unused bits
                 FETCH       s0, SP_RORT     ;get the value of the start of the turn
@@ -821,62 +808,44 @@ right_turn:     LOAD        s1, 01
                 RETURN
             
 set_tcomp:      LOAD        s0, 01
-                STORE       s0, SP_ORT_C    ;set that ort is complete
+                STORE       s0, SP_ORT_C ;set that ort is complete
                 RETURN
                 
-end1:           LOAD        s1, 00              ; load stop into s1 
-                OUTPUT	    s1,	PA_MOTCTL_IN	; tell Rojobot to stop
-                RETURN
+clean_up2:  LOAD    s2, 00         ;used to clean up all variables after line has been found
+            STORE   s2, SP_RT_COMP
+            LOAD    s2, 00
+            STORE   s2, SP_RTS
+            LOAD    s2, 00
+            STORE   s2, SP_ORT
+clean_up1:  LOAD    s2, 00          ;only used while line has not been found
+            STORE   s2, SP_STOP
+            LOAD    s2, 00
+            STORE   s2, SP_ORT_C
+            LOAD    s2, 00
+            STORE   s2, SP_REV_T
+            LOAD    s2, 00
+            STORE   s2, SP_REV_C
+            LOAD    s2, 00
+            STORE   s2, SP_RT_T
+            LOAD    s2, 00
+            STORE   s2, SP_RT_C
+            LOAD    s2, 00
+            STORE   s2, SP_RLOCX
+            LOAD    s2, 00
+            STORE   s2, SP_RLOCY
+            LOAD    s2, 00
+            STORE   s2, SP_RORT
+            LOAD    s2, 00
+            STORE   s2, SP_FIND
+            LOAD    s2, 00
+            STORE   s2, SP_ORT_T
+            LOAD    s2, 00
+            RETURN
 
-                
-clean_up2:      LOAD        s2, 00          ;used to clean up all variables after line has been found
-                STORE       s2, SP_RTS  
-                STORE       s2, SP_ORT
-                STORE       s2, SP_RT_COMP
-                STORE       s2, SP_NTY_C
-                STORE       s2, SP_NTY_T
-                STORE       s2, SP_NTY_ORT
-clean_up1:      LOAD        s2, 00          ;used for the clean up for ninety degree turn
-                LOAD        s2, 00          ;only used while line has not been found
-                STORE       s2, SP_STOP
-                STORE       s2, SP_ORT_C
-                STORE       s2, SP_REV_T
-                STORE       s2, SP_REV_C
-                STORE       s2, SP_RT_T
-                STORE       s2, SP_RT_C
-                STORE       s2, SP_RLOCX
-                STORE       s2, SP_RLOCY
-                STORE       s2, SP_RORT
-                STORE       s2, SP_FIND
-                STORE       s2, SP_ORT_T
-                RETURN
-
-ninety_turn:    FETCH       s1, SP_NTY_C    ; get value from nty complete
-                COMPARE     s1, 00          ; check if nty is complete
-                JUMP NZ,    clean_up1       ; if yes, go to cleanup1
-                LOAD        s3, Botinf      ;load the botinfo register value
-                AND         s3, 07          ;mask off the unused bits
-                FETCH       s0, SP_RORT     ;get the value of the start of the turn
-                ADD         s0, 02          ; add 2 to the turn to make it 90 degrees
-                FETCH       s1, SP_NTY_T    ;see if this is the first time in this loop
-                LOAD        s2, 00
-                COMPARE     s1, 00
-                JUMP NZ,    ninety_turn2    ;if this is not the first time skip next steps
-                STORE       s0, SP_NTY_ORT  ;save the orientation that is the start of this turn
-                LOAD        s2, 01
-                STORE       s2, SP_NTY_T    ;store that this initial loop is done
-ninety_turn2:   FETCH       s0, SP_NTY_ORT  ;get the number for the start of the turn             
-                LOAD        s3, Botinf      ;load the botinfo register value
-                AND         s3, 07          ;mask off the unused bits
-                COMPARE     s0, s3          ;see if the bot has turned ninety degrees
-                JUMP NZ,    nine_tcomp      ;if the turn is complete set turn complete flag
-                LOAD        s0, 30          ;30 hex = slow right turn
-                OUTPUT      s0, PA_MOTCTL_IN;send right turn to motors
-                RETURN
             
-nine_tcomp:     LOAD        s0, 01
-                STORE       s0, SP_NTY_C    ;set that ort is complete
-                RETURN
+end1:       LOAD        s1, 00              ; load stop into s1 
+            OUTPUT	    s1,	PA_MOTCTL_IN	; tell Rojobot to stop
+            RETURN
             
 ;*************************
 ; Nexys4 I/O Functions

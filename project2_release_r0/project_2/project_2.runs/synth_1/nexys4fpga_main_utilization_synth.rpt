@@ -1,7 +1,7 @@
 Copyright 1986-2014 Xilinx, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2014.2 (win64) Build 932637 Wed Jun 11 13:33:10 MDT 2014
-| Date         : Thu Oct 30 10:43:32 2014
+| Date         : Fri Oct 31 14:42:39 2014
 | Host         : School-idea-PC running 64-bit major release  (build 9200)
 | Command      : report_utilization -file nexys4fpga_main_utilization_synth.rpt -pb nexys4fpga_main_utilization_synth.pb
 | Design       : nexys4fpga_main

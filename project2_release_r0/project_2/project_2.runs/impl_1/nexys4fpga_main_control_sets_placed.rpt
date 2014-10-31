@@ -1,7 +1,7 @@
 Copyright 1986-2014 Xilinx, Inc. All Rights Reserved.
 --------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2014.2 (win64) Build 932637 Wed Jun 11 13:33:10 MDT 2014
-| Date         : Thu Oct 30 10:46:51 2014
+| Date         : Fri Oct 31 14:45:41 2014
 | Host         : School-idea-PC running 64-bit major release  (build 9200)
 | Command      : report_control_sets -verbose -file nexys4fpga_main_control_sets_placed.rpt
 | Design       : nexys4fpga_main
@@ -56,8 +56,8 @@ Table of Contents
 |  JA_OBUF_BUFG[7]                                           | PROJ2DEMO/O4                                                                                     |                              |                1 |              4 |
 |  JA_OBUF_BUFG[7]                                           | PROJ2DEMO/O6                                                                                     |                              |                1 |              4 |
 |  JA_OBUF_BUFG[7]                                           | PROJ2DEMO/I18[0]                                                                                 |                              |                2 |              5 |
-|  JA_OBUF_BUFG[7]                                           | PROJ2DEMO/I14[0]                                                                                 |                              |                1 |              5 |
 |  JA_OBUF_BUFG[7]                                           | PROJ2DEMO/I17[0]                                                                                 |                              |                1 |              5 |
+|  JA_OBUF_BUFG[7]                                           | PROJ2DEMO/I14[0]                                                                                 |                              |                1 |              5 |
 |  JA_OBUF_BUFG[7]                                           | PROJ2DEMO/I16[0]                                                                                 |                              |                2 |              5 |
 |  JA_OBUF_BUFG[7]                                           | PROJ2DEMO/I15[0]                                                                                 |                              |                1 |              5 |
 |  JA_OBUF_BUFG[7]                                           | PROJ2DEMO/I13[0]                                                                                 |                              |                1 |              5 |
@@ -66,9 +66,9 @@ Table of Contents
 |  JA_OBUF_BUFG[7]                                           |                                                                                                  | processor/internal_reset     |                3 |              6 |
 |  JA_OBUF_BUFG[7]                                           |                                                                                                  | BOT/BOTSIMCPU/internal_reset |                3 |              6 |
 |  JA_OBUF_BUFG[7]                                           | BOT/BOTSIMPGM/O4[0]                                                                              | DB/SR[0]                     |                3 |              8 |
-|  JA_OBUF_BUFG[7]                                           | BOT/BOTSIMPGM/O2[0]                                                                              | DB/SR[0]                     |                4 |              8 |
-|  JA_OBUF_BUFG[7]                                           | BOT/BOTSIMPGM/O1[0]                                                                              |                              |                3 |              8 |
 |  JA_OBUF_BUFG[7]                                           | BOT/BOTSIMPGM/O3[0]                                                                              | DB/SR[0]                     |                3 |              8 |
+|  JA_OBUF_BUFG[7]                                           | BOT/BOTSIMPGM/O1[0]                                                                              |                              |                3 |              8 |
+|  JA_OBUF_BUFG[7]                                           | BOT/BOTSIMPGM/O2[0]                                                                              | DB/SR[0]                     |                4 |              8 |
 |  JA_OBUF_BUFG[7]                                           | SSB/n_0_FSM_onehot_an[8]_i_1                                                                     | DB/SR[0]                     |                2 |              8 |
 |  JA_OBUF_BUFG[7]                                           | BOT/BOTSIMCPU/spm_enable                                                                         |                              |                2 |              8 |
 |  JA_OBUF_BUFG[7]                                           | processor/spm_enable                                                                             |                              |                2 |              8 |
