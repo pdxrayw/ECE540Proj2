@@ -1,0 +1,10 @@
+#-----------------------------------------------------------
+# Vivado v2014.3 (64-bit)
+# SW Build 1034051 on Fri Oct  3 17:14:12 MDT 2014
+# IP Build 1028902 on Fri Sep 26 17:35:13 MDT 2014
+# Start of session at: Wed Oct 29 15:24:20 2014
+# Process ID: 14508
+# Log file: D:/ece540/project_2/project_2.runs/impl_1/sevensegment.vdi
+# Journal file: D:/ece540/project_2/project_2.runs/impl_1\vivado.jou
+#-----------------------------------------------------------
+source sevensegment.tcl -notrace

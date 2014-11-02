@@ -1,0 +1,26 @@
+INFO: [Common 17-701] A license check has taken more than 10 seconds to complete. This may indicate that there is a performance issue with one or more license servers listed in XILINXD_LICENSE_FILE or LM_LICENSE_FILE, or that the license servers are just not responding at all. Try setting the FLEXLM_DIAGNOSTICS environment variable to 3 and running Vivado again to get more information.
+#-----------------------------------------------------------
+# Vivado v2014.3 (64-bit)
+# SW Build 1034051 on Fri Oct  3 17:14:12 MDT 2014
+# IP Build 1028902 on Fri Sep 26 17:35:13 MDT 2014
+# Start of session at: Sun Nov 02 12:41:06 2014
+# Process ID: 6888
+# Log file: D:/ece540/project_2/project_2.runs/impl_1/nexys4fpga.vdi
+# Journal file: D:/ece540/project_2/project_2.runs/impl_1\vivado.jou
+#-----------------------------------------------------------
+source nexys4fpga.tcl -notrace
+Design is defaulting to srcset: sources_1
+Design is defaulting to constrset: constrs_1
+INFO: [Netlist 29-17] Analyzing 174 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-479] Netlist was created with Vivado 2014.3
+Loading clock regions from D:/vivado/Vivado/2014.3/data\parts/xilinx/artix7/artix7/xc7a100t/ClockRegion.xml
+Loading clock buffers from D:/vivado/Vivado/2014.3/data\parts/xilinx/artix7/artix7/xc7a100t/ClockBuffers.xml
+Loading clock placement rules from D:/vivado/Vivado/2014.3/data/parts/xilinx/artix7/ClockPlacerRules.xml
+Loading package pin functions from D:/vivado/Vivado/2014.3/data\parts/xilinx/artix7/PinFunctions.xml...
+Loading package from D:/vivado/Vivado/2014.3/data\parts/xilinx/artix7/artix7/xc7a100t/csg324/Package.xml
+Loading io standards from D:/vivado/Vivado/2014.3/data\./parts/xilinx/artix7/IOStandards.xml
+Loading device configuration modes from D:/vivado/Vivado/2014.3/data\parts/xilinx/artix7/ConfigModes.xml
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Opt 31-140] Inserted 0 IBUFs to IO ports without IO buffers.
+INFO: [Opt 31-141] Inserted 0 OBUFs to IO ports without IO buffers.

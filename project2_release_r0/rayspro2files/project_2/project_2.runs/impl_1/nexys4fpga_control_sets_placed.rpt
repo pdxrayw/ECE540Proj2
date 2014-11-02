@@ -1,0 +1,100 @@
+Copyright 1986-2014 Xilinx, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2014.3 (win64) Build 1034051 Fri Oct  3 17:14:12 MDT 2014
+| Date         : Sun Nov 02 12:47:20 2014
+| Host         : Apollo running 64-bit major release  (build 9200)
+| Command      : report_control_sets -verbose -file nexys4fpga_control_sets_placed.rpt
+| Design       : nexys4fpga
+| Device       : xc7a100t
+---------------------------------------------------------------------------------------
+
+Control Set Information
+
+Table of Contents
+-----------------
+1. Summary
+2. Flip-Flop Distribution
+3. Detailed Control Set Information
+
+1. Summary
+----------
+
++-------------------------------------------------------------------+-------+
+|                               Status                              | Count |
++-------------------------------------------------------------------+-------+
+| Number of unique control sets                                     |    47 |
+| Minimum Number of register sites lost to control set restrictions |    96 |
++-------------------------------------------------------------------+-------+
+
+
+2. Flip-Flop Distribution
+-------------------------
+
++--------------+-----------------------+------------------------+-----------------+--------------+
+| Clock Enable | Synchronous Set/Reset | Asynchronous Set/Reset | Total Registers | Total Slices |
++--------------+-----------------------+------------------------+-----------------+--------------+
+| No           | No                    | No                     |             245 |           76 |
+| No           | No                    | Yes                    |               0 |            0 |
+| No           | Yes                   | No                     |             110 |           31 |
+| Yes          | No                    | No                     |             199 |           66 |
+| Yes          | No                    | Yes                    |               0 |            0 |
+| Yes          | Yes                   | No                     |             126 |           38 |
++--------------+-----------------------+------------------------+-----------------+--------------+
+
+
+3. Detailed Control Set Information
+-----------------------------------
+
++------------------------------------------------------------+----------------------------------------------------------------------------------------------------+------------------------------+------------------+----------------+
+|                        Clock Signal                        |                                            Enable Signal                                           |       Set/Reset Signal       | Slice Load Count | Bel Load Count |
++------------------------------------------------------------+----------------------------------------------------------------------------------------------------+------------------------------+------------------+----------------+
+|  PROJ2DEMO/instantiate_loader.jtag_loader_6_inst/shift_clk |                                                                                                    |                              |                1 |              1 |
+|  JA_OBUF_BUFG[7]                                           | BOT/BOTSIMCPU/flag_enable                                                                          | BOT/BOTSIMCPU/internal_reset |                1 |              2 |
+|  JA_OBUF_BUFG[7]                                           | processor/flag_enable                                                                              | processor/internal_reset     |                1 |              2 |
+|  PROJ2DEMO/instantiate_loader.jtag_loader_6_inst/jtag_clk  |                                                                                                    |                              |                2 |              4 |
+|  JA_OBUF_BUFG[7]                                           |                                                                                                    | processor/active_interrupt   |                1 |              4 |
+|  JA_OBUF_BUFG[7]                                           | BOT_IF/n_0_dp[3]_i_1                                                                               |                              |                2 |              4 |
+|  JA_OBUF_BUFG[7]                                           | BOT_IF/n_0_dp[7]_i_1                                                                               |                              |                2 |              4 |
+|  JA_OBUF_BUFG[7]                                           | BOT_IF/n_0_dig7[4]_i_1                                                                             |                              |                1 |              5 |
+|  JA_OBUF_BUFG[7]                                           | BOT_IF/n_0_dig6[4]_i_1                                                                             |                              |                2 |              5 |
+|  JA_OBUF_BUFG[7]                                           | BOT_IF/n_0_dig5[4]_i_1                                                                             |                              |                1 |              5 |
+|  JA_OBUF_BUFG[7]                                           | BOT_IF/n_0_dig1[4]_i_1                                                                             |                              |                1 |              5 |
+|  JA_OBUF_BUFG[7]                                           | BOT_IF/n_0_dig4[4]_i_1                                                                             |                              |                1 |              5 |
+|  JA_OBUF_BUFG[7]                                           | BOT_IF/n_0_dig0[4]_i_1                                                                             |                              |                1 |              5 |
+|  JA_OBUF_BUFG[7]                                           | BOT_IF/n_0_dig3[4]_i_1                                                                             |                              |                2 |              5 |
+|  JA_OBUF_BUFG[7]                                           | BOT_IF/n_0_dig2[4]_i_1                                                                             |                              |                1 |              5 |
+|  JA_OBUF_BUFG[7]                                           |                                                                                                    | BOT/BOTSIMCPU/internal_reset |                3 |              6 |
+|  JA_OBUF_BUFG[7]                                           |                                                                                                    | processor/internal_reset     |                3 |              6 |
+|  JA_OBUF_BUFG[7]                                           | BOT/WRLDIF/n_0_LMDist_int[7]_i_1                                                                   | JA_OBUF[6]                   |                2 |              8 |
+|  JA_OBUF_BUFG[7]                                           | BOT/WRLDIF/n_0_LocX_int[7]_i_1                                                                     | JA_OBUF[6]                   |                3 |              8 |
+|  JA_OBUF_BUFG[7]                                           | BOT/WRLDIF/n_0_LocY_int[7]_i_1                                                                     | JA_OBUF[6]                   |                2 |              8 |
+|  JA_OBUF_BUFG[7]                                           | BOT/WRLDIF/n_0_MapX[6]_i_1                                                                         |                              |                2 |              8 |
+|  JA_OBUF_BUFG[7]                                           | BOT/WRLDIF/n_0_MapY[6]_i_1                                                                         |                              |                3 |              8 |
+|  JA_OBUF_BUFG[7]                                           | BOT/WRLDIF/n_0_Sensors_int[7]_i_1                                                                  | JA_OBUF[6]                   |                2 |              8 |
+|  JA_OBUF_BUFG[7]                                           | BOT/WRLDIF/n_0_RMDist_int[7]_i_1                                                                   | JA_OBUF[6]                   |                2 |              8 |
+|  JA_OBUF_BUFG[7]                                           | BOT/BOTSIMCPU/spm_enable                                                                           |                              |                2 |              8 |
+|  JA_OBUF_BUFG[7]                                           | BOT_IF/n_0_MotCtl[7]_i_1                                                                           |                              |                3 |              8 |
+|  JA_OBUF_BUFG[7]                                           |                                                                                                    | BOT/BOTSIMPGM/instruction[7] |                2 |              8 |
+|  JA_OBUF_BUFG[7]                                           |                                                                                                    | PROJ2DEMO/instruction[7]     |                3 |              8 |
+|  JA_OBUF_BUFG[7]                                           | BOT_IF/n_0_led[7]_i_1                                                                              |                              |                3 |              8 |
+|  JA_OBUF_BUFG[7]                                           | SSB/n_0_an[7]_i_1                                                                                  | JA_OBUF[6]                   |                4 |              8 |
+|  JA_OBUF_BUFG[7]                                           | BOT/WRLDIF/n_0_BotInfo_int[7]_i_1                                                                  | JA_OBUF[6]                   |                3 |              8 |
+|  JA_OBUF_BUFG[7]                                           | processor/spm_enable                                                                               |                              |                2 |              8 |
+|  r_Toggle_25MHZ                                            | DTG/n_0_pixel_row[8]_i_2                                                                           | DTG/n_0_pixel_row[8]_i_1     |                3 |             10 |
+|  JA_OBUF_BUFG[7]                                           | BOT/BOTSIMCPU/p_1_in                                                                               | BOT/BOTSIMCPU/internal_reset |                3 |             12 |
+|  JA_OBUF_BUFG[7]                                           | processor/p_1_in                                                                                   | processor/internal_reset     |                3 |             12 |
+|  r_Toggle_25MHZ                                            |                                                                                                    | JA_OBUF[6]                   |                4 |             13 |
+|  PROJ2DEMO/instantiate_loader.jtag_loader_6_inst/shift_clk | PROJ2DEMO/instantiate_loader.jtag_loader_6_inst/shift                                              |                              |                6 |             14 |
+|  JA_OBUF_BUFG[7]                                           | BOT/BOTSIMCPU/register_enable                                                                      |                              |                2 |             16 |
+|  JA_OBUF_BUFG[7]                                           | BOT/BOTSIMCPU/p_1_in                                                                               |                              |                2 |             16 |
+|  JA_OBUF_BUFG[7]                                           | processor/register_enable                                                                          |                              |                2 |             16 |
+|  JA_OBUF_BUFG[7]                                           | processor/p_1_in                                                                                   |                              |                2 |             16 |
+|  PROJ2DEMO/instantiate_loader.jtag_loader_6_inst/shift_clk | PROJ2DEMO/instantiate_loader.jtag_loader_6_inst/n_0_jtag_loader_gen.loop2[16].jtag_din_int[17]_i_1 |                              |                6 |             17 |
+|  JA_OBUF_BUFG[7]                                           |                                                                                                    | DB/n_0_db_count[31]_i_1      |                8 |             31 |
+|  JA_OBUF_BUFG[7]                                           | BOT/WRLDIF/n_0_load_sys_regs_reg                                                                   | JA_OBUF[6]                   |                9 |             32 |
+|  JA_OBUF_BUFG[7]                                           |                                                                                                    | JA_OBUF[6]                   |                7 |             34 |
+|  JA_OBUF_BUFG[7]                                           | DB/n_0_db_count[31]_i_1                                                                            |                              |               29 |             88 |
+|  JA_OBUF_BUFG[7]                                           |                                                                                                    |                              |               73 |            240 |
++------------------------------------------------------------+----------------------------------------------------------------------------------------------------+------------------------------+------------------+----------------+
+
+

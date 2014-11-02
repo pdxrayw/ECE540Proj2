@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<Checkpoint Version="4" Minor="0">
+	<BUILD_NUMBER Name="1034051"/>
+	<FULL_BUILD Name="SW Build 1034051 on Fri Oct  3 17:14:12 MDT 2014"/>
+	<Part Name="xc7a100tcsg324-1"/>
+	<Top Name="nexys4fpga"/>
+	<DisableAutoIOBuffers Name="0"/>
+	<OutOfContext Name="0"/>
+	<File Type="EDIF" Name="nexys4fpga.edf" ModTime="1414960844"/>
+	<File Type="VERILOG_STUB" Name="nexys4fpga_stub.v" ModTime="1414960844"/>
+	<File Type="VHDL_STUB" Name="nexys4fpga_stub.vhdl" ModTime="1414960844"/>
+	<File Type="INCR" Name="nexys4fpga.incr" ModTime="1414960844"/>
+	<File Type="PSR" Name="nexys4fpga.psr" ModTime="1414960844"/>
+	<File Type="WDF" Name="nexys4fpga.wdf" ModTime="1414960844"/>
+</Checkpoint>
+

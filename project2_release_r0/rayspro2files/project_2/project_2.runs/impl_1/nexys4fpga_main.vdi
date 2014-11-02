@@ -1,0 +1,60 @@
+#-----------------------------------------------------------
+# Vivado v2014.2 (64-bit)
+# SW Build 932637 on Wed Jun 11 13:33:10 MDT 2014
+# IP Build 924643 on Fri May 30 09:20:16 MDT 2014
+# Start of session at: Fri Oct 31 15:04:16 2014
+# Process ID: 132760
+# Log file: C:/540_proj2/project2_release_r0/project_2/project_2.runs/impl_1/nexys4fpga_main.vdi
+# Journal file: C:/540_proj2/project2_release_r0/project_2/project_2.runs/impl_1\vivado.jou
+#-----------------------------------------------------------
+source nexys4fpga_main.tcl -notrace
+Command: open_checkpoint nexys4fpga_main_routed.dcp
+CRITICAL WARNING: [Board 49-4] Problem parsing board_part file - C:/Xilinx/Vivado/2014.2/data/boards/board_parts/kintex7/kc705/0.9/board_part.xml, The board part 'xc7k325tffg900-2' is either not supported or invalid.
+CRITICAL WARNING: [Board 49-4] Problem parsing board_part file - C:/Xilinx/Vivado/2014.2/data/boards/board_parts/kintex7/kc705/1.0/board_part.xml, The board part 'xc7k325tffg900-2' is either not supported or invalid.
+CRITICAL WARNING: [Board 49-4] Problem parsing board_part file - C:/Xilinx/Vivado/2014.2/data/boards/board_parts/zynq/zc706/0.9/board_part.xml, The board part 'xc7z045ffg900-2' is either not supported or invalid.
+CRITICAL WARNING: [Board 49-4] Problem parsing board_part file - C:/Xilinx/Vivado/2014.2/data/boards/board_parts/zynq/zc706/1.0/board_part.xml, The board part 'xc7z045ffg900-2' is either not supported or invalid.
+INFO: [Netlist 29-17] Analyzing 153 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-479] Netlist was created with Vivado 2014.2
+Loading clock regions from C:/Xilinx/Vivado/2014.2/data\parts/xilinx/artix7/artix7/xc7a100t/ClockRegion.xml
+Loading clock buffers from C:/Xilinx/Vivado/2014.2/data\parts/xilinx/artix7/artix7/xc7a100t/ClockBuffers.xml
+Loading clock placement rules from C:/Xilinx/Vivado/2014.2/data/parts/xilinx/artix7/ClockPlacerRules.xml
+Loading package pin functions from C:/Xilinx/Vivado/2014.2/data\parts/xilinx/artix7/PinFunctions.xml...
+Loading package from C:/Xilinx/Vivado/2014.2/data\parts/xilinx/artix7/artix7/xc7a100t/csg324/Package.xml
+Loading io standards from C:/Xilinx/Vivado/2014.2/data\./parts/xilinx/artix7/IOStandards.xml
+Loading device configuration modes from C:/Xilinx/Vivado/2014.2/data\parts/xilinx/artix7/ConfigModes.xml
+Parsing XDC File [C:/540_proj2/project2_release_r0/project_2/project_2.runs/impl_1/.Xil/Vivado-132760-School-idea-PC/dcp/nexys4fpga_main.xdc]
+Finished Parsing XDC File [C:/540_proj2/project2_release_r0/project_2/project_2.runs/impl_1/.Xil/Vivado-132760-School-idea-PC/dcp/nexys4fpga_main.xdc]
+Reading XDEF placement.
+Reading XDEF routing.
+Read XDEF File: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.466 . Memory (MB): peak = 445.313 ; gain = 0.031
+Restoring placement.
+Restored 303 out of 303 XDEF sites from archive | CPU: 1.000000 secs | Memory: 0.000000 MB |
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+INFO: [Project 1-111] Unisim Transformation Summary:
+  A total of 91 instances were transformed.
+  LUT6_2 => LUT6_2 (LUT5, LUT6): 79 instances
+  RAM32M => RAM32M (RAMD32, RAMD32, RAMD32, RAMD32, RAMD32, RAMD32, RAMS32, RAMS32): 8 instances
+  RAM64M => RAM64M (RAMD64E, RAMD64E, RAMD64E, RAMD64E): 4 instances
+
+INFO: [Project 1-484] Checkpoint was created with build 932637
+open_checkpoint: Time (s): cpu = 00:00:22 ; elapsed = 00:00:29 . Memory (MB): peak = 446.203 ; gain = 276.266
+Attempting to get a license for feature 'Implementation' and/or device 'xc7a100t'
+INFO: [Common 17-349] Got license for feature 'Implementation' and/or device 'xc7a100t'
+Running DRC as a precondition to command write_bitstream
+INFO: [Drc 23-27] Running DRC with 2 threads
+INFO: [Vivado 12-3199] DRC finished with 0 Errors, 1 Warnings
+INFO: [Vivado 12-3200] Please refer to the DRC report (report_drc) for more information.
+Loading data files...
+Loading site data...
+Loading route data...
+Processing options...
+Creating bitmap...
+Creating bitstream...
+Writing bitstream ./nexys4fpga_main.bit...
+INFO: [Vivado 12-1842] Bitgen Completed Successfully.
+INFO: [Project 1-118] WebTalk data collection is enabled (User setting is ON. Install Setting is ON.).
+INFO: [Common 17-186] 'C:/540_proj2/project2_release_r0/project_2/project_2.runs/impl_1/usage_statistics_webtalk.xml' has been successfully sent to Xilinx on Fri Oct 31 15:07:59 2014. For additional details about this file, please refer to the WebTalk help file at C:/Xilinx/Vivado/2014.2/doc/webtalk_introduction.html.
+INFO: [Common 17-83] Releasing license: Implementation
+write_bitstream: Time (s): cpu = 00:02:43 ; elapsed = 00:03:07 . Memory (MB): peak = 801.781 ; gain = 355.578
+INFO: [Common 17-206] Exiting Vivado at Fri Oct 31 15:08:00 2014...
