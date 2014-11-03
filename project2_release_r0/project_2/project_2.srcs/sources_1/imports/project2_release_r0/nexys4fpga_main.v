@@ -1,5 +1,7 @@
 /*
 This module connects all the files for project 2 
+Crystal Roberts
+Ray Williams
 */
 
 module nexys4fpga_main (
@@ -11,7 +13,6 @@ module nexys4fpga_main (
 	input [15:0] sw,	// switch inputs
 	
 	output [15:0] led,    // LED outputs
-    //output reg [4:0]    digi7,digi6,digi5,digi4,digi3,digi2,digi1,digi0,
 	output [6:0] seg,	// Seven segment display cathode pins
 	output  dp,          //decimal point
 	output [7:0] an,	// Seven segment display anode pins	

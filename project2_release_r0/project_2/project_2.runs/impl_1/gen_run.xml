@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="impl_1" LaunchPart="xc7a100tcsg324-1" LaunchTime="1414791577">
+<GenRun Id="impl_1" LaunchPart="xc7a100tcsg324-1" LaunchTime="1414984072">
   <File Type="RUN-CONSTRS" Name="$PDATADIR/runs/impl_1/constrs_in.xml"/>
   <File Type="PWROPT-DCP" Name="nexys4fpga_main_pwropt.dcp"/>
   <File Type="RUN-STRAT" Name="$PDATADIR/runs/impl_1/impl_1.psg"/>
+  <File Type="OPT-DRC" Name="nexys4fpga_main_drc_opted.rpt"/>
   <File Type="ROUTE-TIMING-PB" Name="nexys4fpga_main_timing_summary_routed.pb"/>
   <File Type="PA-TCL" Name="nexys4fpga_main.tcl"/>
-  <File Type="OPT-DRC" Name="nexys4fpga_main_drc_opted.rpt"/>
   <File Type="OPT-DCP" Name="nexys4fpga_main_opt.dcp"/>
   <File Type="PWROPT-DRC" Name="nexys4fpga_main_drc_pwropted.rpt"/>
   <File Type="PLACE-DCP" Name="nexys4fpga_main_placed.dcp"/>
@@ -30,8 +30,8 @@
   <File Type="ROUTE-SIMILARITY" Name="nexys4fpga_main_incremental_reuse_routed.rpt"/>
   <File Type="POSTROUTE-PHYSOPT-DCP" Name="nexys4fpga_main_postroute_physopt.dcp"/>
   <File Type="POSTROUTE-PHYSOPT-TIMING" Name="nexys4fpga_main_timing_summary_postroute_physopted.rpt"/>
-  <File Type="POSTROUTE-PHYSOPT-TIMING-PB" Name="nexys4fpga_main_timing_summary_postroute_physopted.pb"/>
   <File Type="RDI-RDI" Name="nexys4fpga_main.vdi"/>
+  <File Type="POSTROUTE-PHYSOPT-TIMING-PB" Name="nexys4fpga_main_timing_summary_postroute_physopted.pb"/>
   <File Type="BG-BIT" Name="nexys4fpga_main.bit"/>
   <File Type="BG-BIN" Name="nexys4fpga_main.bin"/>
   <File Type="BITSTR-MSK" Name="nexys4fpga_main.msk"/>

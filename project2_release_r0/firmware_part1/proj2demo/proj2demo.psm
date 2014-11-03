@@ -1,44 +1,17 @@
 ; -----------------------------------------------------------------
-; proj2demo.psm - Demo program for Rojobot "world" emulator
+; proj2demo.psm - black line following program for Rojobot "world" emulator
 ;
 ; Version:	4.0
-; Author:	Roy Kravitz
-; Date:		12-Oct-2014
+; Author:	Crystal Roberts and Ray Williams
+; Date:		02-Nov-2014
 ;
-; Revision History
-; ================
-; 11-Jan-07		RK		Created the first version
-; 12-Jan-09		RK		Modified for S3E Starter Board and Seven Segment Emulator
-; 16-Oct-09		RK		Minor changes (comments) for PSU ECE510 
-; 24-Oct-11		RK		Minor changes (comments) 
-; 24-Oct-12		RK		Modified for kcpsm6 and Nexys 3
-; 03-Jan-14		RK		Refactored as Project1 demo for ECE 540 Winter 2014 and later
-; 26-Jan-14		RK		Fixed bug in Interrupt handler.  S5 and S6 were inadvertently swapped
-;						Thanks to Jason Dutra for pointing this out.
-; 11-Oct-14		RK		Refactored as Project 2 demo for ECE 540 Fall 2014 and later.  Includes
-;						support for Nexys4 and Vivado, including a workaround for a bug in the
-;						Vivdao hardware manager (2014.2) pointed out by Ken Chapman.  The bug
-;						corrupts location 3 of the ROM so the code is written to avoid that location
-; 12-Oct-14		RK		Modified code to take advantage of the 8 digit Nexys4 (vs. 4 on the Nexys3) display
+; This program was copied from the project 2 demo program that was given for project 2 of ECE 540 in the fall of 2014.
 ;
 ; Description:
 ; ============
-; This program demonstrate the Rojobot world emulator.  It is modelled after
-; the the Verilog Rojobot implemented in the Getting Started application only this demo is based
-; on the full Rojobot emulator (as implemented in bot.v instead of the simplified
-; Rojobot model used in the Getting Started project
+; This program is written to follow a black line for the map provided. The push button controls have been disabled.
 ;
-; The demo uses the 4 pushbuttons to control the Rojobot as follows:
-;	btn_left	- Left Motor forward
-; 	btn_up		- Left Motor reverse
-;	btn_right	- Right Motor forward
-;	btn_down	- Right Motor reverse
-; If neither of the two buttons that control each motor is pushed, then the motor is stopped. 
-; If both of the two buttons that control each motor are pushed, the actions cancel each other
-; leaving the motor stopped.
-;
-; The demo takes advantage of the wider display on the Nexys4 (8 digits vs. 4) to
-; make the rojobot state easier for follow. The digits are mapped as follows:
+; The 7 segment display is used to know the position of the rojobot.  The digits are mapped as follows:
 ;	digit[7:5] - compass heading
 ;	digit[4] - movement (Fwd, Rev, Stopped, turning)
 ;	digits[2:1] - column position (X) in hex

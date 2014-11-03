@@ -82,7 +82,7 @@
       <File Path="$PSRCDIR/sources_1/imports/project2_release_r0/nexys4_bot_if.v">
         <FileInfo>
           <Attr Name="ImportPath" Val="$PPRDIR/../nexys4_bot_if.v"/>
-          <Attr Name="ImportTime" Val="1414463928"/>
+          <Attr Name="ImportTime" Val="1414980190"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -109,7 +109,7 @@
       <File Path="$PSRCDIR/sources_1/imports/proj2demo/proj2demo.v">
         <FileInfo>
           <Attr Name="ImportPath" Val="$PPRDIR/../firmware_part1/proj2demo/proj2demo.v"/>
-          <Attr Name="ImportTime" Val="1414791562"/>
+          <Attr Name="ImportTime" Val="1414984056"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -118,7 +118,7 @@
       <File Path="$PSRCDIR/sources_1/imports/project2_release_r0/nexys4fpga_main.v">
         <FileInfo>
           <Attr Name="ImportPath" Val="$PPRDIR/../nexys4fpga_main.v"/>
-          <Attr Name="ImportTime" Val="1414465132"/>
+          <Attr Name="ImportTime" Val="1414980164"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>

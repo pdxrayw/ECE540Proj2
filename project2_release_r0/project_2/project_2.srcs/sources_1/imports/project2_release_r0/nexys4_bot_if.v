@@ -1,4 +1,6 @@
 //	bot_if.v - Register interface to the Rojobot external world picoblaze 
+//  Crystal Roberts
+//  Ray Williams
 //	
 //	8-bit registers:
 //			Loc_X		O	X (column) coordinate of Rojobot's current location
@@ -70,7 +72,7 @@ begin
     begin
     // format is: output(for this file) <= input (for this file)
     //dbbtns is total of [5:0]
-        //DataOut <= {4'b00, db_btns};//dataout is to picoblaze
+        //dataout is to picoblaze
         DataOut[4:0] <= db_btns[5:1];
     end
     8'b0000_0001 : //slide switches
@@ -95,7 +97,6 @@ begin
     end
     8'b0001_0000 : //(i) pushbutton inputs alternate port address
     begin
-        //DataOut <= {4'b00, db_btns};
         DataOut[4:0] <= db_btns[5:1];
     end
     8'b0001_0001 : //(i) slide switches 15:8 (high byte of switches
@@ -129,16 +130,7 @@ end //always read registers
 // write registers
 always @(posedge clk) begin
 	if (reset) begin
-	/*	LocX_int <= 0;		
-		LocY_int <= 0;
-		BotInfo_int <= 0;
-		Sensors_int <= 0;
-		LMDist_int <= 0;
-		RMDist_int <= 0;*/
-		
-		//load_sys_regs <= 0;
-		//load_dist_regs <= 0;
-		//upd_sysregs <= 0;
+
 	end
 	else begin
     if(Wr_Strobe) begin
@@ -200,11 +192,6 @@ always @(posedge clk) begin
         begin
         MotCtl <= DataIn; 
         end
-    // I/O registers for system interface	
-	//8'b0000_1100 : 	load_sys_regs <= ~load_sys_regs;		// toggles load system registers ctrl signal
-	//8'b0000_1101 : 	load_dist_regs <= ~load_dist_regs;		// toggles load distance register ctrl signal
-	//8'b0000_1110 : 	up_sys_reg <= ~up_sys_reg;			// toggles update system registers flag
-	//8'b0000_1111 : 	;										// reserved
     default :
         begin
         ;
@@ -217,19 +204,15 @@ end // always - write registers
 	
 always @ (posedge clk)
   begin
-      //up_sys_reg <= ~up_sys_reg;  
       if (interrupt_ack == 1'b1) begin
          interrupt <= 1'b0;
-         //up_sys_reg <= 1'b0;
       end
       else if (upd_sysregs == 1'b1) begin
           interrupt <= 1'b1;
       end
       else begin
           interrupt <= interrupt;
-          //up_sys_reg <= ~up_sys_reg;
       end
-      //interrupt <= upd_sysregs;
   end
 
 endmodule
